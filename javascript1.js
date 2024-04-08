@@ -60,6 +60,8 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
   
+
+
   
   $(".logo").click(function () {
     $("html,body").animate(

@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function () {
 //Zacuvuvanje na podatoci vo localStorage
 // Gi zacuvuva podatocite vo localStorage i gi dodava sekoj nov vo nizata
 // При земање на податоците од localStorage, претворете ги во објекти или иницијализирајте нова празна низа
-// localStorage.clear();
+//localStorage.clear();
 var userData_Najava = JSON.parse(localStorage.getItem("Najava")) || [];
 var userData_Registracija = JSON.parse(localStorage.getItem("Registracija")) || [];
 
@@ -55,7 +55,8 @@ najava.addEventListener("click", function() {
 registracija.addEventListener("click", function() {
     var email = document.getElementById('email').value;
     var password = document.getElementById('password').value;
-    var user = { email: email, password: password }; 
+    var name = document.getElementById('name').value;
+    var user = { email: email, password: password, name: name }; 
 
     userData_Registracija.push(user); 
     localStorage.setItem("Registracija", JSON.stringify(userData_Registracija)); 

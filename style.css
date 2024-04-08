@@ -701,6 +701,7 @@ input {
 .section {
     background: #b39367;
     width: 100%;
+    height: fit-content;
 }
 
 .welcome {
@@ -1277,3 +1278,64 @@ a {
     cursor: pointer;
 }
 
+.profile {
+    width: 100%;
+    height: 100vh;
+    background: #b39367;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile_info {
+    width: 70%;
+    height: 700px;
+    margin: 0 auto;
+    border-radius: 30px;
+    position: relative;
+    box-shadow: 5px 5px 5px 0px #444444bb;
+    display: flex;
+}
+
+.info_left {
+    width: 40%;
+    height: 100%;
+    background: #dfc693;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+.info_right {
+    width: 60%;
+    height: 100%;
+    background: #fcf5f5;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+.left_arrow {
+    margin-top: 35px;
+    margin-left: 45px;
+}
+
+.left_arrow img {
+    opacity: 0.7;
+    width: 60px;
+}
+
+.left_arrow img:hover {
+    filter: invert(1);
+    cursor: pointer;
+}
+
+.info_name {
+
+}
+
+.user_image_profile {
+
+}
+
+.user_name_profile {
+    
+}
