@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Дома</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+    <div class="desktop_size">
+        <div class="header">
+            <div class="logo" id="logo"><img src="images/logo3.png" alt=""></div>
+
+            <div class="menu">
+                <div class="pages">
+                    <div class="h_link1 page1" onclick="toHome()"
+                     style="color: #f8dfb8;
+                            text-decoration: underline;
+                            font-size: 23px;">Дома</div>
+                    <div class="h_link page" onclick="toAboutUs()">За нас</div>
+                    <div class="h_link page" onclick="toProducts()">Производи</div>
+                    <div class="h_link page" onclick="toArtists()">Уметници</div>
+                    <div class="h_link page" onclick="toOrders()">Нарачки</div>
+                </div>
+
+                <div class="buttons">
+                    <div class="home_btn" id="comments_rating" onclick="toComments()"><img src="icons/review.png" alt=""></div>
+                    <div class="home_btn" id="questions" onclick="toQuestions()"><img src="icons/question.png" alt=""></div>
+                    <div class="home_btn" id="shopping_cart" onclick="toShoppingCart()"><img src="icons/shopping-cart.png" alt=""></div>
+                    <div class="home_btn" id="user_profile"
+                            style="margin-left: 70px; margin-right: 41px; filter: invert(100%);">
+                            <img src="icons/user.png" style="width: 55px;" alt=""></div>
+
+                            <div class="optionsSelect" id="optionsSelect">
+                                <div class="option" onclick="toProfile()">Профил</div>
+                                <div class="option" onclick="toCoverPage()">Одјави се</div>
+                            </div>
+                </div>         
+            </div>
+        </div>
+
+        <div class="optionsSelect">
+            <div class="option">Профил</div>
+            <div class="option">Одјави се</div>
+        </div>
+
+        <div class="section">
+
+            <div class="welcome"><img src="images/background.jpg" alt="">
+                <p>Добредојде!</p>
+            </div>
+            
+            <div class="categories_home">
+                <div class="c_h_title" onclick="toProducts()">
+                    <p>К А Т Е Г О Р И И</p>
+                </div>
+
+            <div class="c_h_desc">
+                <div class="c_h_desc1">
+                    <div class="categories_desc">
+                        <div class="desc_title">Уметнички слики</div>
+                        <div class="desc_text">Нашата колекција на уметнички слики содржи слики
+                            кои ги претставуваат наизразителните и креативни аспекти на уметноста
+                            и секоја слика пренесува едноставност и визија. 
+                            Секоја слика е направена со внимание на детали и стручност, 
+                            предлагајќи широка палета на избор за да го заокружите вашиот простор 
+                            со естетика и уникатен стил.</div>
+                    </div>
+
+                    <div class="categories_desc">
+                        <div class="desc_title">Скулптури</div>
+                        <div class="desc_text">Влезете во светот на уметноста со нашата колекција 
+                            на скулптури каде што секоја скулптура го носи потписот на извонредни уметници. 
+                            Откријте креативни форми, уникатни текстури и впечатливи облици, од класични 
+                            до современи визии.</div>
+                    </div>
+
+                    <div class="categories_desc">
+                        <div class="desc_title">Рачно изработени предмети</div>
+                        <div class="desc_text">Внимателно изработени предмети кои носат длабоко значење и 
+                            креативност. Во нашата колекција на рачно изработени предмети ќе откриете 
+                            прекрасни дела на уметност, од удобни домашни декорации до функционални предмети 
+                            за секојдневна употреба, кои придонесуваат за уникатноста и персоналниот стил на 
+                            вашиот простор.</div>
+                    </div>
+                </div>
+                
+                <div class="c_h_desc2">
+                    <div class="categories_desc">
+                        <div class="desc_title">Уникатен накит</div>
+                        <div class="desc_text">Во нашата колекција ќе најдете внимателно изработени парчиња 
+                            кои го нагласуваат вашиот персонален стил. Инспирирани од модните трендови и 
+                            временски неутрален стил. Од елегантни обетки, ланчиња до впечталниви прстени, 
+                            накитот нуди несекојдневни можности за изразување на вашата индивидуалност и 
+                            елегантност.</div>
+                    </div><br>
+
+                    <div class="categories_desc" style="margin-right: 70px;">
+                        <div class="desc_title">Декорации</div>
+                        <div class="desc_text">Дозволете вашиот простор да се претвори во извор на инспирација 
+                            со нашите декорации. Нашиот избор на декорации вклучува разновидни стилови, 
+                            во тек со модните трендови и украсени со префинетост и креативност. 
+                            Од модерни абстрактни уметнички дела до класични украси за домот.</div>
+                    </div>
+
+                    <div class="categories_desc">
+                        <div class="desc_title">Предмети изработени од дрво</div>
+                        <div class="desc_text">Откријте уникатни предмети изработени од дрво што ќе 
+                            ја додадат топлина и природен шарм на вашиот дом. Нашите рачно изработени 
+                            производи претставуваат високо квалитетна уметност, внимателно изработена од 
+                            природни материјали. Освежете го вашиот простор со прекрасни дрвени детали кои 
+                            го носат духот на природата во вашето секојдневие.</div>
+                    </div>
+                </div>
+                <div class="bottom_line"></div>
+            </div>
+            </div>
+
+            <div class="products_home">
+
+                <div class="p_h_title" onclick="toProducts()">
+                    <p>П Р О И З В О Д И</p>
+                </div>
+
+                <div class="products_desc">
+                    <div class="all_products">
+
+                        <div class="product2">
+                            <div class="product_image"><img src="images/proizvod1.png" alt=""></div>
+                            <div class="p_name" style="text-align: center;">„Боен портрет“</div>
+                            <div class="product_info">
+                                <div class="p_price">Цена: <span>1999 МКД</span></div>
+                                <div class="p_category">Категорија: <span>Уметнички слики</span></div>
+                                <div class="p_status">Статус: <span>Достапно</span></div>
+                            </div>
+                        </div>
+
+                        <div class="product2">
+                            <div class="product_image"><img src="images/proizvod2.png" alt=""></div>
+                            <div class="p_name" style="text-align: center;">„Едноствен допир“ </div>
+                            <div class="product_info">
+                                <div class="p_price">Цена: <span>3199 МКД</span></div>
+                                <div class="p_category">Категорија: <span>Скулптури</span></div>
+                                <div class="p_status">Статус: <span>Достапно</span></div>
+                            </div>
+                        </div>
+
+                        <div class="product2">
+                            <div class="product_image"><img src="images/proizvod3.png" alt=""></div>
+                            <div class="p_name" style="text-align: center;">Филџани</div>
+                            <div class="product_info">
+                                <div class="p_price">Цена: <span>799 МКД</span></div>
+                                <div class="p_category">Категорија: <span>Рачно изработени предмети</span></div>
+                                <div class="p_status">Статус: <span>Достапно</span></div>
+                            </div>
+                        </div>
+
+                        <div class="product2">
+                            <div class="product_image"><img src="images/proizvod4.png" alt=""></div>
+                            <div class="p_name" style="text-align: center;">„Сенка“</div>
+                            <div class="product_info">
+                                <div class="p_price">Цена: <span>1599 МКД</span></div>
+                                <div class="p_category">Категорија: <span>Уникатен накит</span></div>
+                                <div class="p_status">Статус: <span>Достапно</span></div>
+                            </div>
+                        </div>
+
+                        <div class="product2">
+                            <div class="product_image"><img src="images/proizvod5.png" alt=""></div>
+                            <div class="p_name" style="text-align: center;">Новогодишни елки</div>
+                            <div class="product_info">
+                                <div class="p_price">Цена: <span>599 МКД</span></div>
+                                <div class="p_category">Категорија: <span>Декорации</span></div>
+                                <div class="p_status">Статус: <span>Достапно</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="view_more_btn" onclick="toProducts()">Погледни повеќе</div>
+                    <div class="bottom_line1"></div>
+
+                </div>
+            </div>
+
+            <div class="artists">
+
+                <div class="artists_title" onclick="toArtists()">
+                    <p>У М Е Т Н И Ц И</p>
+                </div>
+
+                <div class="artists_desc">
+                    <div class="all_artists">
+
+                        <div class="artist">
+                            <div class="artist_img"><img src="images/umetnik1.jpg" alt=""></div>
+                            <div class="artist_name">Паул Рослер</div>
+                        </div>
+
+                        <div class="artist">
+                            <div class="artist_img"><img src="images/umetnik2.jpg" alt=""></div>
+                            <div class="artist_name">Емили Попов</div>
+                        </div>
+
+                        <div class="artist">
+                            <div class="artist_img"><img src="images/umetnik3.jpg" alt=""></div>
+                            <div class="artist_name">Росана Томова</div>
+                        </div>
+
+                    </div>
+
+                    <div class="view_more_btn1" onclick="toArtists()">Погледни повеќе</div>
+                    <div class="bottom_line1"></div>
+
+                </div>
+            </div>
+
+            <div class="information_section">
+
+                <div class="info_title">
+                    <p>И Н Ф О Р М А Ц И И</p>
+                </div>
+
+                <div class="information">
+
+                    <div class="first_info">
+                        <div class="info_background"><img src="images/contact_background3.jpg" alt=""></div>
+                        <div class="info_text">
+                            <p style="font-size: 29px;">Ваше креативно место &#127912;</p>
+                            <p>Споделете ги вашите идеи</p>
+                            <p>Споделете го вашето мислење и вашето искуство</p>
+                            <p>Контактирајте нè!</p>
+                            <p>Бидете дел од нас!</p>
+                        </div>
+                    </div>
+
+                    <div class="second_info">
+                        <div class="contact_cart">
+                            <div class="contact_img"><img src="icons/contact-mail.png" alt=""></div>
+
+                            <div class="contact_form">
+
+                                <div class="icon_img"><img src="icons/telephone.png" alt="">
+                                    <span>070/933/399</span>
+                                </div>
+
+                                <div class="icon_img"><img src="icons/email.png" alt="">
+                                    <span>umetnosti.zanaeti@gmail.com</span>
+                                </div>
+
+                                <div class="icon_img"><img src="icons/facebook.png" alt="">
+                                    <span>Umetnosti i zanaeti</span>
+                                </div>
+
+                                <div class="icon_img"><img src="icons/instagram.png" alt="">
+                                    <span>umetnosti_i_zanaeti</span>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="contact_cart">
+                            <div class="contact_img"><img src="icons/question1.png" alt=""></div>
+                            <div class="question_form">
+                                <p id="p1">Доколку имате некакви прашања може да ни ги поставите,
+                                    ќе ви одговориме во најбрз можен рок!</p>
+                                <a href="prasanja.html"><p id="p2">Прашај овде &#8594;</p></a>
+                            </div>
+                        </div>
+
+                        <div class="contact_cart">
+                            <div class="contact_img"><img src="icons/customer-feedback.png" alt=""></div>
+                            <div class="question_form">
+                                <p id="p1-1">Можете да прочитате искуства од нашите клиенти, мислења и оценки за нашите прозиводи.
+                                    Исто така и вие можете да оставите ваш коментар и оценка.</p>
+                                <a href="komentari.html"><p id="p2">Oвде &#8594;</p></a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+   
+
+<script src="javascript.js"></script>
+<script src="javascript1.js"></script>
+</body>
+</html>
