@@ -1329,13 +1329,57 @@ a {
 }
 
 .info_name {
-
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 170px;
 }
 
 .user_image_profile {
 
 }
 
+.user_image_profile img {
+    width: 70px;
+    opacity: 0.8;
+}
+
 .user_name_profile {
-    
+    margin-top: 30px;
+    color: #000;
+    font-size: 27px;
+    font-weight: 500;
+}
+
+.informacii {
+
+}
+
+.title_profile {
+
+}
+
+.email_profile {
+    display: flex;
+}
+
+.email_name {
+
+}
+
+.email_storage {
+
+}
+
+.password_profile {
+    display: flex;
+}
+
+.password_name {
+
+}
+
+.passwrod_storage {
+
 }

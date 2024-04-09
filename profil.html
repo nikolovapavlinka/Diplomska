@@ -15,12 +15,57 @@
                 <div class="left_arrow" onclick="toHome()"><img src="icons/left-arrow.png" alt=""></div>
                 <div class="info_name">
                     <div class="user_image_profile"><img src="icons/user_profile.png" alt=""></div>
-                    <div class="user_name_profile"></div>
+                    <span class="user_name_profile" id="last_registered_user_name"></span>
                 </div>
             </div>
 
             <div class="info_right">
+                <div class="informacii">
+                    <div class="title_profile">Информации за корисникот</div>
 
+                    <div class="email_profile">
+                        <div class="email_name">Емаил:</div>
+                        <span id="email_storage"></span>
+                    </div>
+
+                    <div class="password_profile">
+                        <div class="password_name">Лозинка:</div>
+                        <span id="password_storage"></span>
+                    </div>
+
+                    <div class="new_info">
+                        <div class="title_profile1">Дополнителни информации за корисникот</div>
+                        <div class="desc_profile">*доколку сакате може да внесете повеќе информации за Вас</div>
+
+                        <div class="gender">
+                            <div class="gender_name">Пол:</div>
+                            <select name="gender" id="gender" aria-label="label">
+                                <option></option>
+                                <option>Женски</option>
+                                <option>Maшки</option>
+                            </select>
+                        </div>
+
+                        <div class="mobile_phone">
+                            <div class="mobile_name">Телефонски број:</div>
+                            <input class="mobile_number" type="tel" placeholder="07x/xxx/xxx">
+                        </div>
+
+                        <div class="address">
+                            <div class="address_name">Адреса:</div>
+                            <input class="address_place" type="text" aria-label="label">
+                        </div>
+
+                        <div class="city">
+                            <div class="city_name">Место на живеење:</div>
+                            <input class="city_place" type="text" aria-label="label">
+                        </div>
+                    </div>
+
+                    <button id="potvdi">Потврди</button>
+                    
+
+                </div>
             </div>
         </div>
      </div>

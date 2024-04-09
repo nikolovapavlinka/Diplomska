@@ -38,6 +38,50 @@ function toCoverPage() {
   window.location.href = "index.html"
 }
 
+
+//Imeto od registracijata se dodava na stranata profile.html od levata strana
+document.addEventListener('DOMContentLoaded', function () {
+  // Кодот за читање на последниот регистриран корисник и додавање на неговото име во спан елементот
+  var storedData_Registracija = JSON.parse(localStorage.getItem("Registracija")) || [];
+  var userNameElement = document.getElementById("last_registered_user_name");
+
+  if (storedData_Registracija.length > 0) {
+      var lastRegisteredUser = storedData_Registracija[storedData_Registracija.length - 1];
+      userNameElement.textContent = lastRegisteredUser.name;
+  } else {
+      console.log('Нема зачуван регистриран корисник во localStorage.');
+  }
+});
+
+//Emailot od registracijata se dodava na stranata profile.html od desnata strana
+document.addEventListener('DOMContentLoaded', function () {
+  // Кодот за читање на последниот регистриран корисник и додавање на неговото име во спан елементот
+  var storedData_Registracija = JSON.parse(localStorage.getItem("Registracija")) || [];
+  var userEmailElement = document.getElementById("email_storage");
+
+  if (storedData_Registracija.length > 0) {
+      var lastEmailUser = storedData_Registracija[storedData_Registracija.length - 2];
+      userEmailElement.textContent = lastEmailUser.email;
+  } else {
+      console.log('Нема зачуван регистриран корисник во localStorage.');
+  }
+});
+
+//Lozinkata od registracijata se dodava na stranata profile.html od desnata strana
+document.addEventListener('DOMContentLoaded', function () {
+  // Кодот за читање на последниот регистриран корисник и додавање на неговото име во спан елементот
+  var storedData_Registracija = JSON.parse(localStorage.getItem("Registracija")) || [];
+  var userPasswordElement = document.getElementById("password_storage");
+
+  if (storedData_Registracija.length > 0) {
+      var lastPasswrodUser = storedData_Registracija[storedData_Registracija.length - 2];
+      userPasswordElement.textContent = lastPasswrodUser.password;
+  } else {
+      console.log('Нема зачуван регистриран корисник во localStorage.');
+  }
+});
+
+
 //Koga ke kliknam na ikonata za user da mi se otvore prozorce kade ke ima Profil i Odjavi se,
 //se zatvara i otvara koga ke kliknis na ikonata i koga ke kliknis nekade na strana
 document.addEventListener('DOMContentLoaded', function () {
@@ -60,6 +104,28 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
   
+
+var userData_Najava = JSON.parse(localStorage.getItem("Najava")) || [];
+var userData_Registracija = JSON.parse(localStorage.getItem("Registracija")) || [];
+
+najava.addEventListener("click", function() {
+    var email_najava = document.getElementById('email_najava').value;
+    var password_najava = document.getElementById('password_najava').value;
+    var user = { email: email_najava, password: password_najava }; 
+ 
+    userData_Najava.push(user); 
+    localStorage.setItem("Najava", JSON.stringify(userData_Najava)); 
+});
+
+registracija.addEventListener("click", function() {
+    var email = document.getElementById('email').value;
+    var password = document.getElementById('password').value;
+    var name = document.getElementById('name').value;
+    var user = { email: email, password: password, name: name }; 
+
+    userData_Registracija.push(user); 
+    localStorage.setItem("Registracija", JSON.stringify(userData_Registracija)); 
+});
 
 
   
