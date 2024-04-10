@@ -1308,9 +1308,11 @@ a {
 .info_right {
     width: 60%;
     height: 100%;
-    background: #fcf5f5;
+    background: #fffff7;
     border-top-right-radius: 30px;
     border-bottom-right-radius: 30px;
+    overflow-x: auto;
+    white-space: nowrap;
 }
 
 .left_arrow {
@@ -1353,33 +1355,237 @@ a {
 }
 
 .informacii {
-
+    width: 70%;
+    height: 100%;
+    margin: 0 auto;
+    margin-top: 60px;
 }
 
 .title_profile {
-
+    text-align: center;
+    font-size: 25px;
+    font-weight: 600;
+    opacity: 0.7;
+    margin-bottom: 35px;
 }
 
 .email_profile {
-    display: flex;
+    text-align: center;
 }
 
 .email_name {
-
+    font-size: 17px;
+    font-weight: 400;
+    color: #747474;
+    margin-bottom: 20px;
 }
 
-.email_storage {
+.email_storage1 {
+    width: 70%;
+    margin: 0 auto;
+    border-bottom: 1px solid #9c9c9c;
+    margin-bottom: 40px;
+}
 
+#email_storage {
+    font-size: 16px;
+    opacity: 0.9;
 }
 
 .password_profile {
-    display: flex;
+    text-align: center;
 }
 
 .password_name {
-
+    font-size: 17px;
+    font-weight: 400;
+    color: #747474;
+    margin-bottom: 20px;
 }
 
-.passwrod_storage {
-
+.password_storage1 {
+    width: 70%;
+    margin: 0 auto;
+    border-bottom: 1px solid #9c9c9c;
+    margin-bottom: 40px;
 }
+
+#password_storage {
+    font-size: 16px;
+    opacity: 0.9;
+}
+
+.new_info {
+    margin-bottom: 50px;
+}
+
+.title_profile1 {
+    text-align: center;
+    font-size: 25px;
+    font-weight: 600;
+    opacity: 0.7;
+}
+
+.desc_profile {
+    text-align: center;
+    font-size: 13px;
+    margin-bottom: 35px;
+    opacity: 0.85;
+}
+
+.gender {
+    text-align: center;
+}
+
+.gender_name {
+    font-size: 17px;
+    font-weight: 400;
+    color: #747474;
+    margin-bottom: 20px;
+}
+
+#gender {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid #9c9c9c;
+    outline: none;
+    width: 70%;
+    margin: 0 auto;
+    font-size: 17px;
+    background: #fffff7;
+    margin-bottom: 40px;
+    font-size: 16px;
+    opacity: 0.9;
+}
+
+#gender_option {
+    text-align: center;
+    font-size: 16px;
+    opacity: 0.9;
+}
+
+.mobile_phone {
+    text-align: center;
+}
+
+.mobile_name {
+    font-size: 17px;
+    font-weight: 400;
+    color: #747474;
+    margin-bottom: 20px;
+}
+
+.mobile_number {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid #9c9c9c;
+    outline: none;
+    width: 70%;
+    margin: 0 auto;
+    font-size: 17px;
+    background: #fffff7;
+    margin-bottom: 40px;
+    font-size: 16px;
+    opacity: 0.9;
+}
+
+.address {
+    text-align: center;
+}
+
+.address_name {
+    font-size: 17px;
+    font-weight: 400;
+    color: #747474;
+    margin-bottom: 20px;
+}
+
+.address_place {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid #9c9c9c;
+    outline: none;
+    width: 70%;
+    margin: 0 auto;
+    font-size: 17px;
+    background: #fffff7;
+    margin-bottom: 40px;
+    font-size: 16px;
+    opacity: 0.9;
+}
+
+.city {
+    text-align: center;
+}
+
+.city_name {
+    font-size: 17px;
+    font-weight: 400;
+    color: #747474;
+    margin-bottom: 20px;
+}
+
+.city_place {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid #9c9c9c;
+    outline: none;
+    width: 70%;
+    margin: 0 auto;
+    font-size: 17px;
+    background: #fffff7;
+    margin-bottom: 40px;
+    font-size: 16px;
+    opacity: 0.9;
+}
+
+#potvrdi_btn {
+    width: 60%;
+    margin: 0 auto;
+    height: 50px;
+    border-radius: 30px;
+    background: #dfc693;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: transform 80ms ease-in;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+#potvrdi_btn:hover {
+    background: #b19164;
+    transition: transform 80ms ease-in;
+}
+
+.potvrdi_container {
+    padding-bottom: 50px;
+}
+
+.potvrdi_img {
+    
+}
+
+.potvrdi_img img {
+    width: 67px;
+}
+
+.potvrdi {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+.potvrdi_text {
+    color: green;
+}
+

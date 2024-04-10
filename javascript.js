@@ -36,32 +36,6 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-//Zacuvuvanje na podatoci vo localStorage
-// Gi zacuvuva podatocite vo localStorage i gi dodava sekoj nov vo nizata
-// При земање на податоците од localStorage, претворете ги во објекти или иницијализирајте нова празна низа
-//localStorage.clear();
-var userData_Najava = JSON.parse(localStorage.getItem("Najava")) || [];
-var userData_Registracija = JSON.parse(localStorage.getItem("Registracija")) || [];
-
-najava.addEventListener("click", function() {
-    var email_najava = document.getElementById('email_najava').value;
-    var password_najava = document.getElementById('password_najava').value;
-    var user = { email: email_najava, password: password_najava }; 
- 
-    userData_Najava.push(user); 
-    localStorage.setItem("Najava", JSON.stringify(userData_Najava)); 
-});
-
-registracija.addEventListener("click", function() {
-    var email = document.getElementById('email').value;
-    var password = document.getElementById('password').value;
-    var name = document.getElementById('name').value;
-    var user = { email: email, password: password, name: name }; 
-
-    userData_Registracija.push(user); 
-    localStorage.setItem("Registracija", JSON.stringify(userData_Registracija)); 
-});
-
 //Koga ke se klikne na kopcinjata za nas, doma i na logoto da se skrola do stranata na koja e kliknato
 $("#logo").click(function () {
     $("html,body").animate(
@@ -136,4 +110,40 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
+var dopolnitelni_informacii = getElementById("potvrdi_btn")
+var userData_Najava = JSON.parse(localStorage.getItem("Najava")) || [];
+var userData_Registracija = JSON.parse(localStorage.getItem("Registracija")) || [];
+var userData_DopolnitelniInfo = JSON.parse(localStorage.getItem("Dopolnitelni informacii")) || [];
 
+najava.addEventListener("click", function() {
+    var email_najava = document.getElementById('email_najava').value;
+    var password_najava = document.getElementById('password_najava').value;
+
+    var user = { email: email_najava, password: password_najava }; 
+ 
+    userData_Najava.push(user); 
+    localStorage.setItem("Najava", JSON.stringify(userData_Najava)); 
+});
+
+registracija.addEventListener("click", function() {
+    var email = document.getElementById('email').value;
+    var password = document.getElementById('password').value;
+    var name = document.getElementById('name').value;
+
+    var user = { email: email, password: password, name: name }; 
+
+    userData_Registracija.push(user); 
+    localStorage.setItem("Registracija", JSON.stringify(userData_Registracija)); 
+});
+
+dopolnitelni_informacii.addEventListener("click", function() {
+  var gender = document.getElementById('gender').value;
+  var mobile_phone = document.getElementById('mobile_phone').value;
+  var address = document.getElementById('address').value;
+  var city = document.getElementById('city').value;
+
+  var user = { gender: gender, mobile_phone: mobile_phone, address: address, city: city }; 
+
+  userData_DopolnitelniInfo.push(user); 
+  localStorage.setItem("Dopolnitelni informacii", JSON.stringify(userData_Registracija)); 
+});

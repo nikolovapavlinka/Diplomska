@@ -24,54 +24,70 @@
                     <div class="title_profile">Информации за корисникот</div>
 
                     <div class="email_profile">
-                        <div class="email_name">Емаил:</div>
-                        <span id="email_storage"></span>
+                        <div class="email_name">Е-МАИЛ АДРЕСА</div>
+                        <div class="email_storage1">
+                            <span id="email_storage"></span>
+                        </div>
+                        
                     </div>
 
                     <div class="password_profile">
-                        <div class="password_name">Лозинка:</div>
-                        <span id="password_storage"></span>
+                        <div class="password_name">ЛОЗИНКА</div>
+                        <div class="password_storage1">
+                            <span id="password_storage"></span>
+                        </div>
                     </div>
 
                     <div class="new_info">
-                        <div class="title_profile1">Дополнителни информации за корисникот</div>
+                        <div class="title_profile1">Дополнителни информации</div>
                         <div class="desc_profile">*доколку сакате може да внесете повеќе информации за Вас</div>
 
                         <div class="gender">
-                            <div class="gender_name">Пол:</div>
+                            <div class="gender_name">ПОЛ</div>
                             <select name="gender" id="gender" aria-label="label">
-                                <option></option>
-                                <option>Женски</option>
-                                <option>Maшки</option>
+                                <option id="gender_option"></option>
+                                <option id="gender_option">Женски</option>
+                                <option id="gender_option">Maшки</option>
                             </select>
                         </div>
 
                         <div class="mobile_phone">
-                            <div class="mobile_name">Телефонски број:</div>
-                            <input class="mobile_number" type="tel" placeholder="07x/xxx/xxx">
+                            <div class="mobile_name">ТЕЛЕФОНСКИ БРОЈ</div>
+                            <input class="mobile_number" id="mobile_phone"  type="tel" placeholder="07x/xxx/xxx">
                         </div>
 
                         <div class="address">
-                            <div class="address_name">Адреса:</div>
-                            <input class="address_place" type="text" aria-label="label">
+                            <div class="address_name">АДРЕСА</div>
+                            <input class="address_place" id="address" type="text" aria-label="label">
                         </div>
 
                         <div class="city">
-                            <div class="city_name">Место на живеење:</div>
-                            <input class="city_place" type="text" aria-label="label">
+                            <div class="city_name">МЕСТО НА ЖИВЕЕЊЕ</div>
+                            <input class="city_place" id="city" type="text" aria-label="label">
+                        </div>
+
+                        <div class="potvrdi_container">
+                            <button id="potvrdi_btn">Потврди</button>
+                        </div>
+
+                        <div class="potvrdi" id="potvrdiDiv">
+                            <div class="potvrdi_img"><img src="icons/check-mark.png" alt=""></div>
+                            <div class="potvrdi_text">Вашите податоци се успешно внесени!</div>
+                        </div>
                         </div>
                     </div>
 
-                    <button id="potvdi">Потврди</button>
+                    
                     
 
                 </div>
             </div>
         </div>
-     </div>
+    
     
 
 <script src="javascript.js"></script>
 <script src="javascript1.js"></script>
+<script src="javascript2.js"></script>
 </body>
 </html>
