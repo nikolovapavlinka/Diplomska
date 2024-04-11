@@ -38,6 +38,44 @@ function toCoverPage() {
   window.location.href = "index.html"
 }
 
+//Koga ke kliknam na ikonata za user da mi se otvore prozorce kade ke ima Profil i Odjavi se,
+//se zatvara i otvara koga ke kliknis na ikonata i koga ke kliknis nekade na strana
+document.addEventListener('DOMContentLoaded', function () {
+  var menuIcon = document.getElementById('user_profile');
+  var menu = document.getElementById('optionsSelect');
+
+  // Отворање на мени кога се кликне на иконата
+  menuIcon.addEventListener('click', function () {
+      menu.classList.toggle('show'); // Додај или отстрани класа за прикажување на менито
+  });
+
+  // Затворање на мени кога се кликне надвор од него
+  document.addEventListener('click', function (event) {
+      var isClickInsideMenu = menu.contains(event.target);
+      var isClickOnMenuIcon = menuIcon.contains(event.target);
+
+      if (!isClickInsideMenu && !isClickOnMenuIcon) {
+          menu.classList.remove('show'); // Скрие мени кога корисникот кликне надвор од него
+      }
+  });
+});
+
+
+
+//Od profile.html se vnesuvaat podatoci, ostanatite dopolnitelni informacii
+var userData_Informacii = JSON.parse(localStorage.getItem("Informacii")) || [];
+var potvrdiBtn = document.getElementById("potvrdi_btn");
+potvrdiBtn.addEventListener("click", function() {
+  var gender = document.getElementById('gender').value;
+  var mobile_phone = document.getElementById('mobile_phone').value;
+  var address = document.getElementById('address').value;
+  var city = document.getElementById('city').value;
+
+  var user = { gender: gender, mobile_phone: mobile_phone, address: address, city: city }; 
+
+  userData_Informacii.push(user); 
+  localStorage.setItem("Informacii", JSON.stringify(userData_Informacii)); 
+});
 
 //Imeto od registracijata se dodava na stranata profile.html od levata strana
 document.addEventListener('DOMContentLoaded', function () {
@@ -52,6 +90,8 @@ document.addEventListener('DOMContentLoaded', function () {
       console.log('Нема зачуван регистриран корисник во localStorage.');
   }
 });
+
+
 
 //Emailot od registracijata se dodava na stranata profile.html od desnata strana
 document.addEventListener('DOMContentLoaded', function () {
@@ -103,13 +143,24 @@ document.addEventListener('DOMContentLoaded', function () {
       }
   });
 });
-  
 
+
+
+var potvrdiBtn = document.getElementById("potvrdi_btn");
+var potvrdiDiv = document.getElementById("potvrdiDiv");
+
+potvrdiBtn.addEventListener("click", function() {
+  potvrdiDiv.style.display = "flex";
+  setTimeout(function() {
+    potvrdiDiv.style.display = "none";
+  }, 10000);
+});
+
+
+//Vnesuvanje informacii vo localStorage od najava i registracija
 //localStorage.clear();
-var dopolnitelni_informacii = getElementById("potvrdi_btn")
 var userData_Najava = JSON.parse(localStorage.getItem("Najava")) || [];
 var userData_Registracija = JSON.parse(localStorage.getItem("Registracija")) || [];
-var userData_DopolnitelniInfo = JSON.parse(localStorage.getItem("Dopolnitelni informacii")) || [];
 
 najava.addEventListener("click", function() {
     var email_najava = document.getElementById('email_najava').value;
@@ -131,31 +182,6 @@ registracija.addEventListener("click", function() {
     userData_Registracija.push(user); 
     localStorage.setItem("Registracija", JSON.stringify(userData_Registracija)); 
 });
-
-dopolnitelni_informacii.addEventListener("click", function() {
-  var gender = document.getElementById('gender').value;
-  var mobile_phone = document.getElementById('mobile_phone').value;
-  var address = document.getElementById('address').value;
-  var city = document.getElementById('city').value;
-
-  var user = { gender: gender, mobile_phone: mobile_phone, address: address, city: city }; 
-
-  userData_DopolnitelniInfo.push(user); 
-  localStorage.setItem("Dopolnitelni informacii", JSON.stringify(userData_Registracija)); 
-});
-
-
-
-
-
-var potvrdiBtn = document.getElementById("potvrdi_btn");
-var potvrdiDiv = document.getElementById("potvrdiDiv");
-
-potvrdiBtn.addEventListener("click", function() {
-  prompt("Вашите податоци се успешно внесени!");
-  console.log("bla bla bla")
-});
-
 
 
   
