@@ -38,6 +38,10 @@ function toCoverPage() {
   window.location.href = "index.html"
 }
 
+function toCategory_Umetnicki_sliki() {
+  window.location.href = "kategorija_umetnicki_sliki.html"
+}
+
 //Koga ke kliknam na ikonata za user da mi se otvore prozorce kade ke ima Profil i Odjavi se,
 //se zatvara i otvara koga ke kliknis na ikonata i koga ke kliknis nekade na strana
 document.addEventListener('DOMContentLoaded', function () {
