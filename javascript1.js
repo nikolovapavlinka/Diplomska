@@ -42,6 +42,32 @@ function toCategory_Umetnicki_sliki() {
   window.location.href = "kategorija_umetnicki_sliki.html"
 }
 
+function toCategory_Skulpturi() {
+  window.location.href = "kategorija_skulpturi.html"
+}
+
+function toCategory_Racno_Izraboteni_Predmeti() {
+  window.location.href = "kategorija_racno_izraboteni_predmeti.html"
+}
+
+//Brojac na plus se zgolemuva na - se namaluva 
+$(document).ready(function() {
+  $('.minus').click(function () {
+    var $input = $(this).parent().find('input');
+    var count = parseInt($input.val()) - 1;
+    count = count < 1 ? 1 : count;
+    $input.val(count);
+    $input.change();
+    return false;
+  });
+  $('.plus').click(function () {
+    var $input = $(this).parent().find('input');
+    $input.val(parseInt($input.val()) + 1);
+    $input.change();
+    return false;
+  });
+});
+
 //Koga ke kliknam na ikonata za user da mi se otvore prozorce kade ke ima Profil i Odjavi se,
 //se zatvara i otvara koga ke kliknis na ikonata i koga ke kliknis nekade na strana
 document.addEventListener('DOMContentLoaded', function () {
@@ -161,6 +187,8 @@ potvrdiBtn.addEventListener("click", function() {
 });
 
 
+
+
 //Vnesuvanje informacii vo localStorage od najava i registracija
 //localStorage.clear();
 var userData_Najava = JSON.parse(localStorage.getItem("Najava")) || [];
@@ -186,6 +214,8 @@ registracija.addEventListener("click", function() {
     userData_Registracija.push(user); 
     localStorage.setItem("Registracija", JSON.stringify(userData_Registracija)); 
 });
+
+
 
 
   

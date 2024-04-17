@@ -1675,6 +1675,7 @@ a {
     height: fit-content;
     padding: 20px 20px;
     border: 1px solid #fff;
+    cursor: pointer;
 }
 
 .product1_img {
@@ -1730,3 +1731,224 @@ a {
 
 }
 
+.product1_container {
+    display: none;
+    width: 60%;
+    height: 90vh;
+    z-index: 1;
+	background: #fff;
+	border-radius: 25px;
+    box-shadow: 19px 0px 25px rgba(0, 0, 0, 0.21), 0px 10px 10px rgba(0, 0, 0, 0.22);
+	position: fixed;
+	overflow: hidden;
+    margin: 0 auto;
+    top: 50px;
+    left: 20%;
+    
+}
+
+.product2_container {
+    display: none;
+    width: 60%;
+    height: 90vh;
+    z-index: 1;
+	background: #fff;
+	border-radius: 25px;
+    box-shadow: 19px 0px 25px rgba(0, 0, 0, 0.21), 0px 10px 10px rgba(0, 0, 0, 0.22);
+	position: fixed;
+	overflow: hidden;
+    margin: 0 auto;
+    top: 50px;
+    left: 20%;
+}
+
+.product3_container {
+    display: none;
+    width: 60%;
+    height: 90vh;
+    z-index: 1;
+	background: #fff;
+	border-radius: 25px;
+    box-shadow: 19px 0px 25px rgba(0, 0, 0, 0.21), 0px 10px 10px rgba(0, 0, 0, 0.22);
+	position: fixed;
+	overflow: hidden;
+    margin: 0 auto;
+    top: 50px;
+    left: 20%;
+}
+
+.product4_container {
+    display: none;
+    width: 60%;
+    height: 90vh;
+    z-index: 1;
+	background: #fff;
+	border-radius: 25px;
+    box-shadow: 19px 0px 25px rgba(0, 0, 0, 0.21), 0px 10px 10px rgba(0, 0, 0, 0.22);
+	position: fixed;
+	overflow: hidden;
+    margin: 0 auto;
+    top: 50px;
+    left: 20%;
+}
+
+.product5_container {
+    display: none;
+    width: 60%;
+    height: 90vh;
+    z-index: 1;
+	background: #fff;
+	border-radius: 25px;
+    box-shadow: 19px 0px 25px rgba(0, 0, 0, 0.21), 0px 10px 10px rgba(0, 0, 0, 0.22);
+	position: fixed;
+	overflow: hidden;
+    margin: 0 auto;
+    top: 50px;
+    left: 20%;
+}
+
+.product6_container {
+    display: none;
+    width: 60%;
+    height: 90vh;
+    z-index: 1;
+	background: #fff;
+	border-radius: 25px;
+    box-shadow: 19px 0px 25px rgba(0, 0, 0, 0.21), 0px 10px 10px rgba(0, 0, 0, 0.22);
+	position: fixed;
+	overflow: hidden;
+    margin: 0 auto;
+    top: 50px;
+    left: 20%;
+}
+
+.product1_container_info {
+    display: flex;
+    background-image: linear-gradient(to right, #ffe8c0,#b19164);
+}
+
+.image_side {
+    width: 40%;
+    padding: 50px 0px;
+}
+
+.info_side {
+    width: 60%;
+    height: 90vh;
+    padding: 50px 30px;
+}
+
+.art_image {
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 50px;
+}
+
+.art_image img {
+    width: 100%;
+    height: 60vh;
+}
+
+.art_name {
+    text-align: center;
+    font-size: 21px;
+    font-weight: 600;
+    opacity: 0.75;
+}
+
+.product1_desc p {
+    text-align: center;
+    font-size: 19px;
+    text-decoration: underline;
+}
+.product1_desc {
+    text-align: center;
+    opacity: 0.8;
+}
+
+.product1_dimension {
+    text-align: center;
+    opacity: 0.8;
+}
+
+.product1_dimension p {
+    text-align: center;
+    font-size: 19px;
+    text-decoration: underline;
+    
+}
+
+.product1_price1 {
+    text-align: center;
+    opacity: 0.8;
+}
+
+.product1_price1 p {
+    text-align: center;
+    font-size: 19px;
+    text-decoration: underline;
+}
+
+.product1_status1 {
+    text-align: center;
+    opacity: 0.8;
+}
+
+.product1_status1 p {
+    text-align: center;
+    font-size: 19px;
+    text-decoration: underline;
+}
+
+.product1_addcart {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.number span {
+    cursor:pointer; 
+}
+
+.number{
+	
+}
+
+.minus, .plus{
+	width:20px;
+	height:20px;
+	background:#f2f2f2;
+	border-radius:4px;
+	padding:8px 5px 8px 5px;
+	border:1px solid #ddd;
+    display: inline-block;
+    text-align: center;
+}
+
+.number input{
+	height:34px;
+    width: 100px;
+    text-align: center;
+    font-size: 26px;
+	border:1px solid #ddd;
+	border-radius:4px;
+    display: inline-block;
+}
+
+.addcart_btn {
+    width: fit-content;
+    padding: 15px;
+    font-size: 17px;
+    border-radius: 10px;
+    background-color: #000;
+    opacity: 0.75;
+    border: 1px solid #302f2f7a;
+    color: #fff;
+    font-weight: 600;
+}
+
+.addcart_btn:hover {
+    cursor: pointer;
+    background: #FFFFFF;
+    color: #000;
+    opacity: 0.75;
+}
