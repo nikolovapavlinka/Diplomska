@@ -128,3 +128,24 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 }); 
 
+//Koga ke se klikne na bilo koja umetnicka slika vo kategorijata umetnici sliki da se otvore prozorec
+document.addEventListener('DOMContentLoaded', function () {
+  var product7 = document.getElementById('product7');
+  const product7_container = document.getElementById('product7_container');
+  
+  if (product7 && product7_container) { // Проверка дали елементите се пронајдени
+    product7.addEventListener('click', function () {
+      product7_container.style.display = 'block';
+        document.getElementById('page_mask').style.display = 'block';
+    });
+
+  document.getElementById('page_mask').addEventListener('click', function () {
+    product7_container.style.display = 'none';
+      document.getElementById('page_mask').style.display = 'none';
+  }); 
+
+} else {
+  console.error("Element not found!");
+  }
+}); 
+

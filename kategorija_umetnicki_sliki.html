@@ -72,17 +72,17 @@
                         <div class="category_title">РАЧНО ИЗРАБОТЕНИ ПРЕДМЕТИ</div>
                     </div>
 
-                    <div class="category1">
+                    <div class="category1" onclick="toCategory_Unikaten_nakit()">
                         <div class="category_img"><img src="icons/jewellery.png" alt=""></div>
                         <div class="category_title">УНИКАТЕН НАКИТ</div>
                     </div>
 
-                    <div class="category1">
+                    <div class="category1" onclick="toCategory_Dekoracii()">
                         <div class="category_img"><img src="icons/lamp.png" alt=""></div>
                         <div class="category_title">ДЕКОРАЦИИ</div>
                     </div>
 
-                    <div class="category1">
+                    <div class="category1" onclick="toCategory_Predmeti_izraboteni_od_drvo()">
                         <div class="category_img"><img src="icons/wood-cutting.png" alt=""></div>
                         <div class="category_title">ПРЕДМЕТИ ИЗРАБОТЕНИ ОД ДРВО</div>
                     </div>
@@ -136,6 +136,15 @@
                         </div>
                     </div>
 
+                    <div class="products_red1">
+                        <div class="product1" id="product7">
+                            <div class="product1_img"><img src="images/proizvod1.png" alt=""></div>
+                            <div class="product1_name">БОЕН ПОРТРЕТ</div>
+                            <div class="product1_price">Цена: <span>1999 МКД</span></div>
+                            <div class="product1_status">Статус: <span>Достапно</span></div>
+                        </div>
+                    </div>
+
                     <div class="product1_container" id="product1_container">
                         <div class="product1_container_info">
                             <div class="image_side">
@@ -150,6 +159,10 @@
                                     Сликата "Морска прегратка" создава атмосфера на мир и спокојство, 
                                     со сините нијанси на морето. Оваа слика е идеална за украсување на домови, 
                                     канцеларии или ходници. 
+                                </div>
+                                <div class="product1_artist">
+                                    <p>УМЕТНИК</p>
+                                    Дарио Марков
                                 </div>
                                 <div class="product1_dimension">
                                     <p>ДИМЕНЗИИ</p>
@@ -189,6 +202,10 @@
                                     или лични простории каде што луѓето можат да се повлечат и да се поврзат со својата 
                                     внатрешна енергија и мир.
                                 </div>
+                                <div class="product1_artist">
+                                    <p>УМЕТНИК</p>
+                                    Марија Батер
+                                </div>
                                 <div class="product1_dimension">
                                     <p>ДИМЕНЗИИ</p>
                                     50х70
@@ -224,10 +241,14 @@
                                     Сликата "Носталгија" е визуелно патување низ времето, 
                                     чувствувајќи ги прекрасните моменти од минатото и предизвикувајќи емоции 
                                     поврзани со сегашноста и иднината. Со игра на светлина и бои, сликата создава 
-                                    атмосфера на меланхолија. Со своите згодни димензии и емоционална длабочина, 
-                                    сликата "Носталгија" е идеална за домашни простории како дневни соби, соби за 
-                                    одмор, или кабинети каде што луѓето можат да се забавуваат и да уживаат во 
+                                    атмосфера на меланхолија.
+                                    Сликата "Носталгија" е идеална за домашни простории каде што луѓето
+                                    можат да се забавуваат и да уживаат во 
                                     интимна атмосфера.
+                                </div>
+                                <div class="product1_artist">
+                                    <p>УМЕТНИК</p>
+                                    Емили Попов
                                 </div>
                                 <div class="product1_dimension">
                                     <p>ДИМЕНЗИИ</p>
@@ -263,10 +284,13 @@
                                     <p>ОПИС</p>
                                     Сликата "Женска грациозност" претставува портрет на женска ликовна фигура во изразена 
                                     поза на грациозност и елеганција. Наменета е да го засолни просторот и да создаде убавина 
-                                    во било кој амбиент, како домашен декор или уметничка галерија. Оваа слика е идеална 
-                                    за вградување во интериорот на домот или канцелариското просторие. Живописниот стил и 
+                                    во било кој амбиент.Живописниот стил и 
                                     изборот на бои додаваат чувство на среќа, правејќи ја сликата одличен додаток за било 
                                     кој простор каде што се бара да се пренесе атмосферата на елеганција и убавина.
+                                </div>
+                                <div class="product1_artist">
+                                    <p>УМЕТНИК</p>
+                                    Емили Попов
                                 </div>
                                 <div class="product1_dimension">
                                     <p>ДИМЕНЗИИ</p>
@@ -305,6 +329,10 @@
                                     и убава атмосфера. Идеална за украс на зидовите во дневната соба, 
                                     трпезаријата, кујната или спалната. 
                                 </div>
+                                <div class="product1_artist">
+                                    <p>УМЕТНИК</p>
+                                    Дарио Марков
+                                </div>
                                 <div class="product1_dimension">
                                     <p>ДИМЕНЗИИ</p>
                                     50х70
@@ -337,14 +365,61 @@
                             <div class="info_side">
                                 <div class="product1_desc">
                                     <p>ОПИС</p>
-                                    Сликата "Небеска симфонија" е впечатлива композиција која 
+                                    Сликата "Небеска симфонија" 
                                     претставува магична сцена од небото исполнето со разнолики облици и звезди. 
-                                    Оваа слика е идеална за поставување во простории каде што се бара да се 
-                                    креира атмосфера на спокојство и релаксација. Таа може да биде прекрасен 
-                                    украс за дневната соба, спалната или било кој друг простор каде што сакате 
+                                     Таа може да биде прекрасен 
+                                    украс за простор каде што сакате 
                                     да внесете малку од чарот на небото во вашето секојдневие. 
                                     Оваа слика претставува вистинско уметничко дело што внесува мир и хармонија 
                                     во вашето живеење.
+                                </div>
+                                <div class="product1_artist">
+                                    <p>УМЕТНИК</p>
+                                    Марија Батер
+                                </div>
+                                <div class="product1_dimension">
+                                    <p>ДИМЕНЗИИ</p>
+                                    50х70
+                                </div>
+                                <div class="product1_price1">
+                                    <p>ЦЕНА</p>
+                                    1999 МКД</div>
+                                <div class="product1_status1">
+                                    <p>СТАТУС</p>
+                                    Достапно</div>
+                                <div class="product1_addcart">
+                                    <div class="number">
+                                        <span class="minus">-</span>
+                                        <input type="text" value="1" aria-label="label"/>
+                                        <span class="plus">+</span>
+                                    </div>
+                                    <button class="addcart_btn">Додади во кошничка</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product7_container" id="product7_container">
+                        <div class="product1_container_info">
+                            <div class="image_side">
+                                <div class="art_image"><img src="images/proizvod1.png" alt=""></div>
+                                <div class="art_name">БОЕН ПОРТРЕТ</div>
+                            </div>
+    
+                            <div class="info_side">
+                                <div class="product1_desc">
+                                    <p>ОПИС</p>
+                                    "Боен портрет" претставува живописна 
+                                    интерпретација на лик кој е претставен преку боите и линиите 
+                                    на платното.
+                                    Преставувањето на лицето на уметнички начин пренесува израз на емоции, 
+                                    личност и карактер на претставениот лик. Боите и стилот на сликата може 
+                                    да бидат во согласност со интериорот и стилот на просторот во кој што ќе 
+                                    се постави. 
+                                </div>
+                                <div class="product1_artist">
+                                    <p>УМЕТНИК</p>
+                                    Емили Попов
                                 </div>
                                 <div class="product1_dimension">
                                     <p>ДИМЕНЗИИ</p>

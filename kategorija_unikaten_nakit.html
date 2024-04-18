@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Рачно изработени предмети</title>
+    <title>Уникатен накит</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
@@ -65,14 +65,14 @@
                         <div class="category_title">СКУЛПТУРИ</div>
                     </div>
 
-                    <div class="category1" onclick="toCategory_Racno_Izraboteni_Predmeti()"
-                    style="border: 1px solid #0000006c;
-                    background: #00000024;">
+                    <div class="category1" onclick="toCategory_Racno_Izraboteni_Predmeti()">
                         <div class="category_img"><img src="icons/hand-made.png" alt=""></div>
                         <div class="category_title">РАЧНО ИЗРАБОТЕНИ ПРЕДМЕТИ</div>
                     </div>
 
-                    <div class="category1" onclick="toCategory_Unikaten_nakit()">
+                    <div class="category1" onclick="toCategory_Unikaten_nakit()"
+                    style="border: 1px solid #0000006c;
+                    background: #00000024;">
                         <div class="category_img"><img src="icons/jewellery.png" alt=""></div>
                         <div class="category_title">УНИКАТЕН НАКИТ</div>
                     </div>
@@ -92,46 +92,39 @@
 
                     <div class="products_red1">
                         <div class="product1" id="product1">
-                            <div class="product1_img"><img src="images/proizvod3.png" alt=""></div>
-                            <div class="product1_name">ФИЛЏАНИ</div>
-                            <div class="product1_price">Цена: <span>799 МКД</span></div>
+                            <div class="product1_img"><img src="images/nakit1.jpg" alt=""></div>
+                            <div class="product1_name">СЛАТКА ЉУБОВ</div>
+                            <div class="product1_price">Цена: <span>1399 МКД</span></div>
                             <div class="product1_status">Статус: <span>Достапно</span></div>
                         </div>
 
                         <div class="product1" id="product2">
-                            <div class="product1_img"><img src="images/racno_izraboteni1.jpg" alt=""></div>
-                            <div class="product1_name">УКРАСНИ ЧИНИИ</div>
-                            <div class="product1_price">Цена: <span>499 МКД</span></div>
+                            <div class="product1_img"><img src="images/nakit2.jpg" alt=""></div>
+                            <div class="product1_name">ЦРЕША</div>
+                            <div class="product1_price">Цена: <span>1799 МКД</span></div>
                             <div class="product1_status">Статус: <span>Достапно</span></div>
                         </div>
 
                         <div class="product1" id="product3">
-                            <div class="product1_img"><img src="images/racno_izraboteni2.jpg" alt=""></div>
-                            <div class="product1_name">ТАШНИЧКА ЗА СЛУШАЛКИ</div>
-                            <div class="product1_price">Цена: <span>399 МКД</span></div>
+                            <div class="product1_img"><img src="images/nakit3.jpg" alt=""></div>
+                            <div class="product1_name">ЦВЕТЕНА МЕСЕЧИНА</div>
+                            <div class="product1_price">Цена: <span>1599 МКД</span></div>
                             <div class="product1_status">Статус: <span>Достапно</span></div>
                         </div>
                     </div>
 
                     <div class="products_red1">
                         <div class="product1" id="product4">
-                            <div class="product1_img"><img src="images/racno_izraboteni3.jpg" alt=""></div>
-                            <div class="product1_name">УКРАСНИ КУТИИ ЗА ПОКЛОН</div>
-                            <div class="product1_price">Цена: <span>199 МКД</span></div>
+                            <div class="product1_img"><img src="images/nakit4.jpg" alt=""></div>
+                            <div class="product1_name">МУЗИЧКИ ПРСТЕН</div>
+                            <div class="product1_price">Цена: <span>1199 МКД</span></div>
                             <div class="product1_status">Статус: <span>Достапно</span></div>
                         </div>
 
                         <div class="product1" id="product5">
-                            <div class="product1_img"><img src="images/racno_izraboteni4.jpg" alt=""></div>
-                            <div class="product1_name">ДЕКОРАТИВНО ШИШЕ ЗА ВИНО</div>
-                            <div class="product1_price">Цена: <span>599 МКД</span></div>
-                            <div class="product1_status">Статус: <span>Достапно</span></div>
-                        </div>
-
-                        <div class="product1" id="product6">
-                            <div class="product1_img"><img src="images/racno_izraboteni5.jpg" alt=""></div>
-                            <div class="product1_name">БУКЕТ ДЕКОРАТИВНИ ЦВЕТОВИ</div>
-                            <div class="product1_price">Цена: <span>699 МКД</span></div>
+                            <div class="product1_img"><img src="images/proizvod4.png" alt=""></div>
+                            <div class="product1_name">СЕНКА</div>
+                            <div class="product1_price">Цена: <span>1599 МКД</span></div>
                             <div class="product1_status">Статус: <span>Достапно</span></div>
                         </div>
                     </div>
@@ -139,24 +132,24 @@
                     <div class="product1_container" id="product1_container">
                         <div class="product1_container_info">
                             <div class="image_side">
-                                <div class="art_image"><img src="images/proizvod3.png" alt=""></div>
-                                <div class="art_name">ФИЛЏАНИ</div>
+                                <div class="art_image"><img src="images/nakit1.jpg" alt=""></div>
+                                <div class="art_name">СЛАТКА ЉУБОВ</div>
                             </div>
     
                             <div class="info_side">
                                 <div class="product1_desc">
                                     <p>ОПИС</p>
-                                    Филџани изработени од глина кои се декорирани со бела боја 
-                                    и црвени мали срциња. Наменети за топли и ладни напитоци, 
-                                    соодветни за украс на секоја трпеза, за прво утринско кафе или чај.
+                                    Рачно изработени обетки со монисти и позлатени фитинзи. 
+                                    Рачно внимателно изработени со нежни бои елегантини и се прилагодуваат 
+                                    на секаков стајлинг.
                                 </div>
                                 <div class="product1_artist">
                                     <p>ИЗРАБОТИЛ</p>
-                                    Миа Милкова
+                                    Росана Томова
                                 </div>
                                 <div class="product1_price1">
                                     <p>ЦЕНА</p>
-                                    799 МКД</div>
+                                    1399 МКД</div>
                                 <div class="product1_status1">
                                     <p>СТАТУС</p>
                                     Достапно</div>
@@ -175,25 +168,24 @@
                     <div class="product2_container" id="product2_container">
                         <div class="product1_container_info">
                             <div class="image_side">
-                                <div class="art_image"><img src="images/racno_izraboteni1.jpg" alt=""></div>
-                                <div class="art_name">УКРАСНИ ЧИНИИ</div>
+                                <div class="art_image"><img src="images/nakit2.jpg" alt=""></div>
+                                <div class="art_name">ЦРЕША</div>
                             </div>
     
                             <div class="info_side">
                                 <div class="product1_desc">
                                     <p>ОПИС</p>
-                                    Еколошки рачно насликани чинии со прилагодени бои. 
-                                    Едноставни, рачно изработени со љубов. Може да се користат за чување 
-                                    на накит, пример прстени обетки и слично, може да се користат за посложување 
-                                    на маса или како декорација на маса.
+                                    Овој ѓердан е направен од високо квалитетни стаклени ммонисти, 
+                                    бисерни монисти и златен синѓир. Идеален е за секој стајлинг, 
+                                    а исто така и совршен подарок за драги луѓе.
                                 </div>
                                 <div class="product1_artist">
                                     <p>ИЗРАБОТИЛ</p>
-                                    Миа Милкова
+                                    Ена Наков
                                 </div>
                                 <div class="product1_price1">
                                     <p>ЦЕНА</p>
-                                    499 МКД</div>
+                                    1799 МКД</div>
                                 <div class="product1_status1">
                                     <p>СТАТУС</p>
                                     Достапно</div>
@@ -212,25 +204,23 @@
                     <div class="product3_container" id="product3_container">
                         <div class="product1_container_info">
                             <div class="image_side">
-                                <div class="art_image"><img src="images/racno_izraboteni2.jpg" alt=""></div>
-                                <div class="art_name">ТАШНИЧКА ЗА СЛУШАЛКИ</div>
+                                <div class="art_image"><img src="images/nakit3.jpg" alt=""></div>
+                                <div class="art_name">ЦВЕТНА МЕСЕЧИНА</div>
                             </div>
     
                             <div class="info_side">
                                 <div class="product1_desc">
                                     <p>ОПИС</p>
-                                    Оваа футрола за слушалки со цветови е рачна изработка и претставува мини 
-                                    ташничка за безжични слушалки. Покрај тоа што изгледа убаво и слатко, 
-                                    ги штити слушаките доколку паднат да не се огребат, скршат или слично. 
-                                    Имаат заштитна улога и исто така има отвор на дното каде што слушалките се полнат.
+                                    Рачно изработени обетки во форма на месечина од полимерна глина
+                                     со цветен дизајн и додаток на мала ѕвезда.
                                 </div>
                                 <div class="product1_artist">
                                     <p>ИЗРАБОТИЛ</p>
-                                    Тара Часиќ
+                                    Росана Томова
                                 </div>
                                 <div class="product1_price1">
                                     <p>ЦЕНА</p>
-                                    399 МКД</div>
+                                    1599 МКД</div>
                                 <div class="product1_status1">
                                     <p>СТАТУС</p>
                                     Достапно</div>
@@ -249,23 +239,23 @@
                     <div class="product4_container" id="product4_container">
                         <div class="product1_container_info">
                             <div class="image_side">
-                                <div class="art_image"><img src="images/racno_izraboteni3.jpg" alt=""></div>
-                                <div class="art_name">УКРАСНИ КУТИИ ЗА ПОКЛОН</div>
+                                <div class="art_image"><img src="images/nakit4.jpg" alt=""></div>
+                                <div class="art_name">МУЗИЧКИ ПРСТЕН</div>
                             </div>
     
                             <div class="info_side">
                                 <div class="product1_desc">
                                     <p>ОПИС</p>
-                                    Украсни кутии за поклон направени од хартија и украсни цветови. 
-                                    Може да се користат за некој помал поклон како на пример накит или пари.
+                                    Прстен изработен во форма на виолински клуч и ноти. 
+                                    Изработен од позлатени фитинзи и идеален за љубители на музика.
                                 </div>
                                 <div class="product1_artist">
                                     <p>ИЗРАБОТИЛ</p>
-                                    Миа Милкова
+                                    Росана Томова
                                 </div>
                                 <div class="product1_price1">
                                     <p>ЦЕНА</p>
-                                    199 МКД</div>
+                                    1199 МКД</div>
                                 <div class="product1_status1">
                                     <p>СТАТУС</p>
                                     Достапно</div>
@@ -284,60 +274,25 @@
                     <div class="product5_container" id="product5_container">
                         <div class="product1_container_info">
                             <div class="image_side">
-                                <div class="art_image"><img src="images/racno_izraboteni4.jpg" alt=""></div>
-                                <div class="art_name">ДЕКОРАТИВНО ШИШЕ ЗА ВИНО</div>
+                                <div class="art_image"><img src="images/proizvod4.png" alt=""></div>
+                                <div class="art_name">СЕНКА</div>
                             </div>
     
                             <div class="info_side">
                                 <div class="product1_desc">
                                     <p>ОПИС</p>
-                                    Овие шишиња за вино се изработени прецизно и внимателно специјално 
-                                    дизајнирани за елегантен амбиент во вашиот дом. Направени се од издржливи 
-                                    материјали, идеални за љубителите на модерен и класичен стил.
+                                    Овој ѓердан  е изработен од сребрени монистри и камења од аквамарин 
+                                    кои дејствуваат за зголемување на самодовербата. 
+                                    Бојата на каменот дава чувство на хармонија и радост и може да му 
+                                    донесе енергија на купувачот. 
                                 </div>
                                 <div class="product1_artist">
                                     <p>ИЗРАБОТИЛ</p>
-                                    Тара Часиќ
+                                     Ена Наков
                                 </div>
                                 <div class="product1_price1">
                                     <p>ЦЕНА</p>
-                                    599 МКД</div>
-                                <div class="product1_status1">
-                                    <p>СТАТУС</p>
-                                    Достапно</div>
-                                <div class="product1_addcart">
-                                    <div class="number">
-                                        <span class="minus">-</span>
-                                        <input type="text" value="1" aria-label="label"/>
-                                        <span class="plus">+</span>
-                                    </div>
-                                    <button class="addcart_btn">Додади во кошничка</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="product6_container" id="product6_container">
-                        <div class="product1_container_info">
-                            <div class="image_side">
-                                <div class="art_image"><img src="images/racno_izraboteni5.jpg" alt=""></div>
-                                <div class="art_name">БУКЕТ ДЕКОРАТИВНИ ЦВЕТОВИ</div>
-                            </div>
-    
-                            <div class="info_side">
-                                <div class="product1_desc">
-                                    <p>ОПИС</p>
-                                    Букет од цветови изработени од црна метална жица. 
-                                    Изработени се цветови во различни форми кои естетки изгледаат модерно 
-                                    и елегантно во секоја просторија. 
-                                </div>
-                                <div class="product1_artist">
-                                    <p>ИЗРАБОТИЛ</p>
-                                    Тара Часиќ
-                                </div>
-                                <div class="product1_price1">
-                                    <p>ЦЕНА</p>
-                                    699 МКД</div>
+                                    1599 МКД</div>
                                 <div class="product1_status1">
                                     <p>СТАТУС</p>
                                     Достапно</div>

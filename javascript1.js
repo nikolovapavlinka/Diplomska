@@ -50,6 +50,18 @@ function toCategory_Racno_Izraboteni_Predmeti() {
   window.location.href = "kategorija_racno_izraboteni_predmeti.html"
 }
 
+function toCategory_Unikaten_nakit() {
+  window.location.href = "kategorija_unikaten_nakit.html"
+}
+
+function toCategory_Dekoracii() {
+  window.location.href = "kategorija_dekoracii.html"
+}
+
+function toCategory_Predmeti_izraboteni_od_drvo() {
+  window.location.href = "kategorija_predmeti_izraboteni_od_drvo.html"
+}
+
 //Brojac na plus se zgolemuva na - se namaluva 
 $(document).ready(function() {
   $('.minus').click(function () {
