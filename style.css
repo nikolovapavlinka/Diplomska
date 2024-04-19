@@ -1710,6 +1710,19 @@ a {
     opacity: 0.8;
 }
 
+.product1_category {
+    color: #422f1a;
+    font-weight: 500;
+    font-size: 17px;
+    text-align: center;
+}
+
+.product1_category span {
+    font-size: 18px;
+    font-weight: 600;
+    opacity: 0.8;
+}
+
 .product1_status {
     color: #422f1a;
     font-weight: 500;
@@ -1978,4 +1991,108 @@ a {
     background: #FFFFFF;
     color: #000;
     opacity: 0.75;
+}
+
+.artist_page {
+    background: #b39367;
+    width: 100%;
+    height: fit-content;
+    padding-bottom: 100px;
+}
+
+.artist_section {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.info_about_page {
+    padding-top: 130px;
+    width: 40%;
+    margin: 0 auto;
+}
+
+.info_about_page p{
+    font-size: 19px;
+    text-align: center;
+    opacity: 0.85;
+}
+
+.bottom_line {
+    border-bottom: 3px solid #000;
+    opacity: 0.5;
+    width: 33%;
+    margin: 0 auto;
+    padding-top: 13px;
+}
+
+.artists_info {
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 70px;
+}
+
+.artists_red1 {
+    display: flex;
+    justify-content: space-around;
+}
+
+.artist1 {
+    width: 19%;
+    height: fit-content;
+    padding: 20px 20px;
+    border: 3px solid #1c1919f0;
+    box-shadow: 0px 0px 7px 0px #1c1919f0;
+    cursor: pointer;
+    margin-bottom: 70px;
+}
+
+.artist1_img {
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+.artist1_img img {
+    width: 100%;
+    height: 400px;
+}
+
+.artist1_name {
+    text-align: center;
+    font-size: 17px;
+    font-weight: 600;
+    padding-top: 5px;
+}
+
+.artist_bio {
+    width: 100%;
+    margin-top: 200px;
+}
+
+.biography {
+
+}
+
+.biography_title {
+    text-align: center;
+    font-size: 19px;
+    opacity: 0.8;
+}
+
+.biography_text {
+
+}
+
+.artist_contact {
+
+}
+
+.artist_contact_title {
+    text-align: center;
+    font-size: 19px;
+    opacity: 0.8;
+}
+
+.artist_contact_text {
+
 }

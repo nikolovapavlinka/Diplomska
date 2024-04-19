@@ -149,3 +149,108 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 }); 
 
+//Koga ke se klikne na bilo koja umetnicka slika vo kategorijata umetnici sliki da se otvore prozorec
+document.addEventListener('DOMContentLoaded', function () {
+  var product8 = document.getElementById('product8');
+  const product8_container = document.getElementById('product8_container');
+  
+  if (product8 && product8_container) { // Проверка дали елементите се пронајдени
+    product8.addEventListener('click', function () {
+      product8_container.style.display = 'block';
+        document.getElementById('page_mask').style.display = 'block';
+    });
+
+  document.getElementById('page_mask').addEventListener('click', function () {
+    product8_container.style.display = 'none';
+      document.getElementById('page_mask').style.display = 'none';
+  }); 
+
+} else {
+  console.error("Element not found!");
+  }
+});
+
+//Koga ke se klikne na bilo koja umetnicka slika vo kategorijata umetnici sliki da se otvore prozorec
+document.addEventListener('DOMContentLoaded', function () {
+  var product9 = document.getElementById('product9');
+  const product9_container = document.getElementById('product9_container');
+  
+  if (product9 && product9_container) { // Проверка дали елементите се пронајдени
+    product9.addEventListener('click', function () {
+      product9_container.style.display = 'block';
+        document.getElementById('page_mask').style.display = 'block';
+    });
+
+  document.getElementById('page_mask').addEventListener('click', function () {
+    product9_container.style.display = 'none';
+      document.getElementById('page_mask').style.display = 'none';
+  }); 
+
+} else {
+  console.error("Element not found!");
+  }
+});
+
+//Koga ke se klikne na bilo koja umetnicka slika vo kategorijata umetnici sliki da se otvore prozorec
+document.addEventListener('DOMContentLoaded', function () {
+  var product10 = document.getElementById('product10');
+  const product10_container = document.getElementById('product10_container');
+  
+  if (product10 && product10_container) { // Проверка дали елементите се пронајдени
+    product10.addEventListener('click', function () {
+      product10_container.style.display = 'block';
+        document.getElementById('page_mask').style.display = 'block';
+    });
+
+  document.getElementById('page_mask').addEventListener('click', function () {
+    product10_container.style.display = 'none';
+      document.getElementById('page_mask').style.display = 'none';
+  }); 
+
+} else {
+  console.error("Element not found!");
+  }
+});
+
+//Koga ke se klikne na bilo koja umetnicka slika vo kategorijata umetnici sliki da se otvore prozorec
+document.addEventListener('DOMContentLoaded', function () {
+  var product11 = document.getElementById('product11');
+  const product11_container = document.getElementById('product11_container');
+  
+  if (product11 && product11_container) { // Проверка дали елементите се пронајдени
+    product11.addEventListener('click', function () {
+      product11_container.style.display = 'block';
+        document.getElementById('page_mask').style.display = 'block';
+    });
+
+  document.getElementById('page_mask').addEventListener('click', function () {
+    product11_container.style.display = 'none';
+      document.getElementById('page_mask').style.display = 'none';
+  }); 
+
+} else {
+  console.error("Element not found!");
+  }
+});
+
+//Koga ke se klikne na bilo koja umetnicka slika vo kategorijata umetnici sliki da se otvore prozorec
+document.addEventListener('DOMContentLoaded', function () {
+  var product12 = document.getElementById('product12');
+  const product12_container = document.getElementById('product12_container');
+  
+  if (product12 && product12_container) { // Проверка дали елементите се пронајдени
+    product12.addEventListener('click', function () {
+      product12_container.style.display = 'block';
+        document.getElementById('page_mask').style.display = 'block';
+    });
+
+  document.getElementById('page_mask').addEventListener('click', function () {
+    product12_container.style.display = 'none';
+      document.getElementById('page_mask').style.display = 'none';
+  }); 
+
+} else {
+  console.error("Element not found!");
+  }
+});
+

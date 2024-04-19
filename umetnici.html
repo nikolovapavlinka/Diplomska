@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Производи</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+    
+    <div id="page_mask"></div>
+    <div class="desktop_size">
+        <div class="header">
+            <div class="logo" id="logo" onclick="toHome()"><img src="images/logo3.png" alt=""></div>
+
+            <div class="menu">
+                <div class="pages">
+                    <div class="h_link1 page1" onclick="toHome()">Дома</div>
+                    <div class="h_link page" onclick="toAboutUs()">За нас</div>
+                    <div class="h_link page" onclick="toProducts()"
+                    style="color: #f8dfb8;
+                            text-decoration: underline;
+                            font-size: 23px;">Производи</div>
+                    <div class="h_link page" onclick="toArtists()">Уметници</div>
+                    <div class="h_link page" onclick="toOrders()">Нарачки</div>
+                </div>
+
+                <div class="buttons">
+                    <div class="home_btn" id="comments_rating" onclick="toComments()"><img src="icons/review.png" alt=""></div>
+                    <div class="home_btn" id="questions" onclick="toQuestions()"><img src="icons/question.png" alt=""></div>
+                    <div class="home_btn" id="shopping_cart" onclick="toShoppingCart()"><img src="icons/shopping-cart.png" alt=""></div>
+                    <div class="home_btn" id="user_profile"
+                            style="margin-left: 70px; margin-right: 41px; filter: invert(100%);">
+                            <img src="icons/user.png" style="width: 55px;" alt=""></div>
+
+                            <div class="optionsSelect" id="optionsSelect">
+                                <div class="option" onclick="toProfile()">Профил</div>
+                                <div class="option" onclick="toCoverPage()">Одјави се</div>
+                            </div>
+                </div>         
+            </div>
+        </div>
+
+        <div class="optionsSelect">
+            <div class="option">Профил</div>
+            <div class="option">Одјави се</div>
+        </div>
+
+        <div class="artist_page">
+            <div class="artist_section">
+                <div class="info_about_page">
+                    <p>Овде можете да се запознаете со уметниците кои ги имаат изработено артиклите
+                        кои се продаваат на оваа страна. Доколку сакате да знаете нешто повеќе за нив,
+                        со притиснување на нивните слики ќе ви се товори прозорец на кој можете да прочитате
+                        кратка биографија за секој од уметниците. 
+                    </p>
+                    <div class="bottom_line"></div>
+                </div>
+
+                <div class="artists_info">
+                    <div class="artists_red1">
+                        <div class="artist1" id="product1">
+                            <div class="artist1_img"><img src="images/umetnik1.jpg" alt=""></div>
+                            <div class="artist1_name">ПАУЛ РОСЛЕР</div>
+                        </div>
+
+                        <div class="artist1" id="product2">
+                            <div class="artist1_img"><img src="images/umetnik2.jpg" alt=""></div>
+                            <div class="artist1_name">ЕМИЛИ ПОПОВ</div>
+                        </div>
+
+                        <div class="artist1" id="product3">
+                            <div class="artist1_img"><img src="images/umetnik3.jpg" alt=""></div>
+                            <div class="artist1_name">РОСАНА ТОМОВА</div>
+                        </div>
+
+                        <div class="artist1" id="product4">
+                            <div class="artist1_img"><img src="images/umetnik4.jpg" alt=""></div>
+                            <div class="artist1_name">МАРИЈА БАТЕР</div>
+                        </div>
+                    </div>
+
+                    <div class="artists_red1">
+                        <div class="artist1" id="product5">
+                            <div class="artist1_img"><img src="images/umetnik5.jpg" alt=""></div>
+                            <div class="artist1_name">ДАРИО МАРКОВ</div>
+                        </div>
+
+                        <div class="artist1" id="product6">
+                            <div class="artist1_img"><img src="images/umetnik6.jpg" alt=""></div>
+                            <div class="artist1_name">ЈОВАН ТАРОВ</div>
+                        </div>
+
+                        <div class="artist1" id="product7">
+                            <div class="artist1_img"><img src="images/umetnik7.jpg" alt=""></div>
+                            <div class="artist1_name">РОСАНА ТОМОВА</div>
+                        </div>
+
+                        <div class="artist1" id="product8">
+                            <div class="artist1_img"><img src="images/umetnik8.jpg" alt=""></div>
+                            <div class="artist1_name">ЕНА НОВКОВ</div>
+                        </div>
+                    </div>
+
+                    <div class="artists_red1">
+                        <div class="artist1" id="product9">
+                            <div class="artist1_img"><img src="images/umetnik9.jpg" alt=""></div>
+                            <div class="artist1_name">МИА МИЛКОВА</div>
+                        </div>
+
+                        <div class="artist1" id="product10">
+                            <div class="artist1_img"><img src="images/umetnik10.jpg" alt=""></div>
+                            <div class="artist1_name">ПЕТАР ПЕТРОВ</div>
+                        </div>
+
+                        <div class="artist1" id="product11">
+                            <div class="artist1_img"><img src="images/umetnik11.jpg" alt=""></div>
+                            <div class="artist1_name">МИЛА ЈОВАНОВ</div>
+                        </div>
+
+                        <div class="artist1" id="product12">
+                            <div class="artist1_img"><img src="images/umetnik12.jpg" alt=""></div>
+                            <div class="artist1_name">ТАРА ЧАСИЌ</div>
+                        </div>
+                    </div>
+
+                    <div class="product1_container" id="product1_container">
+                        <div class="product1_container_info">
+                            <div class="image_side">
+                                <div class="art_image"><img src="images/umetnik1.jpg" alt=""></div>
+                                <div class="art_name">ПАУЛ РОСЛЕР</div>
+                            </div>
+    
+                            <div class="info_side">
+                                <div class="artist_bio">
+                                    <div class="biography">
+                                        <div class="biography_title">БИОГРАФИЈА</div>
+                                        <div class="biography_text">
+                                            <p></p>
+                                        </div>
+                                    </div>
+
+                                    <div class="artist_contact">
+                                        <div class="artist_contact_title">КОНТАКТ</div>
+                                        <div class="artist_contact_text">
+                                            <p></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product1_container" id="product2_container">
+                        <div class="product1_container_info">
+                            <div class="image_side">
+                                <div class="art_image"><img src="images/umetnik2.jpg" alt=""></div>
+                                <div class="art_name">ЕМИЛИ ПОПОВ</div>
+                            </div>
+    
+                            <div class="info_side">
+                                <div class="artist_bio">
+                                    <div class="biography">
+                                        <div class="biography_title">БИОГРАФИЈА</div>
+                                        <div class="biography_text">
+                                            <p></p>
+                                        </div>
+                                    </div>
+
+                                    <div class="artist_contact">
+                                        <div class="artist_contact_title">КОНТАКТ</div>
+                                        <div class="artist_contact_text">
+                                            <p></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product1_container" id="product3_container">
+                        <div class="product1_container_info">
+                            <div class="image_side">
+                                <div class="art_image"><img src="images/umetnik3.jpg" alt=""></div>
+                                <div class="art_name">РОСАНА ТОМОВА</div>
+                            </div>
+    
+                            <div class="info_side">
+                                <div class="artist_bio">
+                                    <div class="biography">
+                                        <div class="biography_title">БИОГРАФИЈА</div>
+                                        <div class="biography_text">
+                                            <p></p>
+                                        </div>
+                                    </div>
+
+                                    <div class="artist_contact">
+                                        <div class="artist_contact_title">КОНТАКТ</div>
+                                        <div class="artist_contact_text">
+                                            <p></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product1_container" id="product4_container">
+                        <div class="product1_container_info">
+                            <div class="image_side">
+                                <div class="art_image"><img src="images/umetnik4.jpg" alt=""></div>
+                                <div class="art_name">МАРИЈА БАТЕР</div>
+                            </div>
+    
+                            <div class="info_side">
+                                <div class="artist_bio">
+                                    <div class="biography">
+                                        <div class="biography_title">БИОГРАФИЈА</div>
+                                        <div class="biography_text">
+                                            <p></p>
+                                        </div>
+                                    </div>
+
+                                    <div class="artist_contact">
+                                        <div class="artist_contact_title">КОНТАКТ</div>
+                                        <div class="artist_contact_text">
+                                            <p></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product1_container" id="product5_container">
+                        <div class="product1_container_info">
+                            <div class="image_side">
+                                <div class="art_image"><img src="images/umetnik5.jpg" alt=""></div>
+                                <div class="art_name">ДАРИО МАРКОВ</div>
+                            </div>
+    
+                            <div class="info_side">
+                                <div class="artist_bio">
+                                    <div class="biography">
+                                        <div class="biography_title">БИОГРАФИЈА</div>
+                                        <div class="biography_text">
+                                            <p></p>
+                                        </div>
+                                    </div>
+
+                                    <div class="artist_contact">
+                                        <div class="artist_contact_title">КОНТАКТ</div>
+                                        <div class="artist_contact_text">
+                                            <p></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product1_container" id="product6_container">
+                        <div class="product1_container_info">
+                            <div class="image_side">
+                                <div class="art_image"><img src="images/umetnik6.jpg" alt=""></div>
+                                <div class="art_name">ЈОВАН ТАРОВ</div>
+                            </div>
+    
+                            <div class="info_side">
+                                <div class="artist_bio">
+                                    <div class="biography">
+                                        <div class="biography_title">БИОГРАФИЈА</div>
+                                        <div class="biography_text">
+                                            <p></p>
+                                        </div>
+                                    </div>
+
+                                    <div class="artist_contact">
+                                        <div class="artist_contact_title">КОНТАКТ</div>
+                                        <div class="artist_contact_text">
+                                            <p></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product1_container" id="product7_container">
+                        <div class="product1_container_info">
+                            <div class="image_side">
+                                <div class="art_image"><img src="images/umetnik7.jpg" alt=""></div>
+                                <div class="art_name">АНА РАКОВИЌ</div>
+                            </div>
+    
+                            <div class="info_side">
+                                <div class="artist_bio">
+                                    <div class="biography">
+                                        <div class="biography_title">БИОГРАФИЈА</div>
+                                        <div class="biography_text">
+                                            <p></p>
+                                        </div>
+                                    </div>
+
+                                    <div class="artist_contact">
+                                        <div class="artist_contact_title">КОНТАКТ</div>
+                                        <div class="artist_contact_text">
+                                            <p></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product1_container" id="product8_container">
+                        <div class="product1_container_info">
+                            <div class="image_side">
+                                <div class="art_image"><img src="images/umetnik8.jpg" alt=""></div>
+                                <div class="art_name">ЕНА НОВКОВ</div>
+                            </div>
+    
+                            <div class="info_side">
+                                <div class="artist_bio">
+                                    <div class="biography">
+                                        <div class="biography_title">БИОГРАФИЈА</div>
+                                        <div class="biography_text">
+                                            <p></p>
+                                        </div>
+                                    </div>
+
+                                    <div class="artist_contact">
+                                        <div class="artist_contact_title">КОНТАКТ</div>
+                                        <div class="artist_contact_text">
+                                            <p></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product1_container" id="product9_container">
+                        <div class="product1_container_info">
+                            <div class="image_side">
+                                <div class="art_image"><img src="images/umetnik9.jpg" alt=""></div>
+                                <div class="art_name">МИА МИЛКОВА</div>
+                            </div>
+    
+                            <div class="info_side">
+                                <div class="artist_bio">
+                                    <div class="biography">
+                                        <div class="biography_title">БИОГРАФИЈА</div>
+                                        <div class="biography_text">
+                                            <p></p>
+                                        </div>
+                                    </div>
+
+                                    <div class="artist_contact">
+                                        <div class="artist_contact_title">КОНТАКТ</div>
+                                        <div class="artist_contact_text">
+                                            <p></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product1_container" id="product10_container">
+                        <div class="product1_container_info">
+                            <div class="image_side">
+                                <div class="art_image"><img src="images/umetnik10.jpg" alt=""></div>
+                                <div class="art_name">ПЕТАР ПЕТРОВ</div>
+                            </div>
+    
+                            <div class="info_side">
+                                <div class="artist_bio">
+                                    <div class="biography">
+                                        <div class="biography_title">БИОГРАФИЈА</div>
+                                        <div class="biography_text">
+                                            <p></p>
+                                        </div>
+                                    </div>
+
+                                    <div class="artist_contact">
+                                        <div class="artist_contact_title">КОНТАКТ</div>
+                                        <div class="artist_contact_text">
+                                            <p></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product1_container" id="product11_container">
+                        <div class="product1_container_info">
+                            <div class="image_side">
+                                <div class="art_image"><img src="images/umetnik11.jpg" alt=""></div>
+                                <div class="art_name">МИЛА ЈОВАНОВ</div>
+                            </div>
+    
+                            <div class="info_side">
+                                <div class="artist_bio">
+                                    <div class="biography">
+                                        <div class="biography_title">БИОГРАФИЈА</div>
+                                        <div class="biography_text">
+                                            <p></p>
+                                        </div>
+                                    </div>
+
+                                    <div class="artist_contact">
+                                        <div class="artist_contact_title">КОНТАКТ</div>
+                                        <div class="artist_contact_text">
+                                            <p></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product1_container" id="product12_container">
+                        <div class="product1_container_info">
+                            <div class="image_side">
+                                <div class="art_image"><img src="images/umetnik12.jpg" alt=""></div>
+                                <div class="art_name">ТАРА ЧАСИЌ</div>
+                            </div>
+    
+                            <div class="info_side">
+                                <div class="artist_bio">
+                                    <div class="biography">
+                                        <div class="biography_title">БИОГРАФИЈА</div>
+                                        <div class="biography_text">
+                                            <p></p>
+                                        </div>
+                                    </div>
+
+                                    <div class="artist_contact">
+                                        <div class="artist_contact_title">КОНТАКТ</div>
+                                        <div class="artist_contact_text">
+                                            <p></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+<script src="javascript.js"></script>
+<script src="javascript1.js"></script>
+<script src="javascript2.js"></script>
+</body>
+</html>
