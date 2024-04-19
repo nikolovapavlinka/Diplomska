@@ -2066,7 +2066,7 @@ a {
 
 .artist_bio {
     width: 100%;
-    margin-top: 200px;
+    margin-top: 50px;
 }
 
 .biography {
@@ -2080,11 +2080,15 @@ a {
 }
 
 .biography_text {
-
+    width: 100%;
+    text-align: center;
+    opacity: 0.7;
+    font-size: 17px;
+    padding-bottom: 50px;
 }
 
 .artist_contact {
-
+    width: 100%;
 }
 
 .artist_contact_title {
@@ -2094,5 +2098,8 @@ a {
 }
 
 .artist_contact_text {
-
+    width: 100%;
+    text-align: center;
+    opacity: 0.7;
+    font-size: 17px;
 }
