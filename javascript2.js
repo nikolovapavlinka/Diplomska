@@ -1,3 +1,70 @@
+//Stavanje prozivodite vo localStorage, koj user na koj prozivod kliknal na kopceto "Dodadi vo kosnicka"
+var addToCartBtns = document.querySelectorAll(".addcart_btn");
+var userData_Naracki = JSON.parse(localStorage.getItem("Naracki")) || [];
+var storedData_Registracija = JSON.parse(localStorage.getItem("Registracija")) || [];
+
+addToCartBtns.forEach(function(btn) {
+    btn.addEventListener("click", function() {
+        var productContainer = this.closest('.product1_container_info');
+        var productNameElement = productContainer.querySelector('.art_name');
+        var productPriceElement = productContainer.querySelector('.product1_price1 span');
+        var user = storedData_Registracija[storedData_Registracija.length - 1];
+        
+        if (productNameElement && productPriceElement) {
+            var productName = productNameElement.innerText;
+            var productPrice = productPriceElement.innerText;
+
+            var user = { user: user, product_name: productName, product_price: productPrice }; 
+
+            userData_Naracki.push(user); 
+            localStorage.setItem("Naracki", JSON.stringify(userData_Naracki)); 
+        } else {
+            console.error("Could not find product name or price element.");
+        }
+    });
+});
+
+
+document.addEventListener('DOMContentLoaded', function () {
+  // Кодот за читање на последниот регистриран корисник и додавање на неговото име во спан елементот
+  var storedData_Naracki = JSON.parse(localStorage.getItem("Naracki")) || [];
+  var productNameElement = document.getElementById("productName_storage");
+
+  if (storedData_Naracki.length > 0) {
+      var lastProductUser = storedData_Naracki[storedData_Naracki.length - 1];
+      productNameElement.textContent = lastProductUser.product_name;
+
+      console.log('Тука');
+  } else {
+      console.log('Нема зачуван регистриран корисник во localStorage.');
+  }
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+  // Кодот за читање на последниот регистриран корисник и додавање на неговото име во спан елементот
+  var storedData_Naracki = JSON.parse(localStorage.getItem("Naracki")) || [];
+  var productPriceElement = document.getElementById("productPrice_storage");
+
+  if (storedData_Naracki.length > 0) {
+      var lastProductUser = storedData_Naracki[storedData_Naracki.length - 1];
+      productPriceElement.textContent = lastProductUser.product_price;
+
+      console.log('Тука');
+  } else {
+      console.log('Нема зачуван регистриран корисник во localStorage.');
+  }
+});
+
+
+
+
+
+
+
+
+
+
+
 //Koga ke se klikne na bilo koja umetnicka slika vo kategorijata umetnici sliki da se otvore prozorec
 document.addEventListener('DOMContentLoaded', function () {
     var product = document.getElementById('product1');
@@ -253,4 +320,7 @@ document.addEventListener('DOMContentLoaded', function () {
   console.error("Element not found!");
   }
 });
+
+
+
 

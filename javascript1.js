@@ -119,6 +119,8 @@ potvrdiBtn.addEventListener("click", function() {
   localStorage.setItem("Informacii", JSON.stringify(userData_Informacii)); 
 });
 
+
+
 //Imeto od registracijata se dodava na stranata profile.html od levata strana
 document.addEventListener('DOMContentLoaded', function () {
   // Кодот за читање на последниот регистриран корисник и додавање на неговото име во спан елементот

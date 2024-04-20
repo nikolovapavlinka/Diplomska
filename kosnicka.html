@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кошничка</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+    <div id="page_mask"></div>
+    <div class="desktop_size">
+        <div class="header">
+            <div class="logo" id="logo"><img src="images/logo3.png" alt=""></div>
+
+            <div class="menu">
+                <div class="pages">
+                    <div class="h_link1 page1" onclick="toHome()">Дома</div>
+                    <div class="h_link page" onclick="toAboutUs()">За нас</div>
+                    <div class="h_link page" onclick="toProducts()">Производи</div>
+                    <div class="h_link page" onclick="toArtists()">Уметници</div>
+                    <div class="h_link page" onclick="toOrders()">Нарачки</div>
+                </div>
+
+                <div class="buttons">
+                    <div class="home_btn" id="comments_rating" onclick="toComments()"><img src="icons/review.png" alt=""></div>
+                    <div class="home_btn" id="questions" onclick="toQuestions()"><img src="icons/question.png" alt=""></div>
+                    <div class="home_btn" id="shopping_cart" onclick="toShoppingCart()"
+                    style="filter: invert(1);"><img src="icons/shopping-cart.png" alt=""></div>
+                    <div class="home_btn" id="user_profile"
+                            style="margin-left: 70px; margin-right: 41px; filter: invert(100%);">
+                            <img src="icons/user.png" style="width: 55px;" alt=""></div>
+
+                            <div class="optionsSelect" id="optionsSelect">
+                                <div class="option" onclick="toProfile()">Профил</div>
+                                <div class="option" onclick="toCoverPage()">Одјави се</div>
+                            </div>
+                </div>         
+            </div>
+        </div>
+        <div class="optionsSelect">
+            <div class="option">Профил</div>
+            <div class="option">Одјави се</div>
+        </div>
+
+        <div class="section">
+            <div class="kosnicka_info">
+                <ul id="productList">
+                    <!-- Овде ќе се додаваат продуктите -->
+                </ul>
+            </div>
+        </div>
+    </div>
+
+<script src="javascript.js"></script>
+<script src="javascript1.js"></script>
+<script src="javascript2.js"></script>
+<script src="javascript3.js"></script>
+</body>
+</html>
