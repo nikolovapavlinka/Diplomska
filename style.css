@@ -2105,10 +2105,100 @@ a {
 }
 
 .kosnicka_info {
+    width: 80%;
+    margin: 0 auto;
     height: 100vh;
-    padding-top: 200px;
 }
 
-#productList {
-    
+.kosnicka_title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ceac7c;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    padding-top: 30px;
+    box-shadow: 0px 5px 17px 5px #ceac7c;
+}
+
+.kosnicka_title p {
+    font-size: 31px;
+    font-weight: 500;
+    opacity: 0.8;
+}
+
+.kosnicka_title img {
+    width: 50px;
+    opacity: 0.75;
+}
+
+.kosnicka_section {
+
+}
+
+.kosnicka_opis {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding-top: 50px;
+    background: #ceac7c;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    padding-bottom: 65px;
+    box-shadow: 0px 5px 17px 5px #ceac7c;
+}
+
+.name_of_products {
+    width: 30%;
+}
+
+.price_of_products {
+    width: 25%;
+}
+
+.number_of_products {
+    width: 25%;
+}
+
+.remove_product {
+    width: 10%;
+}
+
+.naslov {
+    font-size: 21px;
+    text-align: center;
+    text-decoration: underline;
+    color: #000;
+    opacity: 0.7;
+    font-weight: 600;
+}
+
+#productList_Name {
+    font-size: 17px;
+    text-align:start;
+    width: 100%;
+    margin-left: 29px;
+}
+
+#productList_Name li {
+    list-style: none;
+    padding: 17px 0px;
+    opacity: 0.85;
+}
+
+#productList_Price {
+    font-size: 17px;
+    text-align: center;
+    width: 100%;
+    margin-left: -40px;
+}
+
+#productList_Price li {
+    list-style: none;
+    padding: 17px 0px;
+    opacity: 0.85;
+}
+
+.prazno {
+    padding-top: 200px;
 }

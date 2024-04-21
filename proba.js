@@ -1,85 +1,49 @@
-//Za da moze da se naprave slejd od edna na druga strana - za popup za najava i registracija
-const signUpButton = document.getElementById('signUp');
-const signInButton = document.getElementById('signIn');
-const container = document.getElementById('container');
-
-signUpButton.addEventListener('click', () => {
-	container.classList.add("right-panel-active");
-});
-
-signInButton.addEventListener('click', () => {
-	container.classList.remove("right-panel-active");
-});
-
-
-//Koga ke se klikne na coveceto za najava da se pojave popup-ot
-document.addEventListener('DOMContentLoaded', function () {
-    var loginBtn = document.getElementById('login_btn');
-    const container = document.getElementById('container');
-    
-    loginBtn.addEventListener('click', function () {
-        container.style.display = 'block';
-        document.getElementById('page_mask').style.display = 'block';
-    });
-
-    document.getElementById('page_mask').addEventListener('click', function () {
-        container.style.display = 'none';
-        document.getElementById('page_mask').style.display = 'none';
-    }); 
-});
-
-
-//Zacuvuvanje na podatoci vo localStorage
-// localStorage.clear();
-var najava = document.getElementById('najava');
-var registracija = document.getElementById('registracija');
-var userData_Najava = []; 
-var userData_Registracija = [];
-
-najava.addEventListener("click", function() {
-    var email_najava = document.getElementById('email_najava').value;
-    var password_najava = document.getElementById('password_najava').value;
-    var user = { email: email_najava, password: password_najava }; 
-    userData_Najava.push(user); 
-    localStorage.setItem("Najava", JSON.stringify(userData_Najava)); 
-});
-
-registracija.addEventListener("click", function() {
-    var email = document.getElementById('email').value;
-    var password = document.getElementById('password').value;
-    var user = { email: email, password: password }; 
-    userData_Registracija.push(user); 
-    localStorage.setItem("Registracija", JSON.stringify(userData_Registracija)); 
-});
-
-
-$("#logo").click(function () {
-    $("html,body").animate(
-      {
-        scrollTop: 0,
-      },
-      "slow"
-    );
+// Клик на копчето "Додади во кошничка"
+document.addEventListener("DOMContentLoaded", function() {
+  var addToCartBtns = document.querySelectorAll(".addcart_btn");
+  addToCartBtns.forEach(function(addToCartBtn) {
+      addToCartBtn.addEventListener("click", function() {
+          var productName = this.parentNode.parentNode.parentNode.querySelector('.art_name').textContent;
+          var productPrice = this.parentNode.parentNode.querySelector('.product1_price1 span').textContent;
+          addToCart(productName, productPrice, productImg);
+          window.location.href = "kosnicka.html"; // Префрлете на страницата за кошничка
+      });
   });
 
-$("#zanas").click(function () {
-    $("html,body").animate(
-      {
-        scrollTop: $(".about_section").offset().top,
-      },
-      "slow"
-    );
+  // Зачувајте информации во localStorage
+  function addToCart(productName, productPrice) {
+      var cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+      var storedData_Registracija = JSON.parse(localStorage.getItem("Registracija")) || [];
+      var user = storedData_Registracija[storedData_Registracija.length - 1];
+      cartItems.push({productName: productName, productPrice: productPrice, user: user});
+      localStorage.setItem("cartItems", JSON.stringify(cartItems));
+  }
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+  displayCart(); // Прикажете ги производите во кошничката при вчитување на страницата
+
+  function displayCart() {
+      var cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+      var productList_Name = document.getElementById("productList_Name");
+      var productList_Price = document.getElementById("productList_Price");
+      cartItems.forEach(function(item) {
+          var listItem_Name = document.createElement("li");
+          var listItem_Price = document.createElement("li");
+          listItem_Name.textContent = item.productName;
+          productList_Name.appendChild(listItem_Name);
+          listItem_Price.textContent = item.productPrice;
+          productList_Price.appendChild(listItem_Price);
+      });
+  }
+});
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  var logoutBtn = document.querySelector(".option:last-child"); // Селектор за последното копче "Одјави се"
+  logoutBtn.addEventListener("click", function() {
+      var cartItems = JSON.parse(localStorage.getItem("cartItems"));
+      cartItems = [];
+      localStorage.setItem("cartItems", JSON.stringify(cartItems));
   });
-
-
-$("#toservices").click(function () {
-    $("html,body").animate(
-      {
-        scrollTop: $(".services_section").offset().top,
-      },
-      "slow"
-    );
-  });
-
-
-
+});
