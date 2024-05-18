@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Коментари и оценки</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+    <div id="page_mask"></div>
+    <div class="desktop_size">
+        <div class="header">
+            <div class="logo" id="logo" onclick="toHome()"><img src="images/logo3.png" alt=""></div>
+
+            <div class="menu">
+                <div class="pages">
+                    <div class="h_link1 page1" onclick="toHome()">Дома</div>
+                    <div class="h_link page" onclick="toAboutUs()">За нас</div>
+                    <div class="h_link page" onclick="toProducts()">Производи</div>
+                    <div class="h_link page" onclick="toArtists()">Уметници</div>
+                    <div class="h_link page" onclick="toOrders()">Нарачки</div>
+                </div>
+
+                <div class="buttons">
+                    <div class="home_btn" id="comments_rating" onclick="toComments()"
+                    style="filter: invert(1);"><img src="icons/review.png" alt=""></div>
+                    <div class="home_btn" id="questions" onclick="toQuestions()"><img src="icons/question.png" alt=""></div>
+                    <div class="home_btn" id="shopping_cart" onclick="toShoppingCart()"><img src="icons/shopping-cart.png" alt=""></div>
+                    <div class="home_btn" id="user_profile"
+                            style="margin-left: 70px; margin-right: 41px; filter: invert(100%);">
+                            <img src="icons/user.png" style="width: 55px;" alt=""></div>
+
+                            <div class="optionsSelect" id="optionsSelect">
+                                <div class="option" onclick="toProfile()">Профил</div>
+                                <div class="option" onclick="toCoverPage()">Одјави се</div>
+                            </div>
+                </div>         
+            </div>
+        </div>
+
+        <div class="optionsSelect">
+            <div class="option">Профил</div>
+            <div class="option">Одјави се</div>
+        </div>
+
+    </div>
+
+    <div class="section">
+        
+            <div class="comment_info">
+
+                <div class="prazno_comments"></div>
+
+                    <div class="comment_title">
+                        <p>КОМЕНТАРИ, МИСЛЕЊА И ОЦЕНКИ</p>
+                        <img src="icons/comments.png" alt="">
+                    </div>
+
+                    <div class="comment_section">
+
+                        <div class="comment_categories">
+
+                            <div class="comment_category" onclick="showRoles1()">
+                                <img src="icons/paint.png" alt="">
+                                <p>УМЕТНИЧКИ СЛИКИ</p>
+                            </div>
+
+                                <div class="comments_products1">
+                                    <div class="item" onclick="showCategory1()">
+                                        <img src="images/umetnicka_slika1.jpg" alt="">
+                                        <p>МОРСКА ПРЕГРАТКА</p>
+                                    </div>
+
+                                    <div class="item" onclick="showCategory2()">
+                                        <img src="images/umetnicka_slika2.jpg" alt="">
+                                        <p>ЉУБОВ КОН СЕБЕ</p>
+                                    </div>
+
+                                    <div class="item" onclick="showCategory3()">
+                                        <img src="images/umetnicka_slika3.jpg" alt="">
+                                        <p>НОСТАЛГИЈА</p>
+                                    </div>
+
+                                    <div class="item" onclick="showCategory4()">
+                                        <img src="images/umetnicka_slika4.jpg" alt="">
+                                        <p>ЖЕНСКА ГРАЦИОЗНОСТ</p>
+                                    </div>
+
+                                    <div class="item" onclick="showCategory5()">
+                                        <img src="images/umetnicka_slika5.jpg" alt="">
+                                        <p>ЦВЕТНА УБАВИНА</p>
+                                    </div>
+
+                                    <div class="item" onclick="showCategory6()">
+                                        <img src="images/umetnicka_slika6.jpg" alt="">
+                                        <p>НЕБЕСКА СИМФОНИЈА</p>
+                                    </div>
+
+                                    <div class="item" onclick="showCategory7()">
+                                        <img src="images/proizvod1.png" alt="">
+                                        <p>БОЕН ПОРТРЕТ</p>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="comment_category" onclick="showRoles2()">
+                                    <img src="icons/sculpture.png" alt="">
+                                    <p>СКУЛПТУРИ</p>
+                                </div>
+
+                                <div class="comments_products2">
+                                    <div class="item" onclick="showCategory8()">
+                                        <img src="images/skulpturi1.jpg" alt="">
+                                        <p>ЖЕНСКА ГОРДОСТ</p>
+                                    </div>
+
+                                    <div class="item" onclick="showCategory9()">
+                                        <img src="images/skulpturi2.jpg" alt="">
+                                        <p>КОРАЛ</p>
+                                    </div>
+
+                                    <div class="item" onclick="showCategory10()">
+                                        <img src="images/skulpturi3.jpg" alt="">
+                                        <p>ШПАНСКА УБАВИЦА</p>
+                                    </div>
+
+                                    <div class="item" onclick="showCategory11()">
+                                        <img src="images/skulpturi4.jpg" alt="">
+                                        <p>ЕМОЦИИИ</p>
+                                    </div>
+
+                                    <div class="item" onclick="showCategory12()">
+                                        <img src="images/proizvod2.png" alt="">
+                                        <p>ЕДНОСТАВЕН ДОПИР</p>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="comment_category" onclick="showRoles3()">
+                                    <img src="icons/hand-made.png" alt="">
+                                    <p>РАЧНО ИЗРАБОТЕНИ ПРЕДМЕТИ</p>
+                                </div>
+
+                                <div class="comments_products3">
+                                    <div class="item" onclick="showCategory13()">
+                                        <img src="images/proizvod3.png" alt="">
+                                        <p>ФИЛЏАНИ</p>
+                                    </div>
+
+                                    <div class="item" onclick="showCategory14()">
+                                        <img src="images/racno_izraboteni1.jpg" alt="">
+                                        <p>УКРАСНИ ЧИНИИ</p>
+                                    </div>
+
+                                    <div class="item" onclick="showCategory15()">
+                                        <img src="images/racno_izraboteni2.jpg" alt="">
+                                        <p>ТАШНИЧКА ЗА СЛУШАЛКИ</p>
+                                    </div>
+
+                                    <div class="item" onclick="showCategory16()">
+                                        <img src="images/racno_izraboteni3.jpg" alt="">
+                                        <p>УКРАСНИ КУТИИ ЗА ПОКЛОН</p>
+                                    </div>
+
+                                    <div class="item" onclick="showCategory17()">
+                                        <img src="images/racno_izraboteni4.jpg" alt="">
+                                        <p>ДЕКОРАТИВНО ШИШЕ ЗА ВИНО</p>
+                                    </div>
+
+                                    <div class="item" onclick="showCategory18()">
+                                        <img src="images/racno_izraboteni5.jpg" alt="">
+                                        <p>БУКЕТ ДЕКОРАТИВНИ ЦВЕТОВИ</p>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="comment_category" onclick="showRoles4()">
+                                    <img src="icons/jewellery.png" alt="">
+                                    <p>УНИКАТЕН НАКИТ</p>
+                                </div>
+
+                                <div class="comments_products4">
+                                    <div class="item" onclick="showCategory19()">
+                                        <img src="images/nakit1.jpg" alt="">
+                                        <p>СЛАТКА ЉУБОВ</p>
+                                    </div>
+
+                                    <div class="item" onclick="showCategory20()">
+                                        <img src="images/nakit2.jpg" alt="">
+                                        <p>ЦРЕША</p>
+                                    </div>
+
+                                    <div class="item" onclick="showCategory21()">
+                                        <img src="images/nakit3.jpg" alt="">
+                                        <p>ЦВЕТЕНА МЕСЕЧИНА</p>
+                                    </div>
+
+                                    <div class="item" onclick="showCategory22()">
+                                        <img src="images/nakit4.jpg" alt="">
+                                        <p>МУЗИЧКИ ПРСТЕН</p>
+                                    </div>
+
+                                    <div class="item" onclick="showCategory23()">
+                                        <img src="images/proizvod4.png" alt="">
+                                        <p>СЕНКА</p>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="comment_category" onclick="showRoles5()">
+                                    <img src="icons/lamp.png" alt="">
+                                    <p>ДЕКОРАЦИИ</p>
+                                </div>
+
+                                <div class="comments_products5">
+                                    <div class="item" onclick="showCategory24()">
+                                        <img src="images/dekoracii1.jpg" alt="">
+                                        <p>ФАЌАЧ НА СОНИШТА</p>
+                                    </div>
+
+                                    <div class="item" onclick="showCategory25()">
+                                        <img src="images/dekoracii2.jpg" alt="">
+                                        <p>СВЕЌА ШИШАРКА</p>
+                                    </div>
+
+                                    <div class="item" onclick="showCategory26()">
+                                        <img src="images/dekoracii3.jpg" alt="">
+                                        <p>СПОМЕНИ</p>
+                                    </div>
+
+                                    <div class="item" onclick="showCategory27()">
+                                        <img src="images/dekoracii4.jpg" alt="">
+                                        <p>ЦВЕТНА ДЕКОРАЦИЈА</p>
+                                    </div>
+
+                                    <div class="item" onclick="showCategory28()">
+                                        <img src="images/proizvod5.png" alt="">
+                                        <p>НОВОГОДИШНИ ЕЛКИ</p>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="comment_category" onclick="showRoles6()">
+                                    <img src="icons/lamp.png" alt="">
+                                    <p>ПРЕДМЕТИ ИЗРАБОТЕНИ ОД ДРВО</p>
+                                </div>
+
+                                <div class="comments_products6">
+                                    <div class="item" onclick="showCategory29()">
+                                        <img src="images/predmeti_drvo1.jpg" alt="">
+                                        <p>СТАЛАЖА СО ФИОКИ</p>
+                                    </div>
+
+                                    <div class="item" onclick="showCategory30()">
+                                        <img src="images/predmeti_drvo2.jpg" alt="">
+                                        <p>ДРВЕНА РАМКА ЗА СЛИКИ</p>
+                                    </div>
+
+                                    <div class="item" onclick="showCategory31()">
+                                        <img src="images/predmeti_drvo3.jpg" alt="">
+                                        <p>ПОЛИЦИ ЗА УКРАСИ</p>
+                                    </div>
+                                </div>
+                        </div>
+
+                        
+                        <div class="all_comments">
+                            <div class="all_comments_title"><p>Отворен разговор</p></div>
+                            <div class="line"></div>
+
+                                <div class="ostavi_komentar">
+                                    <div class="komentar_slika1"><img src="icons/user_white.png" alt=""></div>
+                                    <div class="komentar_profil1">
+                                        <span id="najaven_korisnik"></span><br>
+                                        <input type="text" id="komentar" placeholder="Напиши коментар..." required aria-label="label">
+                                    </div>
+                                    <input type="number" id="ocenka" min="1" max="5" placeholder="Оценка" required aria-label="label"><br>
+                                    <button id="add_comment">Додади коментар</button>
+                                </div>
+                                
+                                <div class="line"></div>
+     
+                                <div class="site_komentari">
+
+                                    <div class="komentar">
+                                        <div class="komentar_slika"><img src="icons/user_white.png" alt=""></div>
+
+                                        <div class="komentar_profil">
+                                            <div class="korisnik">Marko</div>
+                                            <div class="korisnik_komentar">Многу ми се допаѓа страната!</div>
+                                        </div>
+
+                                        <div class="komentar_ocenka">
+                                            <div class="ocenka_naslov">Оценка:<br> 5</div>
+                                        </div>
+                                    </div>
+                                    <div class="line"></div>
+
+                                    <div class="komentar">
+                                        <div class="komentar_slika"><img src="icons/user_white.png" alt=""></div>
+
+                                        <div class="komentar_profil">
+                                            <div class="korisnik">Stefanija</div>
+                                            <div class="korisnik_komentar">Zadovolna sum od prozivodite i cenite!</div>
+                                        </div>
+
+                                        <div class="komentar_ocenka">
+                                            <div class="ocenka_naslov">Оценка:<br> 5</div>
+                                        </div>
+                                    </div>
+                                    <div class="line"></div>
+
+                                    <div class="komentar">
+                                        <div class="komentar_slika"><img src="icons/user_white.png" alt=""></div>
+
+                                        <div class="komentar_profil">
+                                            <div class="korisnik">Tara</div>
+                                            <div class="korisnik_komentar">Super prozivodi, dobra organizacija na samata strana.</div>
+                                        </div>
+
+                                        <div class="komentar_ocenka">
+                                            <div class="ocenka_naslov">Оценка:<br> 5</div>
+                                        </div>
+                                    </div>
+                                    <div class="line"></div>
+
+                                    <div class="komentar">
+                                        <div class="komentar_slika"><img src="icons/user_white.png" alt=""></div>
+
+                                        <div class="komentar_profil">
+                                            <div class="korisnik">Tomislav</div>
+                                            <div class="korisnik_komentar">Ми се допаѓа! </div>
+                                        </div>
+
+                                        <div class="komentar_ocenka">
+                                            <div class="ocenka_naslov">Оценка:<br>4</div>
+                                        </div>
+                                    </div>
+                                    <div class="line"></div>
+
+                                    <div class="komentar">
+                                        <div class="komentar_slika"><img src="icons/user_white.png" alt=""></div>
+
+                                        <div class="komentar_profil">
+                                            <div class="korisnik">Angel</div>
+                                            <div class="korisnik_komentar">Mozda nekoi raboti treba da se promenat.</div>
+                                        </div>
+
+                                        <div class="komentar_ocenka">
+                                            <div class="ocenka_naslov">Оценка:<br>3</div>
+                                        </div>
+                                    </div>
+                                    <div class="line"></div>
+                                    
+                                </div>
+
+                                <div class="all_comments_title1"><p>Уметнички слики - МОРСКА ПРЕГРАТКА</p></div>
+                                <div class="site_komentari1">
+
+                                    <div class="komentar">
+                                        <div class="komentar_slika"><img src="icons/user_white.png" alt=""></div>
+
+                                        <div class="komentar_profil">
+                                            <div class="korisnik">Zarko</div>
+                                            <div class="korisnik_komentar">Slikata e prekrasna!</div>
+                                        </div>
+
+                                        <div class="komentar_ocenka">
+                                            <div class="ocenka_naslov">Оценка:<br> 5</div>
+                                        </div>
+                                    </div>
+                                    <div class="line"></div>
+
+                                    <div class="komentar">
+                                        <div class="komentar_slika"><img src="icons/user_white.png" alt=""></div>
+
+                                        <div class="komentar_profil">
+                                            <div class="korisnik">Marija</div>
+                                            <div class="korisnik_komentar">Bravo za slikata i umetnikot!</div>
+                                        </div>
+
+                                        <div class="komentar_ocenka">
+                                            <div class="ocenka_naslov">Оценка:<br> 5</div>
+                                        </div>
+                                    </div>
+                                    <div class="line"></div>
+
+                                    <div class="komentar">
+                                        <div class="komentar_slika"><img src="icons/user_white.png" alt=""></div>
+
+                                        <div class="komentar_profil">
+                                            <div class="korisnik">Vlado</div>
+                                            <div class="korisnik_komentar">Mi se dopagja!</div>
+                                        </div>
+
+                                        <div class="komentar_ocenka">
+                                            <div class="ocenka_naslov">Оценка:<br> 5</div>
+                                        </div>
+                                    </div>
+                                    <div class="line"></div>
+                                </div>
+
+
+                                <div class="all_comments_title2"><p>Уметнички слики - ЉУБОВ КОН СЕБЕ</p></div>
+                                <div class="site_komentari2">
+
+                                    <div class="komentar">
+                                        <div class="komentar_slika"><img src="icons/user_white.png" alt=""></div>
+
+                                        <div class="komentar_profil">
+                                            <div class="korisnik">Adis</div>
+                                            <div class="korisnik_komentar">Slikata e vrv!</div>
+                                        </div>
+
+                                        <div class="komentar_ocenka">
+                                            <div class="ocenka_naslov">Оценка:<br> 5</div>
+                                        </div>
+                                    </div>
+                                    <div class="line"></div>
+                                </div>
+
+
+                                <div class="all_comments_title3"><p>Уметнички слики - НОСТАЛГИЈА</p></div>
+                                <div class="site_komentari3">
+
+                                    <div class="komentar">
+                                        <div class="komentar_slika"><img src="icons/user_white.png" alt=""></div>
+
+                                        <div class="komentar_profil">
+                                            <div class="korisnik">Emilija</div>
+                                            <div class="korisnik_komentar">Odlichno se vklopuva vo sekoj prostor.</div>
+                                        </div>
+
+                                        <div class="komentar_ocenka">
+                                            <div class="ocenka_naslov">Оценка:<br> 5</div>
+                                        </div>
+                                    </div>
+                                    <div class="line"></div>
+                                </div>
+
+
+                                <div class="all_comments_title4"><p>Уметнички слики - ЖЕНСКА ГРАЦИОЗНОСТ</p></div>
+                                <div class="site_komentari4">
+
+                                    <div class="komentar">
+                                        <div class="komentar_slika"><img src="icons/user_white.png" alt=""></div>
+
+                                        <div class="komentar_profil">
+                                            <div class="korisnik">Goran</div>
+                                            <div class="korisnik_komentar">Одлична изработка, одличен поклон за било која пригода!</div>
+                                        </div>
+
+                                        <div class="komentar_ocenka">
+                                            <div class="ocenka_naslov">Оценка:<br> 5</div>
+                                        </div>
+                                    </div>
+                                    <div class="line"></div>
+                                </div>
+
+
+                                <div class="all_comments_title5"><p>Уметнички слики - ЦВЕТНА УБАВИНА</p></div>
+                                <div class="site_komentari5">
+
+                                    <div class="komentar">
+                                        <div class="komentar_slika"><img src="icons/user_white.png" alt=""></div>
+
+                                        <div class="komentar_profil">
+                                            <div class="korisnik">Marijana</div>
+                                            <div class="korisnik_komentar">Одлична!</div>
+                                        </div>
+
+                                        <div class="komentar_ocenka">
+                                            <div class="ocenka_naslov">Оценка:<br> 5</div>
+                                        </div>
+                                    </div>
+                                    <div class="line"></div>
+                                </div>
+
+
+                                <div class="all_comments_title6"><p>Уметнички слики - НЕБЕСКА СИМФОНИЈА</p></div>
+                                <div class="site_komentari6">
+
+                                    <div class="komentar">
+                                        <div class="komentar_slika"><img src="icons/user_white.png" alt=""></div>
+
+                                        <div class="komentar_profil">
+                                            <div class="korisnik">Rabija</div>
+                                            <div class="korisnik_komentar">Najubaviot poklon koj sum go dobila!</div>
+                                        </div>
+
+                                        <div class="komentar_ocenka">
+                                            <div class="ocenka_naslov">Оценка:<br> 5</div>
+                                        </div>
+                                    </div>
+                                    <div class="line"></div>
+                                </div>
+
+
+                                <div class="all_comments_title7"><p>Уметнички слики - БОЕН ПОРТРЕТ</p></div>
+                                <div class="site_komentari7">
+
+                                    <div class="komentar">
+                                        <div class="komentar_slika"><img src="icons/user_white.png" alt=""></div>
+
+                                        <div class="komentar_profil">
+                                            <div class="korisnik">Jana</div>
+                                            <div class="korisnik_komentar">Одлична!</div>
+                                        </div>
+
+                                        <div class="komentar_ocenka">
+                                            <div class="ocenka_naslov">Оценка:<br> 5</div>
+                                        </div>
+                                    </div>
+                                    <div class="line"></div>
+                                </div>
+
+
+                                <div class="all_comments_title8"><p>Скулптури - ЖЕНСКА ГОРДОСТ</p></div>
+                                <div class="site_komentari8">
+
+                                    <div class="komentar">
+                                        <div class="komentar_slika"><img src="icons/user_white.png" alt=""></div>
+
+                                        <div class="komentar_profil">
+                                            <div class="korisnik">Tihomir</div>
+                                            <div class="korisnik_komentar">Odlichna izrabotka!</div>
+                                        </div>
+
+                                        <div class="komentar_ocenka">
+                                            <div class="ocenka_naslov">Оценка:<br> 5</div>
+                                        </div>
+                                    </div>
+                                    <div class="line"></div>
+                                </div>
+
+
+                                <div class="all_comments_title9"><p>Скулптури - КОРАЛ</p></div>
+                                <div class="site_komentari9">
+
+                                    <div class="komentar">
+                                        <div class="komentar_slika"><img src="icons/user_white.png" alt=""></div>
+
+                                        <div class="komentar_profil">
+                                            <div class="korisnik">Marina</div>
+                                            <div class="korisnik_komentar">Прекрасно!</div>
+                                        </div>
+
+                                        <div class="komentar_ocenka">
+                                            <div class="ocenka_naslov">Оценка:<br> 5</div>
+                                        </div>
+                                    </div>
+                                    <div class="line"></div>
+                                </div>
+
+
+                                <div class="all_comments_title10"><p>Скулптури - ШПАНСКА УБАВИЦА</p></div>
+                                <div class="site_komentari10">
+
+                                    <div class="komentar">
+                                        <div class="komentar_slika"><img src="icons/user_white.png" alt=""></div>
+
+                                        <div class="komentar_profil">
+                                            <div class="korisnik">James</div>
+                                            <div class="korisnik_komentar">Amazing!</div>
+                                        </div>
+
+                                        <div class="komentar_ocenka">
+                                            <div class="ocenka_naslov">Оценка:<br> 5</div>
+                                        </div>
+                                    </div>
+                                    <div class="line"></div>
+                                </div>
+
+
+                                <div class="all_comments_title11"><p>Скулптури - ЕМОЦИИИ</p></div>
+                                <div class="site_komentari11">
+
+                                    <div class="komentar">
+                                        <div class="komentar_slika"><img src="icons/user_white.png" alt=""></div>
+
+                                        <div class="komentar_profil">
+                                            <div class="korisnik">Jovana</div>
+                                            <div class="korisnik_komentar">Najdobra skulptura koja sam ja videla!</div>
+                                        </div>
+
+                                        <div class="komentar_ocenka">
+                                            <div class="ocenka_naslov">Оценка:<br> 5</div>
+                                        </div>
+                                    </div>
+                                    <div class="line"></div>
+                                </div>
+
+
+                                <div class="all_comments_title12"><p>Скулптури - ЕДНОСТАВЕН ДОПИР</p></div>
+                                <div class="site_komentari12">
+
+                                    <div class="komentar">
+                                        <div class="komentar_slika"><img src="icons/user_white.png" alt=""></div>
+
+                                        <div class="komentar_profil">
+                                            <div class="korisnik">Marko</div>
+                                            <div class="korisnik_komentar">skulptura koja izrazura emocii.</div>
+                                        </div>
+
+                                        <div class="komentar_ocenka">
+                                            <div class="ocenka_naslov">Оценка:<br> 5</div>
+                                        </div>
+                                    </div>
+                                    <div class="line"></div>
+                                </div>
+
+                                <div class="all_comments_title13"><p>Рачно изработени предмети - ФИЛЏАНИ</p></div>
+                                <div class="site_komentari13">
+
+                                    <div class="komentar">
+                                        <div class="komentar_slika"><img src="icons/user_white.png" alt=""></div>
+
+                                        <div class="komentar_profil">
+                                            <div class="korisnik">Sofija</div>
+                                            <div class="korisnik_komentar">Прекрасни се и одлично се вклопуваат во секој амбиент!</div>
+                                        </div>
+
+                                        <div class="komentar_ocenka">
+                                            <div class="ocenka_naslov">Оценка:<br> 5</div>
+                                        </div>
+                                    </div>
+                                    <div class="line"></div>
+                                </div>
+
+                                <div class="all_comments_title14"><p>Рачно изработени предмети - УКРАСНИ ЧИНИИ</p></div>
+                                <div class="site_komentari14">
+
+                                    <div class="komentar">
+                                        <div class="komentar_slika"><img src="icons/user_white.png" alt=""></div>
+
+                                        <div class="komentar_profil">
+                                            <div class="korisnik">Darija</div>
+                                            <div class="korisnik_komentar">Super se za dekoracija na masa i korisni!</div>
+                                        </div>
+
+                                        <div class="komentar_ocenka">
+                                            <div class="ocenka_naslov">Оценка:<br> 5</div>
+                                        </div>
+                                    </div>
+                                    <div class="line"></div>
+                                </div>
+
+                                <div class="all_comments_title15"><p>Рачно изработени предмети - ТАШНИЧКА ЗА СЛУШАЛКИ</p></div>
+                                <div class="site_komentari15">
+
+                                    <div class="komentar">
+                                        <div class="komentar_slika"><img src="icons/user_white.png" alt=""></div>
+
+                                        <div class="komentar_profil">
+                                            <div class="korisnik">Mario</div>
+                                            <div class="korisnik_komentar">Odlicna idea, odlicna zastita na slusalkite.</div>
+                                        </div>
+
+                                        <div class="komentar_ocenka">
+                                            <div class="ocenka_naslov">Оценка:<br> 5</div>
+                                        </div>
+                                    </div>
+                                    <div class="line"></div>
+                                </div>
+
+                                <div class="all_comments_title16"><p>Рачно изработени предмети - УКРАСНИ КУТИИ ЗА ПОКЛОН</p></div>
+                                <div class="site_komentari16">
+
+                                    <div class="komentar">
+                                        <div class="komentar_slika"><img src="icons/user_white.png" alt=""></div>
+
+                                        <div class="komentar_profil">
+                                            <div class="korisnik">Dario</div>
+                                            <div class="korisnik_komentar">Sekogas potrebni, odlicni se!</div>
+                                        </div>
+
+                                        <div class="komentar_ocenka">
+                                            <div class="ocenka_naslov">Оценка:<br> 5</div>
+                                        </div>
+                                    </div>
+                                    <div class="line"></div>
+                                </div>
+
+                                <div class="all_comments_title17"><p>Рачно изработени предмети - УКРАСНИ КУТИИ ЗА ПОКЛОН</p></div>
+                                <div class="site_komentari17">
+
+                                    <div class="komentar">
+                                        <div class="komentar_slika"><img src="icons/user_white.png" alt=""></div>
+
+                                        <div class="komentar_profil">
+                                            <div class="korisnik">Dario</div>
+                                            <div class="korisnik_komentar">Odlicni se!</div>
+                                        </div>
+
+                                        <div class="komentar_ocenka">
+                                            <div class="ocenka_naslov">Оценка:<br> 5</div>
+                                        </div>
+                                    </div>
+                                    <div class="line"></div>
+                                </div>
+
+                                <div class="all_comments_title18"><p>Рачно изработени предмети - БУКЕТ ДЕКОРАТИВНИ ЦВЕТОВИ</p></div>
+                                <div class="site_komentari18">
+
+                                    <div class="komentar">
+                                        <div class="komentar_slika"><img src="icons/user_white.png" alt=""></div>
+
+                                        <div class="komentar_profil">
+                                            <div class="korisnik"></div>
+                                            <div class="korisnik_komentar"></div>
+                                        </div>
+
+                                        <div class="komentar_ocenka">
+                                            <div class="ocenka_naslov">Оценка:<br> 5</div>
+                                        </div>
+                                    </div>
+                                    <div class="line"></div>
+                                </div>
+
+                                <div class="all_comments_title19"><p>Уникатен накит - СЛАТКА ЉУБОВ</p></div>
+                                <div class="site_komentari19">
+
+                                    <div class="komentar">
+                                        <div class="komentar_slika"><img src="icons/user_white.png" alt=""></div>
+
+                                        <div class="komentar_profil">
+                                            <div class="korisnik">Анастасија</div>
+                                            <div class="korisnik_komentar">Прекрасни сее, многу слатки и одлично стоат!</div>
+                                        </div>
+
+                                        <div class="komentar_ocenka">
+                                            <div class="ocenka_naslov">Оценка:<br> 5</div>
+                                        </div>
+                                    </div>
+                                    <div class="line"></div>
+                                </div>
+
+                                <div class="all_comments_title20"><p>Уникатен накит - ЦРЕША</p></div>
+                                <div class="site_komentari20">
+
+                                    <div class="komentar">
+                                        <div class="komentar_slika"><img src="icons/user_white.png" alt=""></div>
+
+                                        <div class="komentar_profil">
+                                            <div class="korisnik">Дајана</div>
+                                            <div class="korisnik_komentar">Обожавам уникатен накит, ова ми е омилено!</div>
+                                        </div>
+
+                                        <div class="komentar_ocenka">
+                                            <div class="ocenka_naslov">Оценка:<br> 5</div>
+                                        </div>
+                                    </div>
+                                    <div class="line"></div>
+                                </div>
+
+                                <div class="all_comments_title21"><p>Уникатен накит - ЦВЕТЕНА МЕСЕЧИНА</p></div>
+                                <div class="site_komentari21">
+
+                                    <div class="komentar">
+                                        <div class="komentar_slika"><img src="icons/user_white.png" alt=""></div>
+
+                                        <div class="komentar_profil">
+                                            <div class="korisnik"></div>
+                                            <div class="korisnik_komentar"></div>
+                                        </div>
+
+                                        <div class="komentar_ocenka">
+                                            <div class="ocenka_naslov">Оценка:<br> 5</div>
+                                        </div>
+                                    </div>
+                                    <div class="line"></div>
+                                </div>
+                        
+                                <div class="all_comments_title22"><p>Уникатен накит - МУЗИЧКИ ПРСТЕН</p></div>
+                                <div class="site_komentari22">
+
+                                    <div class="komentar">
+                                        <div class="komentar_slika"><img src="icons/user_white.png" alt=""></div>
+
+                                        <div class="komentar_profil">
+                                            <div class="korisnik">Janko</div>
+                                            <div class="korisnik_komentar">Jas go zemav za poklon za mojata sopruga, bese voodusevena.</div>
+                                        </div>
+
+                                        <div class="komentar_ocenka">
+                                            <div class="ocenka_naslov">Оценка:<br> 5</div>
+                                        </div>
+                                    </div>
+                                    <div class="line"></div>
+                                </div>
+
+                                <div class="all_comments_title23"><p>Уникатен накит - СЕНКА</p></div>
+                                <div class="site_komentari23">
+
+                                    <div class="komentar">
+                                        <div class="komentar_slika"><img src="icons/user_white.png" alt=""></div>
+
+                                        <div class="komentar_profil">
+                                            <div class="korisnik"></div>
+                                            <div class="korisnik_komentar"></div>
+                                        </div>
+
+                                        <div class="komentar_ocenka">
+                                            <div class="ocenka_naslov">Оценка:<br> 5</div>
+                                        </div>
+                                    </div>
+                                    <div class="line"></div>
+                                </div>
+
+                                <div class="all_comments_title24"><p>Декорации - ФАЌАЧ НА СОНИШТА</p></div>
+                                <div class="site_komentari24">
+
+                                    <div class="komentar">
+                                        <div class="komentar_slika"><img src="icons/user_white.png" alt=""></div>
+
+                                        <div class="komentar_profil">
+                                            <div class="korisnik">Роберт</div>
+                                            <div class="korisnik_komentar">Одличен декоративен детал за во соба.</div>
+                                        </div>
+
+                                        <div class="komentar_ocenka">
+                                            <div class="ocenka_naslov">Оценка:<br> 5</div>
+                                        </div>
+                                    </div>
+                                    <div class="line"></div>
+                                </div>
+
+                                <div class="all_comments_title25"><p>Декорации - СВЕЌА ШИШАРКА</p></div>
+                                <div class="site_komentari25">
+
+                                    <div class="komentar">
+                                        <div class="komentar_slika"><img src="icons/user_white.png" alt=""></div>
+
+                                        <div class="komentar_profil">
+                                            <div class="korisnik">Роберта</div>
+                                            <div class="korisnik_komentar">Одличен декоративен детал.</div>
+                                        </div>
+
+                                        <div class="komentar_ocenka">
+                                            <div class="ocenka_naslov">Оценка:<br> 5</div>
+                                        </div>
+                                    </div>
+                                    <div class="line"></div>
+                                </div>
+
+                                <div class="all_comments_title26"><p>Декорации - СПОМЕНИ</p></div>
+                                <div class="site_komentari26">
+
+                                    <div class="komentar">
+                                        <div class="komentar_slika"><img src="icons/user_white.png" alt=""></div>
+
+                                        <div class="komentar_profil">
+                                            <div class="korisnik"></div>
+                                            <div class="korisnik_komentar"></div>
+                                        </div>
+
+                                        <div class="komentar_ocenka">
+                                            <div class="ocenka_naslov">Оценка:<br> 5</div>
+                                        </div>
+                                    </div>
+                                    <div class="line"></div>
+                                </div>
+
+                                <div class="all_comments_title27"><p>Декорации - ЦВЕТНА ДЕКОРАЦИЈА</p></div>
+                                <div class="site_komentari27">
+
+                                    <div class="komentar">
+                                        <div class="komentar_slika"><img src="icons/user_white.png" alt=""></div>
+
+                                        <div class="komentar_profil">
+                                            <div class="korisnik"></div>
+                                            <div class="korisnik_komentar"></div>
+                                        </div>
+
+                                        <div class="komentar_ocenka">
+                                            <div class="ocenka_naslov">Оценка:<br> 5</div>
+                                        </div>
+                                    </div>
+                                    <div class="line"></div>
+                                </div>
+
+                                <div class="all_comments_title28"><p>Декорации - НОВОГОДИШНИ ЕЛКИ</p></div>
+                                <div class="site_komentari28">
+
+                                    <div class="komentar">
+                                        <div class="komentar_slika"><img src="icons/user_white.png" alt=""></div>
+
+                                        <div class="komentar_profil">
+                                            <div class="korisnik"></div>
+                                            <div class="korisnik_komentar"></div>
+                                        </div>
+
+                                        <div class="komentar_ocenka">
+                                            <div class="ocenka_naslov">Оценка:<br> 5</div>
+                                        </div>
+                                    </div>
+                                    <div class="line"></div>
+                                </div>
+
+                                <div class="all_comments_title29"><p>Предмети изработени од дрво - СТАЛАЖА СО ФИОКИ</p></div>
+                                <div class="site_komentari29">
+
+                                    <div class="komentar">
+                                        <div class="komentar_slika"><img src="icons/user_white.png" alt=""></div>
+
+                                        <div class="komentar_profil">
+                                            <div class="korisnik">Зоран</div>
+                                            <div class="korisnik_komentar">Одлична сталажа, функционална и добро изгледа.</div>
+                                        </div>
+
+                                        <div class="komentar_ocenka">
+                                            <div class="ocenka_naslov">Оценка:<br> 5</div>
+                                        </div>
+                                    </div>
+                                    <div class="line"></div>
+                                </div>
+
+                                <div class="all_comments_title30"><p>Предмети изработени од дрво - ДРВЕНА РАМКА ЗА СЛИКИ</p></div>
+                                <div class="site_komentari30">
+
+                                    <div class="komentar">
+                                        <div class="komentar_slika"><img src="icons/user_white.png" alt=""></div>
+
+                                        <div class="komentar_profil">
+                                            <div class="korisnik">Сузана</div>
+                                            <div class="korisnik_komentar">Prekrasno mesto za zakacuvanje na site spomeni.</div>
+                                        </div>
+
+                                        <div class="komentar_ocenka">
+                                            <div class="ocenka_naslov">Оценка:<br> 5</div>
+                                        </div>
+                                    </div>
+                                    <div class="line"></div>
+                                </div>
+
+                                <div class="all_comments_title31"><p>Предмети изработени од дрво - ПОЛИЦИ ЗА УКРАСИ</p></div>
+                                <div class="site_komentari31">
+
+                                    <div class="komentar">
+                                        <div class="komentar_slika"><img src="icons/user_white.png" alt=""></div>
+
+                                        <div class="komentar_profil">
+                                            <div class="korisnik">Tomo</div>
+                                            <div class="korisnik_komentar">top!</div>
+                                        </div>
+
+                                        <div class="komentar_ocenka">
+                                            <div class="ocenka_naslov">Оценка:<br> 5</div>
+                                        </div>
+                                    </div>
+                                    <div class="line"></div>
+                                </div>
+                    </div>
+                    
+                </div>
+        </div>
+    </div>
+
+
+<script src="javascript.js"></script>
+<script src="javascript1.js"></script>
+<script src="javascript2.js"></script>
+<script src="javascript3.js"></script>
+</body>
+</html>

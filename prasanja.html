@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Прашања</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+</head>
+<body>
+    <div id="page_mask"></div>
+    <div class="desktop_size">
+        <div class="header">
+            <div class="logo" id="logo" onclick="toHome()"><img src="images/logo3.png" alt=""></div>
+
+            <div class="menu">
+                <div class="pages">
+                    <div class="h_link1 page1" onclick="toHome()">Дома</div>
+                    <div class="h_link page" onclick="toAboutUs()">За нас</div>
+                    <div class="h_link page" onclick="toProducts()">Производи</div>
+                    <div class="h_link page" onclick="toArtists()">Уметници</div>
+                    <div class="h_link page" onclick="toOrders()">Нарачки</div>
+                </div>
+
+                <div class="buttons">
+                    <div class="home_btn" id="comments_rating" onclick="toComments()"><img src="icons/review.png" alt=""></div>
+                    <div class="home_btn" id="questions" onclick="toQuestions()"
+                    style="filter: invert(1);"><img src="icons/question.png" alt=""></div>
+                    <div class="home_btn" id="shopping_cart" onclick="toShoppingCart()"><img src="icons/shopping-cart.png" alt=""></div>
+                    <div class="home_btn" id="user_profile"
+                            style="margin-left: 70px; margin-right: 41px; filter: invert(100%);">
+                            <img src="icons/user.png" style="width: 55px;" alt=""></div>
+
+                            <div class="optionsSelect" id="optionsSelect">
+                                <div class="option" onclick="toProfile()">Профил</div>
+                                <div class="option" onclick="toCoverPage()">Одјави се</div>
+                            </div>
+                </div>         
+            </div>
+        </div>
+
+        <div class="optionsSelect">
+            <div class="option">Профил</div>
+            <div class="option">Одјави се</div>
+        </div>
+
+        <div class="section">
+            <div class="prazno_comments"></div>
+            <div class="prashanja_title">
+                <p>ПРАШАЊА</p>
+                <img src="icons/question_icon.png" alt="">
+            </div>
+
+            <div class="prashanja_section">
+
+                <div class="najchesti_prashanja">
+
+                    <div class="najchesti_section">
+                        <div class="prashanja_title1">Најчесто поставувани прашања</div>
+                        <div class="line2"></div>
+
+                        <div class="site_prashanja">
+
+                        <div class="prashanje">
+                            <p>Дали производите се идентични со сликите на страната?</p>
+                        </div>
+
+                        <div class="odgovor1">
+                            <p class="answer">Да, производите се исти како што се прикажани на страната.</p>
+                        </div>
+
+                        <div class="prashanje">
+                            <p>Кои се условите за враќање на производите?</p>
+                        </div>
+
+                        <div class="odgovor2">
+                            <p class="answer">Доколку сакате производот сакате да го вратите назад,
+                                тоа можете да го сторите во рок од 3 дена. Најпрво треба да не контактирате
+                                на информациите кои ги имаме оставено за контакт на страната.</p>
+                        </div>
+
+                        <div class="prashanje">
+                            <p>Дали примате меѓународни нарачки?</p>
+                        </div>
+
+                        <div class="odgovor3">
+                            <p class="answer">За жал не, нарачки примаме само на територијата на Македонија.</p>
+                        </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="otvoren_razgovor">
+                    <div class="razgovor_section">
+                        <div class="razgovor_title">Постави прашања</div>
+                        <div class="line2"></div>
+
+                        <div class="razgovor">
+
+                            <div class="ostavi_komentar_prashanja">
+                                <div class="komentar_slika1"><img src="icons/user_white.png" alt=""></div>
+                                <div class="komentar_profil1">
+                                    <span id="najaven_korisnik"></span><br>
+                                    <input type="text" id="komentar" placeholder="Постави прашање" required aria-label="label">
+                                </div>
+                                <button id="add_comment">Испрати</button>
+                            </div>
+
+                            <div class="line2"></div>
+
+                            <div class="site_komentari_prashanja">
+
+                                <div class="komentar">
+                                    <div class="komentar_slika"><img src="icons/user_white.png" alt=""></div>
+
+                                    <div class="komentar_profil">
+                                        <div class="korisnik">Marko</div>
+                                        <div class="korisnik_komentar">Многу ми се допаѓа страната!</div>
+                                    </div>
+                                </div>
+                                <div class="line2"></div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chatbot">
+                <div class="chatbot_title">C</div>
+                <div class="chatbot_title">H</div>
+                <div class="chatbot_title">A</div>
+                <div class="chatbot_title">T</div>
+                <div class="chatbot_title">B</div>
+                <div class="chatbot_title">O</div>
+                <div class="chatbot_title">T</div>
+            </div>
+
+            
+</div>
+
+<div class="page_mask"></div>
+
+<div class="chat_section">
+    <div class="chatbox">
+        
+    
+        <ul class="chat_text">
+            
+            <li class="msg incoming">
+                <span class="material-symbols-outlined">smart_toy</span>
+                <p>Добредојдовте во Веб продавницата за уметности и занаети! &#128587; <br><br>
+                    Бидете слободни да ни поставите прашање, а ние се надеваме дека ќе Ви
+                     го дадеме соодветниот одговор. <br><br>
+                    Нашиот chatbot ќе се потруди да ви одговори на вашите прашања, 
+                    но доколку нема соодветен одговор, Ве замолуваме вашето прашање да го оставите во делот 
+                    „Постави прашање“ каде што нашиот тим ќе Ви одговори во најбрз можен рок! &#128522; <br><br>
+                    Ви благодариме за посетата на нашата Веб продавница! &#129294;</p>
+            </li>
+     
+        </ul>
+    
+    <textarea class="user_input" placeholder="Напиши порака..."></textarea>
+    
+    <button class="send_btn">Испрати</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+<script src="javascript.js"></script>
+<script src="javascript1.js"></script>
+<script src="javascript2.js"></script>
+<script src="javascript3.js"></script>
+<script src="javascript4.js"></script>
+
+</body>
+</html>
