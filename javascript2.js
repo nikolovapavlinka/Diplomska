@@ -1,30 +1,3 @@
-// //Stavanje prozivodite vo localStorage, koj user na koj prozivod kliknal na kopceto "Dodadi vo kosnicka"
-// var addToCartBtns = document.querySelectorAll(".addcart_btn");
-// var userData_Naracki = JSON.parse(localStorage.getItem("Naracki")) || [];
-// var storedData_Registracija = JSON.parse(localStorage.getItem("Registracija")) || [];
-
-// addToCartBtns.forEach(function(btn) {
-//     btn.addEventListener("click", function() {
-//         var productContainer = this.closest('.product1_container_info');
-//         var productNameElement = productContainer.querySelector('.art_name');
-//         var productPriceElement = productContainer.querySelector('.product1_price1 span');
-//         var user = storedData_Registracija[storedData_Registracija.length - 1];
-        
-//         if (productNameElement && productPriceElement) {
-//             var productName = productNameElement.innerText;
-//             var productPrice = productPriceElement.innerText;
-
-//             var user = { user: user, product_name: productName, product_price: productPrice }; 
-
-//             userData_Naracki.push(user); 
-//             localStorage.setItem("Naracki", JSON.stringify(userData_Naracki)); 
-//         } else {
-//             console.error("Could not find product name or price element.");
-//         }
-//     });
-// });
-
-
 //Koga ke se klikne na bilo koja umetnicka slika vo kategorijata umetnici sliki da se otvore prozorec
 document.addEventListener('DOMContentLoaded', function () {
     var product = document.getElementById('product1');

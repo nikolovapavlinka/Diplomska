@@ -1,27 +1,3 @@
-
-/* ВОА МИ ТРЕБА
-document.addEventListener("DOMContentLoaded", function() {
-    var addToCartBtns = document.querySelectorAll(".addcart_btn");
-    var productList = document.getElementById("productList");
-    console.log(addToCartBtns);
-    addToCartBtns.forEach(function(addToCartBtn) {
-        addToCartBtn.addEventListener("click", function() {
-            var productName = this.parentNode.parentNode.parentNode.querySelector('.art_name').textContent;
-            var productPrice = this.parentNode.parentNode.querySelector('.product1_price1 span').textContent;
-            console.log(productName, productPrice);
-            addProductToList(productName, productPrice);
-        });
-    });
-
-    function addProductToList(productName, productPrice) {
-        var listItem = document.createElement("li");
-        listItem.textContent = productName + " - " + productPrice;
-        productList.appendChild(listItem);
-    }
-});
-*/
-
-
 // Клик на копчето "Додади во кошничка"
 document.addEventListener("DOMContentLoaded", function() {
     var addToCartBtns = document.querySelectorAll(".addcart_btn");
@@ -29,38 +5,77 @@ document.addEventListener("DOMContentLoaded", function() {
         addToCartBtn.addEventListener("click", function() {
             var productName = this.parentNode.parentNode.parentNode.querySelector('.art_name').textContent;
             var productPrice = this.parentNode.parentNode.querySelector('.product1_price1 span').textContent;
-            addToCart(productName, productPrice);
+            var productQuantity = this.parentNode.querySelector('.number input').value;
+            addToCart(productName, productPrice, productQuantity);
             //window.location.href = "kosnicka.html"; // Префрлете на страницата за кошничка
         });
     });
 
     // Зачувајте информации во localStorage
-    function addToCart(productName, productPrice) {
+    function addToCart(productName, productPrice, productQuantity) {
         var cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
         var storedData_Registracija = JSON.parse(localStorage.getItem("Registracija")) || [];
         var user = storedData_Registracija[storedData_Registracija.length - 1];
-        cartItems.push({productName: productName, productPrice: productPrice, user: user});
+        cartItems.push({productName: productName, productPrice: productPrice, productQuantity: productQuantity, user: user});
         localStorage.setItem("cartItems", JSON.stringify(cartItems));
+        displayCart();
     }
-});
 
-document.addEventListener("DOMContentLoaded", function() {
-    displayCart(); // Прикажете ги производите во кошничката при вчитување на страницата
 
     function displayCart() {
         var cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
         var productList_Name = document.getElementById("productList_Name");
         var productList_Price = document.getElementById("productList_Price");
-        cartItems.forEach(function(item) {
+        var productList_Quantity = document.getElementById("productList_Quantity");
+        var productList_Remove = document.getElementById("productList_Remove");
+        var totalAmount = document.getElementById("totalAmount");
+
+        productList_Name.innerHTML = '';
+        productList_Price.innerHTML = '';
+        productList_Quantity.innerHTML = '';
+        productList_Remove.innerHTML = '';
+        totalAmount.textContent = '0';
+
+        var total = 0;
+
+        cartItems.forEach(function(item, index) {
             var listItem_Name = document.createElement("li");
             var listItem_Price = document.createElement("li");
+            var listItem_Quantity = document.createElement("li");
+            var listItem_Remove = document.createElement("li");
+            var deleteBtn = document.createElement("button");
+
             listItem_Name.textContent = item.productName;
-            productList_Name.appendChild(listItem_Name);
             listItem_Price.textContent = item.productPrice;
+            listItem_Quantity.textContent = item.productQuantity;
+            deleteBtn.textContent = "X";
+            deleteBtn.setAttribute('data-index', index);
+            deleteBtn.addEventListener('click', function() {
+                removeFromCart(index);
+            });
+
+            productList_Name.appendChild(listItem_Name);
             productList_Price.appendChild(listItem_Price);
+            productList_Quantity.appendChild(listItem_Quantity);
+            listItem_Remove.appendChild(deleteBtn);
+            productList_Remove.appendChild(listItem_Remove);
+
+            total += item.productPrice * item.productQuantity;
         });
+
+        totalAmount.textContent = total.toFixed(2);
     }
+
+    function removeFromCart(index) {
+        var cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+        cartItems.splice(index, 1); // Remove the item at the given index
+        localStorage.setItem("cartItems", JSON.stringify(cartItems));
+        displayCart(); // Refresh the displayed cart items
+    }
+
+    displayCart(); // Display cart items on page load
 });
+
 
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -159,7 +174,6 @@ $(document).ready(function() {
         console.log('Нема зачуван регистриран корисник во localStorage.');
     }
 
-
     $('#add_comment').click(function() {
         // Земи ги вредностите на коментарот, оценката и сликата
         var commentText = $('#komentar').val();
@@ -167,7 +181,7 @@ $(document).ready(function() {
         var userImage = $('.komentar_slika1 > img').attr('src');
         
         // Креирајте нов елемент за коментарот со корисничкото име
-        var newComment = '<div class="komentar"> \
+        var newComment = '<div class="komentar my-comment"> \
                                 <div class="komentar_slika"><img src="' + userImage + '" alt=""></div> \
                                 <div class="komentar_profil"> \
                                     <div class="korisnik">' + userName + '</div> \
@@ -177,28 +191,11 @@ $(document).ready(function() {
                                     <div class="ocenka_naslov">Оценка:<br> ' + rating + '</div> \
                                 </div> \
                             </div> \
-                            <div class="line"></div>';
-        
+                            <div class="line my-comment"></div>';
+    
         // Додадете го новиот коментар на почетокот на сите коментари
         $('.site_komentari').prepend(newComment);
     });
-});
-
-
-
-// Da se dodade komentar od desnata strana na stranata komentari.html
-$(document).ready(function() {
-    // Читање на последниот регистриран корисник и поставување на неговото име
-    var storedData_Registracija = JSON.parse(localStorage.getItem("Registracija")) || [];
-    var userName = "";
-
-    if (storedData_Registracija.length > 0) {
-        var lastRegisteredUser = storedData_Registracija[storedData_Registracija.length - 1];
-        userName = lastRegisteredUser.name;
-    } else {
-        console.log('Нема зачуван регистриран корисник во localStorage.');
-    }
-
 
     $('#add_comment').click(function() {
         // Земи ги вредностите на коментарот, оценката и сликата
@@ -222,24 +219,7 @@ $(document).ready(function() {
         // Додадете го новиот коментар на почетокот на сите коментари
         $('.site_komentari1').prepend(newComment);
     });
-});
-
-
-
-// Da se dodade komentar od desnata strana na stranata komentari.html
-$(document).ready(function() {
-    // Читање на последниот регистриран корисник и поставување на неговото име
-    var storedData_Registracija = JSON.parse(localStorage.getItem("Registracija")) || [];
-    var userName = "";
-
-    if (storedData_Registracija.length > 0) {
-        var lastRegisteredUser = storedData_Registracija[storedData_Registracija.length - 1];
-        userName = lastRegisteredUser.name;
-    } else {
-        console.log('Нема зачуван регистриран корисник во localStorage.');
-    }
-
-
+    
     $('#add_comment').click(function() {
         // Земи ги вредностите на коментарот, оценката и сликата
         var commentText = $('#komentar').val();
@@ -284,6 +264,650 @@ $(document).ready(function() {
     
         // Додадете го новиот коментар на почетокот на сите коментари
         $('.site_komentari3').prepend(newComment);
+    });
+
+    $('#add_comment').click(function() {
+        // Земи ги вредностите на коментарот, оценката и сликата
+        var commentText = $('#komentar').val();
+        var rating = $('#ocenka').val();
+        var userImage = $('.komentar_slika1 > img').attr('src');
+        
+        // Креирајте нов елемент за коментарот со корисничкото име
+        var newComment = '<div class="komentar my-comment"> \
+                                <div class="komentar_slika"><img src="' + userImage + '" alt=""></div> \
+                                <div class="komentar_profil"> \
+                                    <div class="korisnik">' + userName + '</div> \
+                                    <div class="korisnik_komentar">' + commentText + '</div> \
+                                </div> \
+                                <div class="komentar_ocenka"> \
+                                    <div class="ocenka_naslov">Оценка:<br> ' + rating + '</div> \
+                                </div> \
+                            </div> \
+                            <div class="line my-comment"></div>';
+    
+        // Додадете го новиот коментар на почетокот на сите коментари
+        $('.site_komentari4').prepend(newComment);
+    });
+
+    $('#add_comment').click(function() {
+        // Земи ги вредностите на коментарот, оценката и сликата
+        var commentText = $('#komentar').val();
+        var rating = $('#ocenka').val();
+        var userImage = $('.komentar_slika1 > img').attr('src');
+        
+        // Креирајте нов елемент за коментарот со корисничкото име
+        var newComment = '<div class="komentar my-comment"> \
+                                <div class="komentar_slika"><img src="' + userImage + '" alt=""></div> \
+                                <div class="komentar_profil"> \
+                                    <div class="korisnik">' + userName + '</div> \
+                                    <div class="korisnik_komentar">' + commentText + '</div> \
+                                </div> \
+                                <div class="komentar_ocenka"> \
+                                    <div class="ocenka_naslov">Оценка:<br> ' + rating + '</div> \
+                                </div> \
+                            </div> \
+                            <div class="line my-comment"></div>';
+    
+        // Додадете го новиот коментар на почетокот на сите коментари
+        $('.site_komentari5').prepend(newComment);
+    });
+
+    $('#add_comment').click(function() {
+        // Земи ги вредностите на коментарот, оценката и сликата
+        var commentText = $('#komentar').val();
+        var rating = $('#ocenka').val();
+        var userImage = $('.komentar_slika1 > img').attr('src');
+        
+        // Креирајте нов елемент за коментарот со корисничкото име
+        var newComment = '<div class="komentar my-comment"> \
+                                <div class="komentar_slika"><img src="' + userImage + '" alt=""></div> \
+                                <div class="komentar_profil"> \
+                                    <div class="korisnik">' + userName + '</div> \
+                                    <div class="korisnik_komentar">' + commentText + '</div> \
+                                </div> \
+                                <div class="komentar_ocenka"> \
+                                    <div class="ocenka_naslov">Оценка:<br> ' + rating + '</div> \
+                                </div> \
+                            </div> \
+                            <div class="line my-comment"></div>';
+    
+        // Додадете го новиот коментар на почетокот на сите коментари
+        $('.site_komentari6').prepend(newComment);
+    });
+
+    $('#add_comment').click(function() {
+        // Земи ги вредностите на коментарот, оценката и сликата
+        var commentText = $('#komentar').val();
+        var rating = $('#ocenka').val();
+        var userImage = $('.komentar_slika1 > img').attr('src');
+        
+        // Креирајте нов елемент за коментарот со корисничкото име
+        var newComment = '<div class="komentar my-comment"> \
+                                <div class="komentar_slika"><img src="' + userImage + '" alt=""></div> \
+                                <div class="komentar_profil"> \
+                                    <div class="korisnik">' + userName + '</div> \
+                                    <div class="korisnik_komentar">' + commentText + '</div> \
+                                </div> \
+                                <div class="komentar_ocenka"> \
+                                    <div class="ocenka_naslov">Оценка:<br> ' + rating + '</div> \
+                                </div> \
+                            </div> \
+                            <div class="line my-comment"></div>';
+    
+        // Додадете го новиот коментар на почетокот на сите коментари
+        $('.site_komentari7').prepend(newComment);
+    });
+
+    $('#add_comment').click(function() {
+        // Земи ги вредностите на коментарот, оценката и сликата
+        var commentText = $('#komentar').val();
+        var rating = $('#ocenka').val();
+        var userImage = $('.komentar_slika1 > img').attr('src');
+        
+        // Креирајте нов елемент за коментарот со корисничкото име
+        var newComment = '<div class="komentar my-comment"> \
+                                <div class="komentar_slika"><img src="' + userImage + '" alt=""></div> \
+                                <div class="komentar_profil"> \
+                                    <div class="korisnik">' + userName + '</div> \
+                                    <div class="korisnik_komentar">' + commentText + '</div> \
+                                </div> \
+                                <div class="komentar_ocenka"> \
+                                    <div class="ocenka_naslov">Оценка:<br> ' + rating + '</div> \
+                                </div> \
+                            </div> \
+                            <div class="line my-comment"></div>';
+    
+        // Додадете го новиот коментар на почетокот на сите коментари
+        $('.site_komentari8').prepend(newComment);
+    });
+
+    $('#add_comment').click(function() {
+        // Земи ги вредностите на коментарот, оценката и сликата
+        var commentText = $('#komentar').val();
+        var rating = $('#ocenka').val();
+        var userImage = $('.komentar_slika1 > img').attr('src');
+        
+        // Креирајте нов елемент за коментарот со корисничкото име
+        var newComment = '<div class="komentar my-comment"> \
+                                <div class="komentar_slika"><img src="' + userImage + '" alt=""></div> \
+                                <div class="komentar_profil"> \
+                                    <div class="korisnik">' + userName + '</div> \
+                                    <div class="korisnik_komentar">' + commentText + '</div> \
+                                </div> \
+                                <div class="komentar_ocenka"> \
+                                    <div class="ocenka_naslov">Оценка:<br> ' + rating + '</div> \
+                                </div> \
+                            </div> \
+                            <div class="line my-comment"></div>';
+    
+        // Додадете го новиот коментар на почетокот на сите коментари
+        $('.site_komentari9').prepend(newComment);
+    });
+
+    $('#add_comment').click(function() {
+        // Земи ги вредностите на коментарот, оценката и сликата
+        var commentText = $('#komentar').val();
+        var rating = $('#ocenka').val();
+        var userImage = $('.komentar_slika1 > img').attr('src');
+        
+        // Креирајте нов елемент за коментарот со корисничкото име
+        var newComment = '<div class="komentar my-comment"> \
+                                <div class="komentar_slika"><img src="' + userImage + '" alt=""></div> \
+                                <div class="komentar_profil"> \
+                                    <div class="korisnik">' + userName + '</div> \
+                                    <div class="korisnik_komentar">' + commentText + '</div> \
+                                </div> \
+                                <div class="komentar_ocenka"> \
+                                    <div class="ocenka_naslov">Оценка:<br> ' + rating + '</div> \
+                                </div> \
+                            </div> \
+                            <div class="line my-comment"></div>';
+    
+        // Додадете го новиот коментар на почетокот на сите коментари
+        $('.site_komentari10').prepend(newComment);
+    });
+
+    $('#add_comment').click(function() {
+        // Земи ги вредностите на коментарот, оценката и сликата
+        var commentText = $('#komentar').val();
+        var rating = $('#ocenka').val();
+        var userImage = $('.komentar_slika1 > img').attr('src');
+        
+        // Креирајте нов елемент за коментарот со корисничкото име
+        var newComment = '<div class="komentar my-comment"> \
+                                <div class="komentar_slika"><img src="' + userImage + '" alt=""></div> \
+                                <div class="komentar_profil"> \
+                                    <div class="korisnik">' + userName + '</div> \
+                                    <div class="korisnik_komentar">' + commentText + '</div> \
+                                </div> \
+                                <div class="komentar_ocenka"> \
+                                    <div class="ocenka_naslov">Оценка:<br> ' + rating + '</div> \
+                                </div> \
+                            </div> \
+                            <div class="line my-comment"></div>';
+    
+        // Додадете го новиот коментар на почетокот на сите коментари
+        $('.site_komentari11').prepend(newComment);
+    });
+
+    $('#add_comment').click(function() {
+        // Земи ги вредностите на коментарот, оценката и сликата
+        var commentText = $('#komentar').val();
+        var rating = $('#ocenka').val();
+        var userImage = $('.komentar_slika1 > img').attr('src');
+        
+        // Креирајте нов елемент за коментарот со корисничкото име
+        var newComment = '<div class="komentar my-comment"> \
+                                <div class="komentar_slika"><img src="' + userImage + '" alt=""></div> \
+                                <div class="komentar_profil"> \
+                                    <div class="korisnik">' + userName + '</div> \
+                                    <div class="korisnik_komentar">' + commentText + '</div> \
+                                </div> \
+                                <div class="komentar_ocenka"> \
+                                    <div class="ocenka_naslov">Оценка:<br> ' + rating + '</div> \
+                                </div> \
+                            </div> \
+                            <div class="line my-comment"></div>';
+    
+        // Додадете го новиот коментар на почетокот на сите коментари
+        $('.site_komentari12').prepend(newComment);
+    });
+
+    $('#add_comment').click(function() {
+        // Земи ги вредностите на коментарот, оценката и сликата
+        var commentText = $('#komentar').val();
+        var rating = $('#ocenka').val();
+        var userImage = $('.komentar_slika1 > img').attr('src');
+        
+        // Креирајте нов елемент за коментарот со корисничкото име
+        var newComment = '<div class="komentar my-comment"> \
+                                <div class="komentar_slika"><img src="' + userImage + '" alt=""></div> \
+                                <div class="komentar_profil"> \
+                                    <div class="korisnik">' + userName + '</div> \
+                                    <div class="korisnik_komentar">' + commentText + '</div> \
+                                </div> \
+                                <div class="komentar_ocenka"> \
+                                    <div class="ocenka_naslov">Оценка:<br> ' + rating + '</div> \
+                                </div> \
+                            </div> \
+                            <div class="line my-comment"></div>';
+    
+        // Додадете го новиот коментар на почетокот на сите коментари
+        $('.site_komentari13').prepend(newComment);
+    });
+
+    $('#add_comment').click(function() {
+        // Земи ги вредностите на коментарот, оценката и сликата
+        var commentText = $('#komentar').val();
+        var rating = $('#ocenka').val();
+        var userImage = $('.komentar_slika1 > img').attr('src');
+        
+        // Креирајте нов елемент за коментарот со корисничкото име
+        var newComment = '<div class="komentar my-comment"> \
+                                <div class="komentar_slika"><img src="' + userImage + '" alt=""></div> \
+                                <div class="komentar_profil"> \
+                                    <div class="korisnik">' + userName + '</div> \
+                                    <div class="korisnik_komentar">' + commentText + '</div> \
+                                </div> \
+                                <div class="komentar_ocenka"> \
+                                    <div class="ocenka_naslov">Оценка:<br> ' + rating + '</div> \
+                                </div> \
+                            </div> \
+                            <div class="line my-comment"></div>';
+    
+        // Додадете го новиот коментар на почетокот на сите коментари
+        $('.site_komentari14').prepend(newComment);
+    });
+
+    $('#add_comment').click(function() {
+        // Земи ги вредностите на коментарот, оценката и сликата
+        var commentText = $('#komentar').val();
+        var rating = $('#ocenka').val();
+        var userImage = $('.komentar_slika1 > img').attr('src');
+        
+        // Креирајте нов елемент за коментарот со корисничкото име
+        var newComment = '<div class="komentar my-comment"> \
+                                <div class="komentar_slika"><img src="' + userImage + '" alt=""></div> \
+                                <div class="komentar_profil"> \
+                                    <div class="korisnik">' + userName + '</div> \
+                                    <div class="korisnik_komentar">' + commentText + '</div> \
+                                </div> \
+                                <div class="komentar_ocenka"> \
+                                    <div class="ocenka_naslov">Оценка:<br> ' + rating + '</div> \
+                                </div> \
+                            </div> \
+                            <div class="line my-comment"></div>';
+    
+        // Додадете го новиот коментар на почетокот на сите коментари
+        $('.site_komentari15').prepend(newComment);
+    });
+
+    $('#add_comment').click(function() {
+        // Земи ги вредностите на коментарот, оценката и сликата
+        var commentText = $('#komentar').val();
+        var rating = $('#ocenka').val();
+        var userImage = $('.komentar_slika1 > img').attr('src');
+        
+        // Креирајте нов елемент за коментарот со корисничкото име
+        var newComment = '<div class="komentar my-comment"> \
+                                <div class="komentar_slika"><img src="' + userImage + '" alt=""></div> \
+                                <div class="komentar_profil"> \
+                                    <div class="korisnik">' + userName + '</div> \
+                                    <div class="korisnik_komentar">' + commentText + '</div> \
+                                </div> \
+                                <div class="komentar_ocenka"> \
+                                    <div class="ocenka_naslov">Оценка:<br> ' + rating + '</div> \
+                                </div> \
+                            </div> \
+                            <div class="line my-comment"></div>';
+    
+        // Додадете го новиот коментар на почетокот на сите коментари
+        $('.site_komentari16').prepend(newComment);
+    });
+
+    $('#add_comment').click(function() {
+        // Земи ги вредностите на коментарот, оценката и сликата
+        var commentText = $('#komentar').val();
+        var rating = $('#ocenka').val();
+        var userImage = $('.komentar_slika1 > img').attr('src');
+        
+        // Креирајте нов елемент за коментарот со корисничкото име
+        var newComment = '<div class="komentar my-comment"> \
+                                <div class="komentar_slika"><img src="' + userImage + '" alt=""></div> \
+                                <div class="komentar_profil"> \
+                                    <div class="korisnik">' + userName + '</div> \
+                                    <div class="korisnik_komentar">' + commentText + '</div> \
+                                </div> \
+                                <div class="komentar_ocenka"> \
+                                    <div class="ocenka_naslov">Оценка:<br> ' + rating + '</div> \
+                                </div> \
+                            </div> \
+                            <div class="line my-comment"></div>';
+    
+        // Додадете го новиот коментар на почетокот на сите коментари
+        $('.site_komentari17').prepend(newComment);
+    });
+
+    $('#add_comment').click(function() {
+        // Земи ги вредностите на коментарот, оценката и сликата
+        var commentText = $('#komentar').val();
+        var rating = $('#ocenka').val();
+        var userImage = $('.komentar_slika1 > img').attr('src');
+        
+        // Креирајте нов елемент за коментарот со корисничкото име
+        var newComment = '<div class="komentar my-comment"> \
+                                <div class="komentar_slika"><img src="' + userImage + '" alt=""></div> \
+                                <div class="komentar_profil"> \
+                                    <div class="korisnik">' + userName + '</div> \
+                                    <div class="korisnik_komentar">' + commentText + '</div> \
+                                </div> \
+                                <div class="komentar_ocenka"> \
+                                    <div class="ocenka_naslov">Оценка:<br> ' + rating + '</div> \
+                                </div> \
+                            </div> \
+                            <div class="line my-comment"></div>';
+    
+        // Додадете го новиот коментар на почетокот на сите коментари
+        $('.site_komentari18').prepend(newComment);
+    });
+
+    $('#add_comment').click(function() {
+        // Земи ги вредностите на коментарот, оценката и сликата
+        var commentText = $('#komentar').val();
+        var rating = $('#ocenka').val();
+        var userImage = $('.komentar_slika1 > img').attr('src');
+        
+        // Креирајте нов елемент за коментарот со корисничкото име
+        var newComment = '<div class="komentar my-comment"> \
+                                <div class="komentar_slika"><img src="' + userImage + '" alt=""></div> \
+                                <div class="komentar_profil"> \
+                                    <div class="korisnik">' + userName + '</div> \
+                                    <div class="korisnik_komentar">' + commentText + '</div> \
+                                </div> \
+                                <div class="komentar_ocenka"> \
+                                    <div class="ocenka_naslov">Оценка:<br> ' + rating + '</div> \
+                                </div> \
+                            </div> \
+                            <div class="line my-comment"></div>';
+    
+        // Додадете го новиот коментар на почетокот на сите коментари
+        $('.site_komentari19').prepend(newComment);
+    });
+
+    $('#add_comment').click(function() {
+        // Земи ги вредностите на коментарот, оценката и сликата
+        var commentText = $('#komentar').val();
+        var rating = $('#ocenka').val();
+        var userImage = $('.komentar_slika1 > img').attr('src');
+        
+        // Креирајте нов елемент за коментарот со корисничкото име
+        var newComment = '<div class="komentar my-comment"> \
+                                <div class="komentar_slika"><img src="' + userImage + '" alt=""></div> \
+                                <div class="komentar_profil"> \
+                                    <div class="korisnik">' + userName + '</div> \
+                                    <div class="korisnik_komentar">' + commentText + '</div> \
+                                </div> \
+                                <div class="komentar_ocenka"> \
+                                    <div class="ocenka_naslov">Оценка:<br> ' + rating + '</div> \
+                                </div> \
+                            </div> \
+                            <div class="line my-comment"></div>';
+    
+        // Додадете го новиот коментар на почетокот на сите коментари
+        $('.site_komentari20').prepend(newComment);
+    });
+
+    $('#add_comment').click(function() {
+        // Земи ги вредностите на коментарот, оценката и сликата
+        var commentText = $('#komentar').val();
+        var rating = $('#ocenka').val();
+        var userImage = $('.komentar_slika1 > img').attr('src');
+        
+        // Креирајте нов елемент за коментарот со корисничкото име
+        var newComment = '<div class="komentar my-comment"> \
+                                <div class="komentar_slika"><img src="' + userImage + '" alt=""></div> \
+                                <div class="komentar_profil"> \
+                                    <div class="korisnik">' + userName + '</div> \
+                                    <div class="korisnik_komentar">' + commentText + '</div> \
+                                </div> \
+                                <div class="komentar_ocenka"> \
+                                    <div class="ocenka_naslov">Оценка:<br> ' + rating + '</div> \
+                                </div> \
+                            </div> \
+                            <div class="line my-comment"></div>';
+    
+        // Додадете го новиот коментар на почетокот на сите коментари
+        $('.site_komentari21').prepend(newComment);
+    });
+
+    $('#add_comment').click(function() {
+        // Земи ги вредностите на коментарот, оценката и сликата
+        var commentText = $('#komentar').val();
+        var rating = $('#ocenka').val();
+        var userImage = $('.komentar_slika1 > img').attr('src');
+        
+        // Креирајте нов елемент за коментарот со корисничкото име
+        var newComment = '<div class="komentar my-comment"> \
+                                <div class="komentar_slika"><img src="' + userImage + '" alt=""></div> \
+                                <div class="komentar_profil"> \
+                                    <div class="korisnik">' + userName + '</div> \
+                                    <div class="korisnik_komentar">' + commentText + '</div> \
+                                </div> \
+                                <div class="komentar_ocenka"> \
+                                    <div class="ocenka_naslov">Оценка:<br> ' + rating + '</div> \
+                                </div> \
+                            </div> \
+                            <div class="line my-comment"></div>';
+    
+        // Додадете го новиот коментар на почетокот на сите коментари
+        $('.site_komentari22').prepend(newComment);
+    });
+
+    $('#add_comment').click(function() {
+        // Земи ги вредностите на коментарот, оценката и сликата
+        var commentText = $('#komentar').val();
+        var rating = $('#ocenka').val();
+        var userImage = $('.komentar_slika1 > img').attr('src');
+        
+        // Креирајте нов елемент за коментарот со корисничкото име
+        var newComment = '<div class="komentar my-comment"> \
+                                <div class="komentar_slika"><img src="' + userImage + '" alt=""></div> \
+                                <div class="komentar_profil"> \
+                                    <div class="korisnik">' + userName + '</div> \
+                                    <div class="korisnik_komentar">' + commentText + '</div> \
+                                </div> \
+                                <div class="komentar_ocenka"> \
+                                    <div class="ocenka_naslov">Оценка:<br> ' + rating + '</div> \
+                                </div> \
+                            </div> \
+                            <div class="line my-comment"></div>';
+    
+        // Додадете го новиот коментар на почетокот на сите коментари
+        $('.site_komentari23').prepend(newComment);
+    });
+
+    $('#add_comment').click(function() {
+        // Земи ги вредностите на коментарот, оценката и сликата
+        var commentText = $('#komentar').val();
+        var rating = $('#ocenka').val();
+        var userImage = $('.komentar_slika1 > img').attr('src');
+        
+        // Креирајте нов елемент за коментарот со корисничкото име
+        var newComment = '<div class="komentar my-comment"> \
+                                <div class="komentar_slika"><img src="' + userImage + '" alt=""></div> \
+                                <div class="komentar_profil"> \
+                                    <div class="korisnik">' + userName + '</div> \
+                                    <div class="korisnik_komentar">' + commentText + '</div> \
+                                </div> \
+                                <div class="komentar_ocenka"> \
+                                    <div class="ocenka_naslov">Оценка:<br> ' + rating + '</div> \
+                                </div> \
+                            </div> \
+                            <div class="line my-comment"></div>';
+    
+        // Додадете го новиот коментар на почетокот на сите коментари
+        $('.site_komentari24').prepend(newComment);
+    });
+
+    $('#add_comment').click(function() {
+        // Земи ги вредностите на коментарот, оценката и сликата
+        var commentText = $('#komentar').val();
+        var rating = $('#ocenka').val();
+        var userImage = $('.komentar_slika1 > img').attr('src');
+        
+        // Креирајте нов елемент за коментарот со корисничкото име
+        var newComment = '<div class="komentar my-comment"> \
+                                <div class="komentar_slika"><img src="' + userImage + '" alt=""></div> \
+                                <div class="komentar_profil"> \
+                                    <div class="korisnik">' + userName + '</div> \
+                                    <div class="korisnik_komentar">' + commentText + '</div> \
+                                </div> \
+                                <div class="komentar_ocenka"> \
+                                    <div class="ocenka_naslov">Оценка:<br> ' + rating + '</div> \
+                                </div> \
+                            </div> \
+                            <div class="line my-comment"></div>';
+    
+        // Додадете го новиот коментар на почетокот на сите коментари
+        $('.site_komentari25').prepend(newComment);
+    });
+
+    $('#add_comment').click(function() {
+        // Земи ги вредностите на коментарот, оценката и сликата
+        var commentText = $('#komentar').val();
+        var rating = $('#ocenka').val();
+        var userImage = $('.komentar_slika1 > img').attr('src');
+        
+        // Креирајте нов елемент за коментарот со корисничкото име
+        var newComment = '<div class="komentar my-comment"> \
+                                <div class="komentar_slika"><img src="' + userImage + '" alt=""></div> \
+                                <div class="komentar_profil"> \
+                                    <div class="korisnik">' + userName + '</div> \
+                                    <div class="korisnik_komentar">' + commentText + '</div> \
+                                </div> \
+                                <div class="komentar_ocenka"> \
+                                    <div class="ocenka_naslov">Оценка:<br> ' + rating + '</div> \
+                                </div> \
+                            </div> \
+                            <div class="line my-comment"></div>';
+    
+        // Додадете го новиот коментар на почетокот на сите коментари
+        $('.site_komentari26').prepend(newComment);
+    });
+
+    $('#add_comment').click(function() {
+        // Земи ги вредностите на коментарот, оценката и сликата
+        var commentText = $('#komentar').val();
+        var rating = $('#ocenka').val();
+        var userImage = $('.komentar_slika1 > img').attr('src');
+        
+        // Креирајте нов елемент за коментарот со корисничкото име
+        var newComment = '<div class="komentar my-comment"> \
+                                <div class="komentar_slika"><img src="' + userImage + '" alt=""></div> \
+                                <div class="komentar_profil"> \
+                                    <div class="korisnik">' + userName + '</div> \
+                                    <div class="korisnik_komentar">' + commentText + '</div> \
+                                </div> \
+                                <div class="komentar_ocenka"> \
+                                    <div class="ocenka_naslov">Оценка:<br> ' + rating + '</div> \
+                                </div> \
+                            </div> \
+                            <div class="line my-comment"></div>';
+    
+        // Додадете го новиот коментар на почетокот на сите коментари
+        $('.site_komentari27').prepend(newComment);
+    });
+
+    $('#add_comment').click(function() {
+        // Земи ги вредностите на коментарот, оценката и сликата
+        var commentText = $('#komentar').val();
+        var rating = $('#ocenka').val();
+        var userImage = $('.komentar_slika1 > img').attr('src');
+        
+        // Креирајте нов елемент за коментарот со корисничкото име
+        var newComment = '<div class="komentar my-comment"> \
+                                <div class="komentar_slika"><img src="' + userImage + '" alt=""></div> \
+                                <div class="komentar_profil"> \
+                                    <div class="korisnik">' + userName + '</div> \
+                                    <div class="korisnik_komentar">' + commentText + '</div> \
+                                </div> \
+                                <div class="komentar_ocenka"> \
+                                    <div class="ocenka_naslov">Оценка:<br> ' + rating + '</div> \
+                                </div> \
+                            </div> \
+                            <div class="line my-comment"></div>';
+    
+        // Додадете го новиот коментар на почетокот на сите коментари
+        $('.site_komentari28').prepend(newComment);
+    });
+
+    $('#add_comment').click(function() {
+        // Земи ги вредностите на коментарот, оценката и сликата
+        var commentText = $('#komentar').val();
+        var rating = $('#ocenka').val();
+        var userImage = $('.komentar_slika1 > img').attr('src');
+        
+        // Креирајте нов елемент за коментарот со корисничкото име
+        var newComment = '<div class="komentar my-comment"> \
+                                <div class="komentar_slika"><img src="' + userImage + '" alt=""></div> \
+                                <div class="komentar_profil"> \
+                                    <div class="korisnik">' + userName + '</div> \
+                                    <div class="korisnik_komentar">' + commentText + '</div> \
+                                </div> \
+                                <div class="komentar_ocenka"> \
+                                    <div class="ocenka_naslov">Оценка:<br> ' + rating + '</div> \
+                                </div> \
+                            </div> \
+                            <div class="line my-comment"></div>';
+    
+        // Додадете го новиот коментар на почетокот на сите коментари
+        $('.site_komentari29').prepend(newComment);
+    });
+
+    $('#add_comment').click(function() {
+        // Земи ги вредностите на коментарот, оценката и сликата
+        var commentText = $('#komentar').val();
+        var rating = $('#ocenka').val();
+        var userImage = $('.komentar_slika1 > img').attr('src');
+        
+        // Креирајте нов елемент за коментарот со корисничкото име
+        var newComment = '<div class="komentar my-comment"> \
+                                <div class="komentar_slika"><img src="' + userImage + '" alt=""></div> \
+                                <div class="komentar_profil"> \
+                                    <div class="korisnik">' + userName + '</div> \
+                                    <div class="korisnik_komentar">' + commentText + '</div> \
+                                </div> \
+                                <div class="komentar_ocenka"> \
+                                    <div class="ocenka_naslov">Оценка:<br> ' + rating + '</div> \
+                                </div> \
+                            </div> \
+                            <div class="line my-comment"></div>';
+    
+        // Додадете го новиот коментар на почетокот на сите коментари
+        $('.site_komentari30').prepend(newComment);
+    });
+
+    $('#add_comment').click(function() {
+        // Земи ги вредностите на коментарот, оценката и сликата
+        var commentText = $('#komentar').val();
+        var rating = $('#ocenka').val();
+        var userImage = $('.komentar_slika1 > img').attr('src');
+        
+        // Креирајте нов елемент за коментарот со корисничкото име
+        var newComment = '<div class="komentar my-comment"> \
+                                <div class="komentar_slika"><img src="' + userImage + '" alt=""></div> \
+                                <div class="komentar_profil"> \
+                                    <div class="korisnik">' + userName + '</div> \
+                                    <div class="korisnik_komentar">' + commentText + '</div> \
+                                </div> \
+                                <div class="komentar_ocenka"> \
+                                    <div class="ocenka_naslov">Оценка:<br> ' + rating + '</div> \
+                                </div> \
+                            </div> \
+                            <div class="line my-comment"></div>';
+    
+        // Додадете го новиот коментар на почетокот на сите коментари
+        $('.site_komentari31').prepend(newComment);
     });
 });
 
@@ -371,7 +995,7 @@ function showCategory2() {
     $('.site_komentari9').hide();
     $('.site_komentari10').hide();
     $('.site_komentari11').hide();
-    $('.site_komentari12').hide();$('.site_komentari3').hide();
+    $('.site_komentari12').hide();
     $('.site_komentari4').hide();
     $('.site_komentari5').hide();
     $('.site_komentari6').hide();
@@ -450,7 +1074,7 @@ function showCategory3() {
     $('.site_komentari9').hide();
     $('.site_komentari10').hide();
     $('.site_komentari11').hide();
-    $('.site_komentari12').hide();$('.site_komentari3').hide();
+    $('.site_komentari12').hide();
     $('.site_komentari4').hide();
     $('.site_komentari5').hide();
     $('.site_komentari6').hide();
@@ -530,20 +1154,10 @@ function showCategory4() {
     $('.site_komentari10').hide();
     $('.site_komentari11').hide();
     $('.site_komentari12').hide();
-    $('.site_komentari3').hide();
-    $('.site_komentari4').hide();
-    $('.site_komentari5').hide();
-    $('.site_komentari6').hide();
-    $('.site_komentari7').hide();
-    $('.site_komentari8').hide();
-    $('.site_komentari9').hide();
-    $('.site_komentari10').hide();
-    $('.site_komentari11').hide();
-    $('.site_komentari12').hide();
     $('.site_komentari13').hide();
     $('.site_komentari14').hide();
     $('.site_komentari15').hide();
-    $('.site_komentar16').hide();
+    $('.site_komentari16').hide();
     $('.site_komentari17').hide();
     $('.site_komentari18').hide();
     $('.site_komentari19').hide();
@@ -610,20 +1224,10 @@ function showCategory5() {
     $('.site_komentari10').hide();
     $('.site_komentari11').hide();
     $('.site_komentari12').hide();
-    $('.site_komentari3').hide();
-    $('.site_komentari4').hide();
-    $('.site_komentari5').hide();
-    $('.site_komentari6').hide();
-    $('.site_komentari7').hide();
-    $('.site_komentari8').hide();
-    $('.site_komentari9').hide();
-    $('.site_komentari10').hide();
-    $('.site_komentari11').hide();
-    $('.site_komentari12').hide();
     $('.site_komentari13').hide();
     $('.site_komentari14').hide();
     $('.site_komentari15').hide();
-    $('.site_komentar16').hide();
+    $('.site_komentari16').hide();
     $('.site_komentari17').hide();
     $('.site_komentari18').hide();
     $('.site_komentari19').hide();
@@ -690,20 +1294,10 @@ function showCategory6() {
     $('.site_komentari10').hide();
     $('.site_komentari11').hide();
     $('.site_komentari12').hide();
-    $('.site_komentari3').hide();
-    $('.site_komentari4').hide();
-    $('.site_komentari5').hide();
-    $('.site_komentari6').hide();
-    $('.site_komentari7').hide();
-    $('.site_komentari8').hide();
-    $('.site_komentari9').hide();
-    $('.site_komentari10').hide();
-    $('.site_komentari11').hide();
-    $('.site_komentari12').hide();
     $('.site_komentari13').hide();
     $('.site_komentari14').hide();
     $('.site_komentari15').hide();
-    $('.site_komentar16').hide();
+    $('.site_komentari16').hide();
     $('.site_komentari17').hide();
     $('.site_komentari18').hide();
     $('.site_komentari19').hide();
@@ -770,20 +1364,10 @@ function showCategory7() {
     $('.site_komentari10').hide();
     $('.site_komentari11').hide();
     $('.site_komentari12').hide();
-    $('.site_komentari3').hide();
-    $('.site_komentari4').hide();
-    $('.site_komentari5').hide();
-    $('.site_komentari6').hide();
-    $('.site_komentari7').hide();
-    $('.site_komentari8').hide();
-    $('.site_komentari9').hide();
-    $('.site_komentari10').hide();
-    $('.site_komentari11').hide();
-    $('.site_komentari12').hide();
     $('.site_komentari13').hide();
     $('.site_komentari14').hide();
     $('.site_komentari15').hide();
-    $('.site_komentar16').hide();
+    $('.site_komentari16').hide();
     $('.site_komentari17').hide();
     $('.site_komentari18').hide();
     $('.site_komentari19').hide();
@@ -850,20 +1434,10 @@ function showCategory8() {
     $('.site_komentari10').hide();
     $('.site_komentari11').hide();
     $('.site_komentari12').hide();
-    $('.site_komentari3').hide();
-    $('.site_komentari4').hide();
-    $('.site_komentari5').hide();
-    $('.site_komentari6').hide();
-    $('.site_komentari7').hide();
-    $('.site_komentari8').hide();
-    $('.site_komentari9').hide();
-    $('.site_komentari10').hide();
-    $('.site_komentari11').hide();
-    $('.site_komentari12').hide();
     $('.site_komentari13').hide();
     $('.site_komentari14').hide();
     $('.site_komentari15').hide();
-    $('.site_komentar16').hide();
+    $('.site_komentari16').hide();
     $('.site_komentari17').hide();
     $('.site_komentari18').hide();
     $('.site_komentari19').hide();
@@ -930,20 +1504,10 @@ function showCategory9() {
     $('.site_komentari10').hide();
     $('.site_komentari11').hide();
     $('.site_komentari12').hide();
-    $('.site_komentari3').hide();
-    $('.site_komentari4').hide();
-    $('.site_komentari5').hide();
-    $('.site_komentari6').hide();
-    $('.site_komentari7').hide();
-    $('.site_komentari8').hide();
-    $('.site_komentari9').hide();
-    $('.site_komentari10').hide();
-    $('.site_komentari11').hide();
-    $('.site_komentari12').hide();
     $('.site_komentari13').hide();
     $('.site_komentari14').hide();
     $('.site_komentari15').hide();
-    $('.site_komentar16').hide();
+    $('.site_komentari16').hide();
     $('.site_komentari17').hide();
     $('.site_komentari18').hide();
     $('.site_komentari19').hide();
@@ -1010,20 +1574,10 @@ function showCategory10() {
     $('.site_komentari10').show();
     $('.site_komentari11').hide();
     $('.site_komentari12').hide();
-    $('.site_komentari3').hide();
-    $('.site_komentari4').hide();
-    $('.site_komentari5').hide();
-    $('.site_komentari6').hide();
-    $('.site_komentari7').hide();
-    $('.site_komentari8').hide();
-    $('.site_komentari9').hide();
-    $('.site_komentari10').hide();
-    $('.site_komentari11').hide();
-    $('.site_komentari12').hide();
     $('.site_komentari13').hide();
     $('.site_komentari14').hide();
     $('.site_komentari15').hide();
-    $('.site_komentar16').hide();
+    $('.site_komentari16').hide();
     $('.site_komentari17').hide();
     $('.site_komentari18').hide();
     $('.site_komentari19').hide();
@@ -1090,20 +1644,10 @@ function showCategory11() {
     $('.site_komentari10').hide();
     $('.site_komentari11').show();
     $('.site_komentari12').hide();
-    $('.site_komentari3').hide();
-    $('.site_komentari4').hide();
-    $('.site_komentari5').hide();
-    $('.site_komentari6').hide();
-    $('.site_komentari7').hide();
-    $('.site_komentari8').hide();
-    $('.site_komentari9').hide();
-    $('.site_komentari10').hide();
-    $('.site_komentari11').hide();
-    $('.site_komentari12').hide();
     $('.site_komentari13').hide();
     $('.site_komentari14').hide();
     $('.site_komentari15').hide();
-    $('.site_komentar16').hide();
+    $('.site_komentari16').hide();
     $('.site_komentari17').hide();
     $('.site_komentari18').hide();
     $('.site_komentari19').hide();
@@ -1170,20 +1714,10 @@ function showCategory12() {
     $('.site_komentari10').hide();
     $('.site_komentari11').hide();
     $('.site_komentari12').show();
-    $('.site_komentari3').hide();
-    $('.site_komentari4').hide();
-    $('.site_komentari5').hide();
-    $('.site_komentari6').hide();
-    $('.site_komentari7').hide();
-    $('.site_komentari8').hide();
-    $('.site_komentari9').hide();
-    $('.site_komentari10').hide();
-    $('.site_komentari11').hide();
-    $('.site_komentari12').hide();
     $('.site_komentari13').hide();
     $('.site_komentari14').hide();
     $('.site_komentari15').hide();
-    $('.site_komentar16').hide();
+    $('.site_komentari16').hide();
     $('.site_komentari17').hide();
     $('.site_komentari18').hide();
     $('.site_komentari19').hide();
@@ -1253,7 +1787,7 @@ function showCategory13() {
     $('.site_komentari13').show();
     $('.site_komentari14').hide();
     $('.site_komentari15').hide();
-    $('.site_komentar16').hide();
+    $('.site_komentari16').hide();
     $('.site_komentari17').hide();
     $('.site_komentari18').hide();
     $('.site_komentari19').hide();
@@ -1466,7 +2000,7 @@ function showCategory16() {
     $('.site_komentari13').hide();
     $('.site_komentari14').hide();
     $('.site_komentari15').hide();
-    $('.site_komentar16').show();
+    $('.site_komentari16').hide();
     $('.site_komentari17').hide();
     $('.site_komentari18').hide();
     $('.site_komentari19').hide();
@@ -2735,26 +3269,6 @@ document.addEventListener('DOMContentLoaded', function() {
     questions.forEach(function(question) {
         question.addEventListener('click', function() {
             // Пронајди го одговорот за прашањето
-            const answer = question.querySelector('.odgovor1');
-
-            // Ако е скриен, прикажи го; во спротивно, скриј го
-            if (answer.style.display === 'flex' || !answer.style.display) {
-                answer.style.display = 'none';
-            } else {
-                answer.style.display = 'flex';
-            }
-        });
-    });
-});
-
-
-
-document.addEventListener('DOMContentLoaded', function() {
-    const questions = document.querySelectorAll('.prashanje');
-
-    questions.forEach(function(question) {
-        question.addEventListener('click', function() {
-            // Пронајди го одговорот за прашањето
             const answer = question.nextElementSibling; // Претходниот одговор
 
             // Провери дали одговорот е видлив
@@ -2774,8 +3288,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
-
-
 
 
 

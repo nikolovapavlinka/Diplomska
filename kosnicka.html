@@ -48,7 +48,7 @@
 
             
                 <div class="kosnicka_section">
-                    <div class="prazno"></div>
+                    <div class="prazno1"></div>
                     <div class="kosnicka_title">
                         <p>КОШНИЧКА</p>
                         <img src="icons/shopping-cart-1.png" alt="">
@@ -67,20 +67,31 @@
 
                         <div class="number_of_products">
                             <div class="naslov">БРОЈ НА ПРОЗИВОДИ</div>
-                            <ul id="productList_Counter"></ul>
+                            <ul id="productList_Quantity"></ul>
                         </div>
 
                         <div class="remove_product">
-
+                            <div class="naslov">ИЗБРИШИ ПРОИЗВОД</div>
+                            <ul id="productList_Remove"></ul>
                         </div>
+
                     </div>
+
+                    <div class="line3"></div>
+
+                    <div class="total">
+                        <div class="total_naslov">ВКУПНО:</div>
+                        <span id="totalAmount">0</span>
+                        <span id="denars">   МКД</span>
+                    </div>
+
+                    <div class="kosnicka_buttons">
+                        <button class="kosnicka_pay_btn">Изврши наплата</button>
+                        <div class="link_to_naracki" onclick="toOrders()">Погледнете ги сите нарачки &#8594;</div>
+                    </div>
+                    
+                    
                 </div>
-
-
-                
-
-                
-
 
             </div>
         </div>
@@ -90,6 +101,8 @@
 <script src="javascript1.js"></script>
 <script src="javascript2.js"></script>
 <script src="javascript3.js"></script>
+<script src="javascript4.js"></script>
+<script src="javascript5.js"></script>
 <script src="proba"></script>
 </body>
 </html>
