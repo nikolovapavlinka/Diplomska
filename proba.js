@@ -1,85 +1,179 @@
-const chatbotToggler = document.querySelector(".chatbot-toggler");
-const closeBtn = document.querySelector(".close-btn");
-const chatbox = document.querySelector(".chatbox");
-const chatInput = document.querySelector(".chat-input textarea");
-const sendChatBtn = document.querySelector(".chat-input span");
+/*
+document.addEventListener("DOMContentLoaded", function() {
+    const addCommentBtn = document.getElementById("add_comment");
 
-let userMessage = null; // Variable to store user's message
-const API_KEY = "PASTE-YOUR-API-KEY"; // Paste your API key here
-const inputInitHeight = chatInput.scrollHeight;
+    addCommentBtn.addEventListener("click", function() {
+        const username = document.getElementById("najaven_korisnik").textContent;
+        const commentText = document.getElementById("komentar").value;
+        const rating = document.getElementById("ocenka").value;
 
-const createChatLi = (message, className) => {
-    // Create a chat <li> element with passed message and className
-    const chatLi = document.createElement("li");
-    chatLi.classList.add("chat", `${className}`);
-    let chatContent = className === "outgoing" ? `<p></p>` : `<span class="material-symbols-outlined">smart_toy</span><p></p>`;
-    chatLi.innerHTML = chatContent;
-    chatLi.querySelector("p").textContent = message;
-    return chatLi; // return chat <li> element
-}
+        if (username && commentText && rating) {
+            addComment(username, commentText, rating);
+        }
+    });
 
-const generateResponse = (chatElement) => {
-    const API_URL = "https://api.openai.com/v1/chat/completions";
-    const messageElement = chatElement.querySelector("p");
+    function addComment(username, commentText, rating) {
+        const comments = JSON.parse(localStorage.getItem("comments")) || [];
+        const newComment = {
+            username: username,
+            commentText: commentText,
+            rating: rating,
+            artPiece: "МОРСКА ПРЕГРАТКА" // или променете го ова ако имате различни уметнички дела
+        };
 
-    // Define the properties and message for the API request
-    const requestOptions = {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${API_KEY}`
-        },
-        body: JSON.stringify({
-            model: "gpt-3.5-turbo",
-            messages: [{role: "user", content: userMessage}],
-        })
+        comments.push(newComment);
+        localStorage.setItem("comments", JSON.stringify(comments));
+
+        displayComments();
     }
 
-    // Send POST request to API, get response and set the reponse as paragraph text
-    fetch(API_URL, requestOptions).then(res => res.json()).then(data => {
-        messageElement.textContent = data.choices[0].message.content.trim();
-    }).catch(() => {
-        messageElement.classList.add("error");
-        messageElement.textContent = "Oops! Something went wrong. Please try again.";
-    }).finally(() => chatbox.scrollTo(0, chatbox.scrollHeight));
-}
+    function displayComments() {
+        const comments = JSON.parse(localStorage.getItem("comments")) || [];
+        const siteKomentari1 = document.querySelector(".site_komentari1");
+        const siteKomentari2 = document.querySelector(".site_komentari2");
 
-const handleChat = () => {
-    userMessage = chatInput.value.trim(); // Get user entered message and remove extra whitespace
-    if(!userMessage) return;
+        //siteKomentari1.innerHTML = '';
+        //siteKomentari2.innerHTML = '';
 
-    // Clear the input textarea and set its height to default
-    chatInput.value = "";
-    chatInput.style.height = `${inputInitHeight}px`;
+        comments.forEach(function(comment) {
+            const commentDiv = document.createElement("div");
+            commentDiv.classList.add("komentar");
 
-    // Append the user's message to the chatbox
-    chatbox.appendChild(createChatLi(userMessage, "outgoing"));
-    chatbox.scrollTo(0, chatbox.scrollHeight);
+            const commentHTML = `
+                <div class="komentar_slika"><img src="icons/user_white.png" alt=""></div>
+                <div class="komentar_profil">
+                    <div class="korisnik">${comment.username}</div>
+                    <div class="korisnik_komentar">${comment.commentText}</div>
+                </div>
+                <div class="komentar_ocenka">
+                    <div class="ocenka_naslov">Оценка:<br> ${comment.rating}</div>
+                </div>
+            `;
+
+            commentDiv.innerHTML = commentHTML;
+
+            if (comment.artPiece === "МОРСКА ПРЕГРАТКА") {
+                siteKomentari1.appendChild(commentDiv);
+            } else if (comment.artPiece === "ЉУБОВ КОН СЕБЕ") {
+                siteKomentari2.appendChild(commentDiv);
+            }
+
+            const lineDiv = document.createElement("div");
+            lineDiv.classList.add("line");
+
+            if (comment.artPiece === "МОРСКА ПРЕГРАТКА") {
+                siteKomentari1.appendChild(lineDiv);
+            } else if (comment.artPiece === "ЉУБОВ КОН СЕБЕ") {
+                siteKomentari2.appendChild(lineDiv);
+            }
+        });
+    }
+
+    displayComments(); // Display comments on page load
+});
+*/
+
+/*
+document.addEventListener("DOMContentLoaded", function() {
+    const addCommentBtn = document.getElementById("add_comment");
+
+    addCommentBtn.addEventListener("click", function() {
+        const artId = document.querySelector(".ostavi_komentar").getAttribute("data-art-id");
+        const username = document.getElementById("najaven_korisnik").textContent;
+        const commentText = document.getElementById("komentar").value;
+        const rating = document.getElementById("ocenka").value;
+
+        if (username && commentText && rating) {
+            addComment(artId, username, commentText, rating);
+        }
+    });
+
+    function addComment(artId, username, commentText, rating) {
+        const comments = JSON.parse(localStorage.getItem(`comments_${artId}`)) || [];
+        const newComment = {
+            username: username,
+            commentText: commentText,
+            rating: rating
+        };
+
+        comments.push(newComment);
+        localStorage.setItem(`comments_${artId}`, JSON.stringify(comments));
+
+        displayComments(artId);
+    }
+
+    function displayComments(artId) {
+        const comments = JSON.parse(localStorage.getItem(`comments_${artId}`)) || [];
+        const siteKomentari = document.getElementById(`site_komentari_${artId}`);
+
+        siteKomentari.innerHTML = '';
+
+        comments.forEach(function(comment) {
+            const commentDiv = document.createElement("div");
+            commentDiv.classList.add("komентар");
+
+            const commentHTML = `
+                <div class="komентар_slika"><img src="icons/user_white.png" alt=""></div>
+                <div class="komентар_profil">
+                    <div class="korisnik">${comment.username}</div>
+                    <div class="korисник_komентар">${comment.commentText}</div>
+                </div>
+                <div class="komентар_ocенка">
+                    <div class="ocенка_nasлов">Оценка:<br> ${comment.rating}</div>
+                </div>
+            `;
+
+            commentDiv.innerHTML = commentHTML;
+            siteKomentari.appendChild(commentDiv);
+
+            const lineDiv = document.createElement("div");
+            lineDiv.classList.add("line");
+            siteKomentari.appendChild(lineDiv);
+        });
+    }
+
+    function displayAllComments() {
+        for (let i = 1; i <= 31; i++) {
+            displayComments(i);
+        }
+    }
+
+    displayAllComments(); // Display comments for all sections on page load
+});
+*/
+
+
+
+// document.addEventListener("DOMContentLoaded", function() {
+//     const payButton = document.querySelector(".kosnicka_pay_btn");
     
-    setTimeout(() => {
-        // Display "Thinking..." message while waiting for the response
-        const incomingChatLi = createChatLi("Thinking...", "incoming");
-        chatbox.appendChild(incomingChatLi);
-        chatbox.scrollTo(0, chatbox.scrollHeight);
-        generateResponse(incomingChatLi);
-    }, 600);
-}
+//     payButton.addEventListener("click", function() {
+//         const totalAmount = document.getElementById("totalAmount").textContent;
+        
+//         // Зачувај ја вкупната цена во localStorage
+//         localStorage.setItem("totalAmount", totalAmount);
 
-chatInput.addEventListener("input", () => {
-    // Adjust the height of the input textarea based on its content
-    chatInput.style.height = `${inputInitHeight}px`;
-    chatInput.style.height = `${chatInput.scrollHeight}px`;
-});
+//         // Пренасочи кон страницата Нарачки (доколку е потребно)
+//         window.location.href = "naracki.html"; // променете го ова со вистинскиот URL на вашата страница "Нарачки"
+//     });
+// });
 
-chatInput.addEventListener("keydown", (e) => {
-    // If Enter key is pressed without Shift key and the window 
-    // width is greater than 800px, handle the chat
-    if(e.key === "Enter" && !e.shiftKey && window.innerWidth > 800) {
-        e.preventDefault();
-        handleChat();
-    }
-});
+// document.addEventListener("DOMContentLoaded", function() {
+//     const vkupnaCenaList = document.getElementById("vkupna_cena_list");
+//     const totalAmount = localStorage.getItem("totalAmount");
 
-sendChatBtn.addEventListener("click", handleChat);
-closeBtn.addEventListener("click", () => document.body.classList.remove("show-chatbot"));
-chatbotToggler.addEventListener("click", () => document.body.classList.toggle("show-chatbot"));
+//     if (totalAmount) {
+//         const li = document.createElement("li");
+//         li.textContent = `Вкупна цена: ${totalAmount} МКД`;
+//         vkupnaCenaList.appendChild(li);
+
+//         // По додавањето на вкупната цена, можете да ја избришете од localStorage ако не сакате да се зачувува подолго време
+//         // localStorage.removeItem("totalAmount");
+//     }
+// });
+
+
+
+
+
+

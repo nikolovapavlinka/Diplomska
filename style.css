@@ -2139,6 +2139,7 @@ a {
 .kosnicka_section {
     background: #ceac7c;
     box-shadow: 0px 5px 17px 5px #ceac7c;
+    min-height: 100vh;
     height: fit-content;
 }
 
@@ -3833,4 +3834,112 @@ p {
     margin-left: 10px;
     white-space: nowrap;
     color: #00ba00;
+}
+
+.naracki_section {
+    background: #b39367;
+    width: 100%;
+    height: 100vh;
+}
+
+.naracki_all {
+    width: 90%;
+    padding-top: 100px;
+    margin: 0 auto;
+}
+
+.naracki_title {
+    margin-top: 70px;
+    font-size: 25px;
+    font-weight: 500;
+    opacity: 0.7;
+    width: 100%;
+    margin-left: 81px;
+}
+
+.naracka_informacii {
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 70px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.naracka_id {
+    width: 25%;
+}
+
+.naracka_korisnik {
+    width: 25%;
+}
+
+.naracka_cena {
+    width: 25%;
+}
+
+
+.id_title {
+    width: 100%;
+    text-align: center;
+    font-size: 19px;
+    font-weight: 600;
+    text-decoration: underline;
+    opacity: 0.6;
+}
+
+.naracka_korisnik_title {
+    width: 100%;
+    text-align: center;
+    font-size: 19px;
+    font-weight: 600;
+    text-decoration: underline;
+    opacity: 0.6;
+}
+
+.naracka_cena_title {
+    width: 100%;
+    text-align: center;
+    font-size: 19px;
+    font-weight: 600;
+    text-decoration: underline;
+    opacity: 0.6;
+}
+
+#id_naracka_list {
+    width: 100%;
+    font-size: 21px;
+    text-align:center;
+    margin-left: -47px;
+}
+
+#id_naracka_list li{
+    list-style: none;
+    padding: 17px 0px;
+    opacity: 0.85;
+}
+
+#naracka_korisnik_list {
+    width: 100%;
+    font-size: 21px;
+    text-align:center;
+    margin-left: -47px;
+}
+
+#naracka_korisnik_list li{
+    list-style: none;
+    padding: 17px 0px;
+    opacity: 0.85;
+}
+
+#vkupna_cena_list {
+    width: 100%;
+    font-size: 21px;
+    text-align:center;
+    margin-left: -47px;
+}
+
+#vkupna_cena_list li{
+    list-style: none;
+    padding: 17px 0px;
+    opacity: 0.85;
 }

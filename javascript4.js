@@ -1,3 +1,5 @@
+ 
+ 
  // Функција за филтрирање на производите според внесениот текст
  function filterProducts() {
      var input = document.getElementById('searchInput');
@@ -142,7 +144,6 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
-
 
 
 
