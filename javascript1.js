@@ -62,6 +62,10 @@ function toCategory_Predmeti_izraboteni_od_drvo() {
   window.location.href = "kategorija_predmeti_izraboteni_od_drvo.html"
 }
 
+function toPayment() {
+  window.location.href = "naplata.html"
+}
+
 //Brojac na plus se zgolemuva na - se namaluva 
 $(document).ready(function() {
   $('.minus').click(function () {

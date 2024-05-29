@@ -2316,6 +2316,10 @@ a {
     padding-top: 100px;
 }
 
+.prazno2 {
+    padding-top: 150px;
+}
+
 .prazno_comments {
     padding-top: 130px;
 }
@@ -3839,7 +3843,8 @@ p {
 .naracki_section {
     background: #b39367;
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
+    height: fit-content;
 }
 
 .naracki_all {
@@ -3942,4 +3947,76 @@ p {
     list-style: none;
     padding: 17px 0px;
     opacity: 0.85;
+}
+
+.naplata_section {
+    background: #b39367;
+    width: 100%;
+    min-height: 117vh;
+    height: fit-content;
+}
+
+.payment-container {
+    background-color: #fffff7;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    max-width: none;
+    width: 57%;
+    margin: 0 auto;
+}
+
+.payment-container h2 {
+    text-align: center;
+    margin-bottom: 50px;
+    opacity: 0.7;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #747474;
+    font-size: 17px;
+    font-weight: 400;
+}
+
+.form-group input {
+    width: 50%;
+    margin: 0 auto;
+    padding: 10px;
+    border-bottom: 1px solid #9c9c9c;
+    margin-bottom: 30px;
+}
+
+.form-group input::placeholder {
+    font-size: 14.5px;
+    color: #acaaaa;
+}
+
+.payment-container  button {
+    width: 50%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 17px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 35px;
+}
+
+.payment-container button:hover {
+    background-color: #45a049;
+}
+
+#paymentStatus {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    font-size: 21px;
 }

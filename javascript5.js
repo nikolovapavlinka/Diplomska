@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 }
 
          // Пренасочи кон страницата Нарачки (доколку е потребно)
-         window.location.href = "naracki.html"; // променете го ова со вистинскиот URL на вашата страница "Нарачки"
+         window.location.href = "naplata.html"; // променете го ова со вистинскиот URL на вашата страница "Нарачки"
      });
  });
 
@@ -47,6 +47,41 @@ document.addEventListener("DOMContentLoaded", function() {
         narackaKorisnikList.appendChild(li);
     }
  });
+
+
+
+
+
+ document.addEventListener('DOMContentLoaded', function() {
+    const paymentForm = document.getElementById('paymentForm');
+    const paymentStatus = document.getElementById('paymentStatus');
+
+    paymentForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const cardName = document.getElementById('cardName').value;
+        const cardNumber = document.getElementById('cardNumber').value;
+        const expiryDate = document.getElementById('expiryDate').value;
+        const cvv = document.getElementById('cvv').value;
+
+        // Валидација на формата
+        if (!cardName || !cardNumber || !expiryDate || !cvv) {
+            paymentStatus.textContent = 'Ве молиме пополнете ги сите полиња.';
+            paymentStatus.style.color = 'red';
+            return;
+        }
+
+        // Симулација на процес на наплата
+        paymentStatus.textContent = 'Обработување на плаќањето...';
+        paymentStatus.style.color = 'blue';
+
+        setTimeout(() => {
+            paymentStatus.textContent = 'Плаќањето е успешно!';
+            paymentStatus.style.color = 'green';
+        }, 2000);
+    });
+});
+
 
 
 
