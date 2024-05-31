@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
+
+@media only screen and (max-width:768px) {
+
+
 * {
     font-family: 'Montserrat', sans-serif;
 }
@@ -4031,4 +4035,8 @@ p {
 
 input.invalid {
     border-color: red;
+}
+
+
+
 }

@@ -3191,10 +3191,13 @@ const handleClick = () => {
     chatbox.appendChild(createChatLi("Хммм...", "incoming"));
   }, 600);
 
+  let found = false;
+
   if (userMessage.includes("цена")) {
     setTimeout(() => {
       chatbox.appendChild(createChatLi("Цените на сите прозиводи можете да ги погледнете во делот „Производи“.", "incoming"));
     }, 600);
+    found = true;
   }
 
 
@@ -3205,6 +3208,7 @@ const handleClick = () => {
     setTimeout(() => {
         chatbox.appendChild(createChatLi("Извршените нарачки можете да ги погледнете во делот „Нарачки“"));
       }, 600);
+      found = true;
   }
 
   if (userMessage.includes("категории") || userMessage.includes("видови")) {
@@ -3213,6 +3217,7 @@ const handleClick = () => {
         createChatLi("Во делот „Производи можете да ги видете сите категории кои ние ги нудиме.")
       );
     }, 600);
+    found = true;
   }
 
   if (userMessage.includes("држави") || userMessage.includes("места") || userMessage.includes("место")) {
@@ -3221,6 +3226,7 @@ const handleClick = () => {
         createChatLi("Производи можат да се нарачуваат само на територија на Македонија")
       );
     }, 600);
+    found = true;
   }
 
   if (userMessage.includes("помотивни") || userMessage.includes("понуди")) {
@@ -3229,6 +3235,7 @@ const handleClick = () => {
         createChatLi("Во моментот нема никакви промотивни понуди!")
       );
     }, 600);
+    found = true;
   }
 
   if (userMessage.includes("контакт") || userMessage.includes("телефон") || userMessage.includes("број")) {
@@ -3237,7 +3244,24 @@ const handleClick = () => {
         createChatLi("Наш контакт и други информации може да најдете на страната „Дома“ во последниот дел од страната, во делот ИНФОРМАЦИИ.")
       );
     }, 600);
+    found = true;
   }
+
+  if (userMessage.includes("плаќање") || userMessage.includes("наплата") || userMessage.includes("платам")  || userMessage.includes("картичка")) {
+    setTimeout(() => {
+      chatbox.appendChild(
+        createChatLi("Плаќањето може да се изврши со било која кредитна картичка која ја поседувате.")
+      );
+    }, 600);
+    found = true;
+  }
+
+  if (!found) {
+    setTimeout(() => {
+        chatbox.appendChild(createChatLi("Извинете, не можам да одговорам на тоа прашање. Ве молим Вашето прашање оставете го во делот „Постави прашања“ и нашиот тим ќе Ви одговори во најбрз можен рок.", "incoming"));
+    }, 600);
+    
+}
 };
 
 sendBtn.addEventListener("click", handleClick);
