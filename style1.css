@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
 
-@media only screen and (max-width:768px) {
+@media screen and (max-width:400px) {
 
 
 * {
@@ -23,14 +23,14 @@ body {
 }
 
 .desktop_size {
-    width: 100%;
+    width: 400%;
     height: 100%;
     position: relative;
 }
 
 .background_image {
     width: 100%;
-    height: 100vh;
+    height: 367vh;
     position: relative;
 }
 
@@ -46,7 +46,7 @@ body {
     top: 0;
     left: 0;
     display: flex;
-    height: 100px;
+    height: 360px;
     background: #7D6346;
     opacity: 0.93;
     border-radius: 9px;
@@ -58,10 +58,13 @@ body {
 }
 
 .logo img {
-    width: 100%;
+    width: 358%;
     padding: 9px;
-    border-radius: 13px;
+    border-radius: 13px;        
     cursor: pointer;
+    margin-top: 31px;
+    margin-left: 23px;
+    border-radius: 29px;
 }
 
 .menu {
@@ -78,6 +81,7 @@ body {
     font-weight: 600;
     color: #fff;
     font-size: 21px;
+    margin-left: 457px;
 }
 
 .page {
@@ -88,12 +92,14 @@ body {
 
 .page1 {
     cursor: pointer;
-    margin-left: 31px;
+    font-size: 61px;
+    margin-right: -29px;
 }
 
 .page2 {
     cursor: pointer;
-    margin-left: 45px;
+    margin-left: 109px;
+    font-size: 61px;
 }
 
 .buttons {
@@ -108,7 +114,7 @@ body {
 }   
 
 #login_btn img {
-    width: 55px;
+    width: 167px;
     opacity: 0.77;
 }
 
@@ -133,11 +139,15 @@ body {
 
 .title {
     position: absolute;
-    top: 13%;
-    left: 13%;
-    color: #373737;
+    top: 9%;
+    left: 9%;
+    color: #000;
+    opacity: 0.75;
+    font-size: 137px;
+    text-align: start;
     font-weight: 500;
-    font-size: xxx-large;
+    width: 50%;
+
 }
 
 .form-container button {
@@ -351,7 +361,7 @@ input {
 }
 
 .about_section {
-
+    height: 367vh;
 }
 
 .za-nas_background {
@@ -363,7 +373,7 @@ input {
 
 .za-nas_background img {
     width: 100%;
-    height: 100vh;
+    height: 367vh;
 }
 
 .about {
@@ -372,11 +382,11 @@ input {
 
 .circle {
     position: absolute;
-    width: 43%;
+    width: 75%;
     height: 25%;
     border: 11px solid #F0EDE8;
     top: 39%;
-    left: 26%;
+    left: 11%;
     border-radius: 50%;
 }
 
@@ -409,16 +419,16 @@ input {
 }
 
 .logo_img {
-    width: 11%;
+    width: 35%;
     position: absolute;
     bottom: 53%;
-    left: 42%;
+    left: 31%;
 }
 
 .logo_img img {
     width: 100%;
     padding: 9px;
-    border-radius: 13px;
+    border-radius: 31px;
 }
 
 .logo_img_zanas {
@@ -435,14 +445,14 @@ input {
 }
 
 .text {
-    width: 30%;
+    width: 51%;
     position: absolute;
-    font-size: 23px;
+    font-size: 55px;
     font-weight: 500;
     color: #F0EDE8;
     text-align: center;
-    bottom: 40%;
-    left: 33.5%;
+    bottom: 42%;
+    left: 23.5%;
 }
 
 .text_p {
@@ -461,20 +471,21 @@ input {
 }
 
 .home_section {
-    
+    width: 100%;
+    height: 367vh;
 }
 
 .home_background {
     width: 100%;
-    height: 100vh;
+    height: 367vh;
     background-image: linear-gradient(to bottom, #ffe8c0, #81694d);
 }
 
 .main_section {
     width: 90%;
     margin: 0 auto;
-    padding-top: 120px;
-    display: flex;
+    padding-top: 223px;
+    
 }
 
 .categories {

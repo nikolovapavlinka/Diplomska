@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     payButton1.addEventListener("click", function() {
         // Пренасочи кон страницата Нарачки (доколку е потребно)
-        window.location.href = "naracki.html"; // променете го ова со вистинскиот URL на вашата страница "Нарачки"
+        //window.location.href = "naracki.html"; // променете го ова со вистинскиот URL на вашата страница "Нарачки"
     });
 });
 
@@ -57,6 +57,25 @@ document.addEventListener("DOMContentLoaded", function() {
         narackaKorisnikList.appendChild(li);
     }
 });
+
+
+var logoutBtn = document.querySelector(".option:last-child"); // Селектор за копчето "Одјави се"
+                logoutBtn.addEventListener("click", function() {
+                    // Избриши ги сите ставки од листите
+                    var idNarackaList = document.getElementById("id_naracka_list");
+                    idNarackaList.innerHTML = ""; // Ги избриши сите ставки од листата
+            
+                    var narackaKorisnikList = document.getElementById("naracka_korisnik_list");
+                    narackaKorisnikList.innerHTML = ""; // Ги избриши сите ставки од листата
+            
+                    var vkupnaCenaList = document.getElementById("vkupna_cena_list");
+                    vkupnaCenaList.innerHTML = ""; // Ги избриши сите ставки од листата
+            
+                    // Избриши ги податоците од localStorage
+                    localStorage.removeItem("totalAmount");
+                    localStorage.removeItem("orderId");
+                    localStorage.removeItem("userName");
+                });
 
 
 
@@ -142,3 +161,15 @@ document.getElementById('expiryDate').addEventListener('input', function(e) {
         e.target.value = value;
     }
 });
+
+
+
+
+            
+             
+        
+            
+
+
+
+

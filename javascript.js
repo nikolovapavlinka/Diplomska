@@ -106,31 +106,78 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-//Vnesuvanje informacii vo localStorage od najava i registracija
-//localStorage.clear();
-var userData_Najava = JSON.parse(localStorage.getItem("Najava")) || [];
-var userData_Registracija = JSON.parse(localStorage.getItem("Registracija")) || [];
 
-najava.addEventListener("click", function() {
-    var email_najava = document.getElementById('email_najava').value;
-    var password_najava = document.getElementById('password_najava').value;
 
-    var user = { email: email_najava, password: password_najava }; 
- 
-    userData_Najava.push(user); 
-    localStorage.setItem("Najava", JSON.stringify(userData_Najava)); 
+document.addEventListener('DOMContentLoaded', function () {
+  var userData_Najava = JSON.parse(localStorage.getItem("Najava")) || [];
+  var userData_Registracija = JSON.parse(localStorage.getItem("Registracija")) || [];
+
+  document.getElementById("form-najava").addEventListener("submit", function(event) {
+      event.preventDefault();
+      
+      var email_najava = document.getElementById('email_najava').value;
+      var password_najava = document.getElementById('password_najava').value;
+      var name_najava = document.getElementById('name_najava').value;
+
+      var user = { email: email_najava, password: password_najava, name: name_najava }; 
+
+      userData_Najava.push(user); 
+      localStorage.setItem("Najava", JSON.stringify(userData_Najava)); 
+      localStorage.setItem("lastAction", "najava"); // Зачувување на последната акција
+
+      window.location.href = "doma.html"; // Пренасочи кон профил страницата
+  });
+
+  document.getElementById("form-registracija").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      var email = document.getElementById('email').value;
+      var password = document.getElementById('password').value;
+      var name = document.getElementById('name').value;
+
+      var user = { email: email, password: password, name: name }; 
+
+      userData_Registracija.push(user); 
+      localStorage.setItem("Registracija", JSON.stringify(userData_Registracija)); 
+      localStorage.setItem("lastAction", "registracija"); // Зачувување на последната акција
+
+      window.location.href = "doma.html"; // Пренасочи кон профил страницата
+  });
 });
 
-registracija.addEventListener("click", function() {
-    var email = document.getElementById('email').value;
-    var password = document.getElementById('password').value;
-    var name = document.getElementById('name').value;
 
-    var user = { email: email, password: password, name: name }; 
+document.addEventListener('DOMContentLoaded', function () {
+  var lastAction = localStorage.getItem("lastAction");
+  var userNameElement = document.getElementById("last_registered_user_name");
+  var userEmailElement = document.getElementById("email_storage");
+  var userPasswordElement = document.getElementById("password_storage");
 
-    userData_Registracija.push(user); 
-    localStorage.setItem("Registracija", JSON.stringify(userData_Registracija)); 
+  if (lastAction === "najava") {
+      var storedData_Najava = JSON.parse(localStorage.getItem("Najava")) || [];
+      if (storedData_Najava.length > 0) {
+          var lastUser = storedData_Najava[storedData_Najava.length - 1];
+          userNameElement.textContent = lastUser.name;
+          userEmailElement.textContent = lastUser.email;
+          userPasswordElement.textContent = lastUser.password;
+      } else {
+          console.log('Нема зачуван корисник во localStorage.');
+      }
+  } else if (lastAction === "registracija") {
+      var storedData_Registracija = JSON.parse(localStorage.getItem("Registracija")) || [];
+      if (storedData_Registracija.length > 0) {
+          var lastUser = storedData_Registracija[storedData_Registracija.length - 1];
+          userNameElement.textContent = lastUser.name;
+          userEmailElement.textContent = lastUser.email;
+          userPasswordElement.textContent = lastUser.password;
+      } else {
+          console.log('Нема зачуван корисник во localStorage.');
+      }
+  } else {
+      console.log('Нема зачувана последна акција.');
+  }
 });
+
+
 
 
 

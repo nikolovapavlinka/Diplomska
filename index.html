@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Насловна страна</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style1.css">
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 <body>
@@ -32,7 +34,7 @@
 
         <div class="container" id="container">
             <div class="form-container sign-up-container">
-                <form action="doma.html">
+                <form id="form-registracija" action="doma.html">
                     <h1>Креирај сметка</h1>
                     
                     <h2>ИМЕ</h2>
@@ -44,13 +46,16 @@
                     <h2>ЛОЗИНКА</h2>
                     <input id="password" type="password" required aria-label="label"/>
 
-                    <button id="registracija">РЕГИСТРИРАЈ СЕ</button>
+                    <button type="submit" id="registracija">РЕГИСТРИРАЈ СЕ</button>
                 </form>
             </div>
 
             <div class="form-container sign-in-container">
-                <form action="doma.html">
+                <form id="form-najava" action="doma.html">
                     <h1>Добредојде</h1>
+
+                    <h2>ИМЕ</h2>
+                    <input id="name_najava" type="text" required aria-label="label"/>
                 
                     <h2>Е-МАИЛ АДРЕСА</h2>
                     <input id="email_najava" type="email" required aria-label="label"/>
@@ -59,7 +64,7 @@
                     <input id="password_najava" type="password" required aria-label="label"/>
 
                     <a href="#">Ја имаш заборавено лозинката?</a>
-                    <button id="najava">НАЈАВИ СЕ</button>
+                    <button type="submit" id="najava">НАЈАВИ СЕ</button>
                 </form>
             </div>
             
@@ -245,5 +250,8 @@
 <script src="javascript.js"></script>
 <script src="javascript1.js"></script>
 <script src="javascript2.js"></script>
+<script src="javascript3.js"></script>
+<script src="javascript4.js"></script>
+<script src="javascript5.js"></script>
 </body>
 </html>

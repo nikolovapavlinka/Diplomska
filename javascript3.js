@@ -11,15 +11,40 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
+    /*
     // Зачувајте информации во localStorage
     function addToCart(productName, productPrice, productQuantity) {
         var cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
         var storedData_Registracija = JSON.parse(localStorage.getItem("Registracija")) || [];
         var user = storedData_Registracija[storedData_Registracija.length - 1];
+        //var user = document.getElementById('last_registered_user_name').textContent;
         cartItems.push({productName: productName, productPrice: productPrice, productQuantity: productQuantity, user: user});
         localStorage.setItem("cartItems", JSON.stringify(cartItems));
         displayCart();
     }
+    */
+
+    function addToCart(productName, productPrice, productQuantity) {
+        var cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+        var lastAction = localStorage.getItem("lastAction");
+    
+        var user;
+        if (lastAction === "najava") {
+            var storedData_Najava = JSON.parse(localStorage.getItem("Najava")) || [];
+            user = storedData_Najava[storedData_Najava.length - 1];
+        } else if (lastAction === "registracija") {
+            var storedData_Registracija = JSON.parse(localStorage.getItem("Registracija")) || [];
+            user = storedData_Registracija[storedData_Registracija.length - 1];
+        } else {
+            console.error("No user information available.");
+            return; // Exit the function if no user information is available
+        }
+    
+        cartItems.push({ productName: productName, productPrice: productPrice, productQuantity: productQuantity, user: user });
+        localStorage.setItem("cartItems", JSON.stringify(cartItems));
+        displayCart();
+    }
+    
 
 
     function displayCart() {
@@ -86,7 +111,6 @@ document.addEventListener("DOMContentLoaded", function() {
         localStorage.setItem("cartItems", JSON.stringify(cartItems));
     });
   });
-
 
 
 function showRoles1() {
