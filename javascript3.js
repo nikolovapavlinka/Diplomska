@@ -185,19 +185,47 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-// Da se dodade komentar od desnata strana na stranata komentari.html
-$(document).ready(function() {
-    // Читање на последниот регистриран корисник и поставување на неговото име
-    var storedData_Registracija = JSON.parse(localStorage.getItem("Registracija")) || [];
-    var userName = "";
+// // Da se dodade komentar od desnata strana na stranata komentari.html
+// $(document).ready(function() {
+//     // Читање на последниот регистриран корисник и поставување на неговото име
+//     var storedData_Registracija = JSON.parse(localStorage.getItem("Registracija")) || [];
+//     var userName = "";
 
-    if (storedData_Registracija.length > 0) {
-        var lastRegisteredUser = storedData_Registracija[storedData_Registracija.length - 1];
-        userName = lastRegisteredUser.name;
+//     if (storedData_Registracija.length > 0) {
+//         var lastRegisteredUser = storedData_Registracija[storedData_Registracija.length - 1];
+//         userName = lastRegisteredUser.name;
+//     } else {
+//         console.log('Нема зачуван регистриран корисник во localStorage.');
+//     }
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    var lastAction = localStorage.getItem("lastAction");
+    var userNameElement = document.getElementById("najaven_korisnik");
+    var userName = '';
+  
+    if (lastAction === "najava") {
+        var storedData_Najava = JSON.parse(localStorage.getItem("Najava")) || [];
+        if (storedData_Najava.length > 0) {
+            var lastUser = storedData_Najava[storedData_Najava.length - 1];
+            userNameElement.textContent = lastUser.name;
+            userName = lastUser.name;
+        } else {
+            console.log('Нема зачуван корисник во localStorage.');
+        }
+    } else if (lastAction === "registracija") {
+        var storedData_Registracija = JSON.parse(localStorage.getItem("Registracija")) || [];
+        if (storedData_Registracija.length > 0) {
+            var lastUser = storedData_Registracija[storedData_Registracija.length - 1];
+            userNameElement.textContent = lastUser.name;
+            userName = lastUser.name;
+        } else {
+            console.log('Нема зачуван корисник во localStorage.');
+        }
     } else {
-        console.log('Нема зачуван регистриран корисник во localStorage.');
+        console.log('Нема зачувана последна акција.');
     }
-
+  
     $('#add_comment').click(function() {
         // Земи ги вредностите на коментарот, оценката и сликата
         var commentText = $('#komentar').val();
